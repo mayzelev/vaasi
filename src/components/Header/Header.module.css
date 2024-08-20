@@ -1,0 +1,66 @@
+.header {
+    width: 1500px;
+    height: 61px;
+    padding: 0 405px 0 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 81px;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.sfere {
+    width: 61px;
+    height: 44px;
+}
+
+.logo {
+    width: 136px;
+    height: 42px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+
+.clocks {
+    display: flex;
+    align-items: center;
+}
+
+.clockeItemWithImg {
+    display: flex;
+    width: 130px;
+    height: 49px;
+}
+
+.clockeItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.watch {
+    width: 57px;
+    height: 49px;
+}

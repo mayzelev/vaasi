@@ -2,8 +2,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import enTranslations from './locales/en/translation.json';
 import uaTranslations from './locales/ua/translation.json';
+import enTranslations from './locales/en/translation.json';
+import deTranslations from './locales/de/translation.json';
 
 // Налаштування i18next
 i18n.use(initReactI18next).init({
@@ -13,6 +14,9 @@ i18n.use(initReactI18next).init({
         },
         en: {
             translation: enTranslations
+        },
+        de: {
+            translation: deTranslations
         }
     },
     lng: 'uk', // Мова за замовчуванням
