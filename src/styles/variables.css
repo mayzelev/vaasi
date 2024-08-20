@@ -1,5 +1,6 @@
 :root {
-  --primary-font: "MuseoSansCyrl", sans-serif;
+  --primary-font: "Museo Sans Cyrl", sans-serif;
   --font-color-primary: #262626;
   --font-color-secondary: #7E7E7E;
+  --separator-color: #BFBFBF;
 }

@@ -50,10 +50,11 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="auth-buttons">
-                    <a href="#" className="register">
+                <div className={style.authButtons}>
+            <a href="#" className={style.register}>
                         Реєстрація
                     </a>
+                    <div className={style.separator}></div>
                     <a href="#" className="login">
                         Увійти
                     </a>
