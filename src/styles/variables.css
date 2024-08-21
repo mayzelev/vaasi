@@ -1,6 +1,21 @@
 :root {
-  --primary-font: "Museo Sans Cyrl", sans-serif;
-  --font-color-primary: #262626;
-  --font-color-secondary: #7E7E7E;
-  --separator-color: #BFBFBF;
+    /* Fonts */
+    --primary-font: 'Museo Sans Cyrl', sans-serif;
+    --font-color-primary: #262626;
+    --font-color-secondary: #7e7e7e;
+    --font-color-thirdy: #f57365;
+
+    /* Button */
+    --button-color-hover: #ff7067;
+    --button-color-active: #f73325;
+    --button-border-color-active: #f73325;
+    --button-gradient-color-start: #ffb6b1;
+    --button-gradient-color-finish: #ff7067;
+
+    /* Other */
+    --separator-color: #bfbfbf;
+    --main-bg-color: #ffffff;
+    --dropShadow-header-color: #0000001a;
+    --text-shadow: rgba(0, 0, 0, 0.25);
+    --separate-line-main-color: #D9D9D9;
 }
