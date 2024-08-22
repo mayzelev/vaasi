@@ -62,9 +62,8 @@ export default function Header() {
                         <VButton
                             label="Увійти"
                             buttonStyles={{
-                                background:
-                                    'linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish))',
-                                textColor: '#fff',
+                                background: 'var(--gradient-button)',
+                                textColor: 'var(--button-color-white)',
                                 fontSize: 16,
                                 padding: '8px 8px',
                                 borderRadius: '50px',
