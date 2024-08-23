@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import VButton from '../../UI/languageSelect/VButton/VButton';
 import style from './MainSection.module.css';
+import VButton from '../../UI/VButton/VButton';
 
 export default function MainSection() {
     return (
         <div className={style.container}>
+            <div className={style.money}></div>
+            <div className={style.globus}></div>
             <div className={style.mainSectionContainer}>
                 <h1 className={style.headerTitle}>vaasi</h1>
                 <h2 className={style.subTitle}>international group</h2>
@@ -21,8 +23,7 @@ export default function MainSection() {
                     <VButton
                         label="Про нас"
                         buttonStyles={{
-                            background:
-                                'var(--gradient-button)',
+                            background: 'var(--gradient-button)',
                             textColor: '#fff',
                             fontSize: 16,
                             padding: '8px 8px',

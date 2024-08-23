@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import VButton from '../../UI/languageSelect/VButton/VButton';
 import style from './InfoSection.module.css';
+import VButton from '../../UI/VButton/VButton';
 
 export default function InfoSection() {
     return (

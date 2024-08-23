@@ -1,3 +1,29 @@
+.container {
+    position: relative;
+}
+.money {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1000px;
+    background-image: url(../image/money.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
+
+.globus {
+    position: absolute;
+    left: 141px;
+    top: 152px;
+    width: 406px;
+    height: 360px;
+    background-image: url(../image/earthWithMoney.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
 .mainSectionContainer {
     display: flex;
     align-items: center;
@@ -8,7 +34,6 @@
     height: 400px;
     margin: 0 auto;
     padding-top: 80px;
-    
 }
 
 .headerTitle {
@@ -58,12 +83,12 @@
     margin-bottom: 15px;
 }
 
-.aboutUs{
-  margin-bottom: 25px;
+.aboutUs {
+    margin-bottom: 25px;
 }
 
-.toogle{
-  background-image: url(/image/Toggle.png);
-  width: 24px;
-  height: 24px;
+.toogle {
+    background-image: url(/image/Toggle.png);
+    width: 24px;
+    height: 24px;
 }

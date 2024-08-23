@@ -55,7 +55,7 @@ VButton.propTypes = {
         padding: PropTypes.string,
         borderRadius: PropTypes.string,
         borderColor: PropTypes.string,
-        lineHeight: PropTypes.number,
+        lineHeight: PropTypes.string,
         hoverBackgroundColor: PropTypes.string,
         hoverBorderColor: PropTypes.string,
         activeBackgroundColor: PropTypes.string,

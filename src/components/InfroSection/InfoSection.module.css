@@ -1,7 +1,7 @@
 .infoContainerSecondary {
     width: 1924px;
     height: 742px;
-    background-image: url(../../../public/image/backInfoSectionSecondary.png);
+    background-image: url(/image/backInfoSectionSecondary.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,7 @@
 .infoContainer {
     width: 1924px;
     height: 720px;
-    background-image: url(../../../public/image/backInfoSection.png);
+    background-image: url(/image/backInfoSection.png);
     background-position: center 40px;
     background-repeat: no-repeat;
     background-size: contain;

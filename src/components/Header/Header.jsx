@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import LanguageSelect from '../../UI/languageSelect/LanguageSelect';
+import LanguageSelect from '../../UI/LanguageSelect/LanguageSelect';
 import style from './Header.module.css';
-import VButton from '../../UI/languageSelect/VButton/VButton';
+import VButton from '../../UI/VButton/VButton';
 export default function Header() {
     return (
         <header className={style.header}>
