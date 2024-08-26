@@ -25,7 +25,7 @@ export default function InfoSection() {
                                 <div>
                                     <div className={style.cardHeader}>
                                         <h2 className={style.cardTitle}>Інформація для фізичних осіб</h2>
-                                        <img src="../image/people.png" alt="people" />
+                                        <img src="./image/people.png" alt="people" />
                                     </div>
                                     <div className={style.description}>
                                         <p>
@@ -95,7 +95,7 @@ export default function InfoSection() {
                                 <div>
                                     <div className={style.cardHeader}>
                                         <h2 className={style.cardTitle}>Інформація для юридичних осіб</h2>
-                                        <img src="../image/factory.png" alt="factory" />
+                                        <img src="./image/factory.png" alt="factory" />
                                     </div>
                                     <div className={`${style.description} ${style.descriptionBottom}`}>
                                         <p>Ми єднаємо реальний та цифровий світ у бізнесі.</p>

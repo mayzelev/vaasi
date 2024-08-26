@@ -7,8 +7,8 @@ export default function Header() {
         <header className={style.header}>
             <div className={style.headerLeft}>
                 <div className={style.logoContainer}>
-                    <img className={style.sfere} src="../image/sfere.png" alt="VAASI Logo" />
-                    <img className={style.logo} src="../image/logo.png" alt="VAASI Logo" />
+                    <img className={style.sfere} src="./image/sfere.png" alt="VAASI Logo" />
+                    <img className={style.logo} src="./image/logo.png" alt="VAASI Logo" />
                 </div>
                 <div className={style.navLinks}>
                     <Link to="/LegalEntities">Юридичні особи</Link>|<Link to="/NaturalPersons">Фізичні особи</Link>
@@ -17,35 +17,35 @@ export default function Header() {
             <div className={style.headerRight}>
                 <div className={style.clocks}>
                     <div className={style.clockeItemWithImg}>
-                        <img className={style.watch} src="../image/watch.png" alt="watch" />
+                        <img className={style.watch} src="./image/watch.png" alt="watch" />
                         <div className={style.clockeItem}>
                             <span>07:21</span>
                             <span>Київ</span>
                         </div>
                     </div>
                     <div className={style.clockeItemWithImg}>
-                        <img className={style.watch} src="../image/watch.png" alt="watch" />
+                        <img className={style.watch} src="./image/watch.png" alt="watch" />
                         <div className={style.clockeItem}>
                             <span>07:21</span>
                             <span>Токіо</span>
                         </div>
                     </div>
                     <div className={style.clockeItemWithImg}>
-                        <img className={style.watch} src="../image/watch.png" alt="watch" />
+                        <img className={style.watch} src="./image/watch.png" alt="watch" />
                         <div className={style.clockeItem}>
                             <span>07:21</span>
                             <span>Сідней</span>
                         </div>
                     </div>
                     <div className={style.clockeItemWithImg}>
-                        <img className={style.watch} src="../image/watch.png" alt="watch" />
+                        <img className={style.watch} src="./image/watch.png" alt="watch" />
                         <div className={style.clockeItem}>
                             <span>07:21</span>
                             <span>Нью-Йорк</span>
                         </div>
                     </div>
                     <div className={style.clockeItemWithImg}>
-                        <img className={style.watch} src="../image/watch.png" alt="watch" />
+                        <img className={style.watch} src="./image/watch.png" alt="watch" />
                         <div className={style.clockeItem}>
                             <span>07:21</span>
                             <span>Лондон</span>

@@ -34,7 +34,7 @@ export default function AttentionSection() {
                         </div>
                     </div>
                 </div>
-                <img className={style.bankImg} src="../image/BankMain.png" alt="bank" />
+                <img className={style.bankImg} src="./image/BankMain.png" alt="bank" />
             </div>
             <div className={style.containerBottom}>
                 <h3 className={style.headerTitle}>So what are you waiting for?</h3>
