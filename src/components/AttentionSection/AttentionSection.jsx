@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './AttentionSection.module.css';
 import VButton from '../../UI/VButton/VButton';
+import bankImg from '../../assets/BankMain.png';
 
 export default function AttentionSection() {
     return (
@@ -34,7 +35,7 @@ export default function AttentionSection() {
                         </div>
                     </div>
                 </div>
-                <img className={style.bankImg} src="./image/BankMain.png" alt="bank" />
+                <img className={style.bankImg} src={bankImg} alt="bank" />
             </div>
             <div className={style.containerBottom}>
                 <h3 className={style.headerTitle}>So what are you waiting for?</h3>

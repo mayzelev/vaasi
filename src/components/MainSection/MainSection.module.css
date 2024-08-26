@@ -12,7 +12,7 @@
     left: 0;
     min-width: 1920px;
     height: 1000px;
-    background-image: url(./image/money.png);
+    background-image: url(../../assets/money.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
@@ -24,7 +24,7 @@
     top: 152px;
     width: 406px;
     height: 360px;
-    background-image: url(./image/earthWithMoney.png);
+    background-image: url(../../assets/earthWithMoney.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1;

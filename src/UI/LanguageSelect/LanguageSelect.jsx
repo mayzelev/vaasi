@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { MenuItem, Select, FormControl, Box } from '@mui/material';
 import { styled } from '@mui/system';
-import UkraineFlag from '/flags/UkraineFlag.svg';
-import GermanyFlag from '/flags/GermanyFlag.svg';
-import USFlag from '/flags/USFlag.svg';
+import UkraineFlag from '../../assets/flags/UkraineFlag.svg';
+import GermanyFlag from '../../assets/flags/GermanyFlag.svg';
+import USFlag from '../../assets/flags/USFlag.svg';
 import s from './LanguageSelect.module.css';
+import arrowDownImg from '../../assets/arrowDown.png'
 
 const FlagIcon = styled('img')({
     marginRight: '8px',
@@ -39,7 +40,7 @@ const LanguageSelect = () => {
                 }}
                 IconComponent={(props) => (
                     <Box {...props} component="span" sx={{ mr: 1 }}>
-                        <img className={s.arrowImg} src="/image/arrowDown.png" alt="arrow" />
+                        <img className={s.arrowImg} src={arrowDownImg} alt="arrow" />
                     </Box>
                 )}
                 renderValue={(selected) => {

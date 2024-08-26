@@ -2,6 +2,11 @@ import React from 'react';
 import style from './Footer.module.css';
 import { Link } from 'react-router-dom';
 import VButton from '../../UI/VButton/VButton';
+import logoImg from '../../assets/logo.png';
+import insta from '../../assets/instagram.png';
+import telegram from '../../assets/telegram.png';
+import callImg from '../../assets/call.png';
+import messageImg from '../../assets/message.png';
 
 export default function Footer() {
     return (
@@ -9,7 +14,7 @@ export default function Footer() {
             <div className={style.container}>
                 <div className={style.left}>
                     <div className={style.logoContainer}>
-                        <img className={style.logo} src="./image/logo.png" alt="VAASI Logo" />
+                        <img className={style.logo} src={logoImg} alt="VAASI Logo" />
                     </div>
                     <div className={style.languages}>
                         <span>UA</span>
@@ -46,10 +51,10 @@ export default function Footer() {
                         <span>Соціальні мережі</span>
 
                         <Link to="/instagram">
-                            <img className={style.icons} src="./image/instagram.png" alt="Instagram" />
+                            <img className={style.icons} src={insta} alt="Instagram" />
                         </Link>
                         <Link to="/telegram">
-                            <img className={style.icons} src="./image/telegram.png" alt="Telegram" />
+                            <img className={style.icons} src={telegram} alt="Telegram" />
                         </Link>
                     </div>
 
@@ -74,11 +79,11 @@ export default function Footer() {
                             />
                         </Link>
                         <p className={style.contactLink}>
-                            <img className={style.iconsContact} src="./image/call.png" alt="call" />
+                            <img className={style.iconsContact} src={callImg} alt="call" />
                             <a href="tel:+3809898778">380 989 87 78</a>
                         </p>
                         <p className={style.contactLink}>
-                            <img className={style.iconsContact} src="./image/message.png" alt="message" />
+                            <img className={style.iconsContact} src={messageImg} alt="message" />
                             <a href="mailto:curlypittie@gufum.com">curlypittie@gufum.com</a>
                         </p>
                     </div>
