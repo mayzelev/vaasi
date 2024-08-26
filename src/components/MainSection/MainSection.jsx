@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './MainSection.module.css';
-import VButton from '../../UI/VButton/VButton';
+import VButton from '../../components/UI/VButton/VButton';
 
 export default function MainSection() {
     return (

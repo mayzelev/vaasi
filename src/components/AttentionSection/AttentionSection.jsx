@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './AttentionSection.module.css';
-import VButton from '../../UI/VButton/VButton';
+import VButton from '../../components/UI/VButton/VButton';
 import bankImg from '../../assets/BankMain.png';
 
 export default function AttentionSection() {

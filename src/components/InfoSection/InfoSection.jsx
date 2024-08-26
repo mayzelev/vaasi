@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './InfoSection.module.css';
-import VButton from '../../UI/VButton/VButton';
+import VButton from '../../components/UI/VButton/VButton';
 import peopleImg from '../../assets/people.png';
 import factoryImg from '../../assets/factory.png';
 

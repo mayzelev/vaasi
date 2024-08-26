@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Footer.module.css';
 import { Link } from 'react-router-dom';
-import VButton from '../../UI/VButton/VButton';
+import VButton from '../../components/UI/VButton/VButton';
 import logoImg from '../../assets/logo.png';
 import insta from '../../assets/instagram.png';
 import telegram from '../../assets/telegram.png';

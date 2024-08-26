@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import LanguageSelect from '../../UI/LanguageSelect/LanguageSelect';
+import LanguageSelect from '../../components/UI/LanguageSelect/LanguageSelect';
 import style from './Header.module.css';
-import VButton from '../../UI/VButton/VButton';
+import VButton from '../../components/UI/VButton/VButton';
 import sfereImg from '../../assets/sfere.png';
 import logoImg from '../../assets/logo.png';
 import watchImg from '../../assets/watch.png';
