@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
+import LanguageSelect from '../../UI/LanguageSelect/LanguageSelect';
 import style from './Header.module.css';
-
+import VButton from '../../UI/VButton/VButton';
 export default function Header() {
     return (
         <header className={style.header}>
@@ -9,7 +11,7 @@ export default function Header() {
                     <img className={style.logo} src="../image/logo.png" alt="VAASI Logo" />
                 </div>
                 <div className={style.navLinks}>
-                    <a href="#">Юридичні особи</a>|<a href="#">Фізичні особи</a>
+                    <Link to="/LegalEntities">Юридичні особи</Link>|<Link to="/NaturalPersons">Фізичні особи</Link>
                 </div>
             </div>
             <div className={style.headerRight}>
@@ -51,18 +53,32 @@ export default function Header() {
                     </div>
                 </div>
                 <div className={style.authButtons}>
-                    <a href="#" className={style.register}>
+                    <Link to="/registration" className={style.register}>
                         Реєстрація
-                    </a>
+                    </Link>
                     <div className={style.separator}></div>
-                    <a href="#" className="login">
-                        Увійти
-                    </a>
+
+                    <Link to="/login" className="login">
+                        <VButton
+                            label="Увійти"
+                            buttonStyles={{
+                                background: 'var(--gradient-button)',
+                                textColor: 'var(--button-color-white)',
+                                fontSize: 16,
+                                padding: '8px 8px',
+                                borderRadius: '50px',
+                                lineHeight: '19.2px',
+                                borderColor: 'transparent',
+                                hoverBackground: 'var(--button-color-hover)',
+                                hoverBorderColor: 'transparent',
+                                height: '35px',
+                                width: '113px',
+                                transition: 'background 0.3s ease'
+                            }}
+                        />
+                    </Link>
                 </div>
-                <div className="language-select">
-                    <span className="arrow">▼</span>
-                    <span>UKR</span>
-                </div>
+                <LanguageSelect />
             </div>
         </header>
     );

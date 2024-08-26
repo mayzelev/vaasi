@@ -1,6 +1,28 @@
 :root {
-  --primary-font: "Museo Sans Cyrl", sans-serif;
-  --font-color-primary: #262626;
-  --font-color-secondary: #7E7E7E;
-  --separator-color: #BFBFBF;
+    /* Fonts */
+    --primary-font: 'Museo Sans Cyrl', sans-serif;
+    --font-color-primary: #262626;
+    --font-color-secondary: #7e7e7e;
+    --font-color-thirdy: #f57365;
+    --font-color-fourthy: #ffffff;
+    --font-color-fifth: #3D3D3D;
+
+    /* Buttons */
+    /* Button gradient */
+    --button-color-white: #fff;
+    --button-color-hover: #ff7067;
+    --button-color-active: #f73325;
+    --button-border-color-active: #f73325;
+    --button-gradient-color-start: #ffb6b1;
+    --button-gradient-color-finish: #ff7067;
+    --gradient-button: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
+    /* Button grey */
+    --button-color-grey: #d9d9d9;
+
+    /* Other */
+    --separator-color: #bfbfbf;
+    --main-bg-color: #ffffff;
+    --dropShadow-header-color: #0000001a;
+    --text-shadow: rgba(0, 0, 0, 0.25);
+    --separate-line-main-color: #d9d9d9;
 }
