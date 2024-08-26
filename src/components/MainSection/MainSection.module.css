@@ -107,7 +107,7 @@
 }
 
 .toogle {
-    background-image: url(/image/Toggle.png);
+    background-image: url(../../assets/Toggle.png);
     width: 24px;
     height: 24px;
 }
