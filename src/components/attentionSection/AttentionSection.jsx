@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './AttentionSection.module.css';
 import VButton from '../../UI/VButton/VButton';
+
 export default function AttentionSection() {
     return (
         <div className={style.container}>
