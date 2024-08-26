@@ -1,11 +1,16 @@
 .container {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 1920px;
 }
 .money {
     position: absolute;
     top: 0;
     left: 0;
-    width: 1920px;
+    min-width: 1920px;
     height: 1000px;
     background-image: url(../image/money.png);
     background-repeat: no-repeat;
@@ -34,6 +39,20 @@
     height: 400px;
     margin: 0 auto;
     padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .mainSectionContainer {
+      width: 80%;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainSectionContainer {
+      width: 90%;
+      padding: 10px;
+  }
 }
 
 .headerTitle {

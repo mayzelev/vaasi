@@ -14,7 +14,7 @@ const StyledButton = styled(Button)(({ theme, customStyles }) => ({
     color: customStyles.textColor || theme.palette.getContrastText(customStyles.backgroundColor || '#0063cc'),
     height: customStyles.height || 'auto',
     width: customStyles.width || 'auto',
-    transition: customStyles.transition || 'background 0.3s ease',
+    transition: customStyles.transition || 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease',
     fontFamily: [
         '-apple-system',
         'BlinkMacSystemFont',
@@ -30,7 +30,8 @@ const StyledButton = styled(Button)(({ theme, customStyles }) => ({
     '&:hover': {
         boxShadow: 'none',
         background: customStyles.hoverBackground || '#0069d9',
-        borderColor: customStyles.hoverBorderColor || '#0062cc'
+        borderColor: customStyles.hoverBorderColor || '#0062cc',
+      color: customStyles.hoverColor || '#fff'
     },
     '&:active': {
         boxShadow: 'none',
@@ -63,11 +64,13 @@ VButton.propTypes = {
         focusBoxShadow: PropTypes.string,
         height: PropTypes.string,
         width: PropTypes.string,
-        transition: PropTypes.string
+        transition: PropTypes.string,
+        hoverColor: PropTypes.string
     })
 };
 
 VButton.defaultProps = {
+    disableRipple: true,
     buttonStyles: {}
 };
 

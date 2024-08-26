@@ -9,7 +9,7 @@
 }
 
 .infoContainer {
-    width: 1924px;
+    min-width: 1920px;
     height: 720px;
     background-image: url(/image/backInfoSection.png);
     background-position: center 40px;
@@ -22,7 +22,7 @@
 
 .container {
     display: flex;
-    transform: translateX(-100px);
+    transform: translateX(-95px);
 }
 
 .content {

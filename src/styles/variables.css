@@ -5,14 +5,14 @@
     --font-color-secondary: #7e7e7e;
     --font-color-thirdy: #f57365;
     --font-color-fourthy: #ffffff;
-    --font-color-fifth: #3D3D3D;
+    --font-color-fifth: #3d3d3d;
 
     /* Buttons */
     /* Button gradient */
     --button-color-white: #fff;
-    --button-color-hover: #ff7067;
-    --button-color-active: #f73325;
-    --button-border-color-active: #f73325;
+    --button-color-hover: linear-gradient(to bottom, #ff7067, #ff7067);
+    --button-color-active: #f57365;
+    --button-border-color-active: #f57365;
     --button-gradient-color-start: #ffb6b1;
     --button-gradient-color-finish: #ff7067;
     --gradient-button: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
@@ -22,6 +22,7 @@
     /* Other */
     --separator-color: #bfbfbf;
     --main-bg-color: #ffffff;
+    --secndary-bg-color: #525252;
     --dropShadow-header-color: #0000001a;
     --text-shadow: rgba(0, 0, 0, 0.25);
     --separate-line-main-color: #d9d9d9;

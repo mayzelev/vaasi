@@ -31,8 +31,8 @@ const LanguageSelect = () => {
                         sx: {
                             maxHeight: '400px',
                             '& .MuiMenu-list': {
-                              height: '110px',
-                              width: '187px',
+                                height: '110px',
+                                width: '187px'
                             }
                         }
                     }
@@ -72,19 +72,19 @@ const LanguageSelect = () => {
                     }
                 }}
             >
-                <MenuItem value="UKR">
+                <MenuItem value="UKR" className={s.languageItem}>
                     <Box display="flex" alignItems="center">
                         <FlagIcon src={UkraineFlag} alt="Ukraine Flag" />
-                        <div className={s.languageFont}>UKR</div> 
+                        <div className={s.languageFont}>UKR</div>
                     </Box>
                 </MenuItem>
-                <MenuItem value="DEU">
+                <MenuItem value="DEU" className={s.languageItem}>
                     <Box display="flex" alignItems="center">
                         <FlagIcon src={GermanyFlag} alt="Germany Flag" />
                         <div className={s.languageFont}>DEU</div>
                     </Box>
                 </MenuItem>
-                <MenuItem value="ENG">
+                <MenuItem value="ENG" className={s.languageItem}>
                     <Box display="flex" alignItems="center">
                         <FlagIcon src={USFlag} alt="US Flag" />
                         <div className={s.languageFont}>ENG</div>

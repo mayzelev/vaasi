@@ -68,6 +68,7 @@ export default function InfoSection() {
                                             borderRadius: '25px',
                                             lineHeight: '19.2px',
                                             borderColor: 'transparent',
+                                            hoverColor: 'white',
                                             hoverBackground: 'var(--button-color-hover)',
                                             hoverBorderColor: 'transparent',
                                             height: '34px',
