@@ -51,7 +51,7 @@ export default function Header() {
                     </div>
                 </div>
                 <div className={style.authButtons}>
-            <a href="#" className={style.register}>
+                    <a href="#" className={style.register}>
                         Реєстрація
                     </a>
                     <div className={style.separator}></div>
