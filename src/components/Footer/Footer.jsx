@@ -73,7 +73,7 @@ export default function Footer() {
                                     hoverBackground: 'var(--button-color-hover)',
                                     hoverBorderColor: 'transparent',
                                     height: '31px',
-                                    width: '162px',
+                                    width: '180px',
                                     transition: 'background 0.3s ease'
                                 }}
                             />
