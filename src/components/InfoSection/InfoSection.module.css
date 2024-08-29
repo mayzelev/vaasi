@@ -219,7 +219,7 @@
     margin-bottom: 20px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1919px) {
     .cardTitle {
         font-size: 1.5rem;
         line-height: 34px;
@@ -270,7 +270,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1439px) {
     .cardHeader img {
         width: 64px;
         height: 45px;
@@ -345,7 +345,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .content {
         flex-direction: column;
     }
@@ -390,7 +390,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .infoContainerSecondary {
         padding: 160px 12px;
         margin-top: -92px;
