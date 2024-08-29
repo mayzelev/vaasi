@@ -25,8 +25,6 @@
     width: 100%;
     max-width: 1107px;
     padding: 77px 90px 55px 90px;
-    /* height: 100%;
-    max-height: 253px; */
     background: url(../../assets/mainPageImg/moneyBcg.png) no-repeat center/cover;
     border-radius: 20px;
     overflow: hidden;
@@ -162,6 +160,6 @@
 
 @media (max-width: 1024px) {
   .containerBottom{
-    padding: 50px 90px 40px 87px;
+    padding: 50px;
   }
 }

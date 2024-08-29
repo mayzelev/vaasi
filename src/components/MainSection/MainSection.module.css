@@ -133,19 +133,25 @@
     .info {
         font-size: 1em;
         line-height: 19.2px;
-         margin-bottom: 15px;
+        margin-bottom: 15px;
     }
     .mainSectionContainer {
-        padding-top: 30px;
+        padding-top: 62px;
         max-width: 600px;
     }
 
     .money {
-     
-        height: 500px;
-        background-image: url(/vaasi/src/assets/mainPageImg/money.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center 60px;
+        background-size: cover;
+        background-position: center -230px;
     }
+    .firstCircle2 {
+        margin-bottom: 37px;
+    }
+    .verticalLine2 {
+        height: 215px;
+    }
+}
+
+@media (max-width: 768px) {
+  
 }
