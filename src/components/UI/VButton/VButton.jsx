@@ -2,19 +2,20 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 
-const StyledButton = styled(Button)(({ theme, customStyles }) => ({
+const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     boxShadow: 'none',
     textTransform: 'none',
-    fontSize: customStyles.fontSize || 16,
-    padding: customStyles.padding || '6px 12px',
-    border: `1px solid ${customStyles.borderColor || '#0063cc'}`,
-    lineHeight: customStyles.lineHeight || 1.5,
-    background: customStyles.background || '#0063cc',
-    borderRadius: customStyles.borderRadius || '4px',
-    color: customStyles.textColor || theme.palette.getContrastText(customStyles.backgroundColor || '#0063cc'),
-    height: customStyles.height || 'auto',
-    width: customStyles.width || 'auto',
-    transition: customStyles.transition || 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease',
+    fontSize: customstyles.fontSize || 16,
+    padding: customstyles.padding || '6px 12px',
+    border: `1px solid ${customstyles.borderColor || '#0063cc'}`,
+    lineHeight: customstyles.lineHeight || 1.5,
+    background: customstyles.background || '#0063cc',
+    borderRadius: customstyles.borderRadius || '4px',
+    color: customstyles.textColor || theme.palette.getContrastText(customstyles.backgroundColor || '#0063cc'),
+    height: customstyles.height || 'auto',
+  width: customstyles.width || '100%',
+    maxWidth: customstyles.maxWidth,
+    transition: customstyles.transition || 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease',
     fontFamily: [
         '-apple-system',
         'BlinkMacSystemFont',
@@ -29,22 +30,26 @@ const StyledButton = styled(Button)(({ theme, customStyles }) => ({
     ].join(','),
     '&:hover': {
         boxShadow: 'none',
-        background: customStyles.hoverBackground || '#0069d9',
-        borderColor: customStyles.hoverBorderColor || '#0062cc',
-      color: customStyles.hoverColor || '#fff'
+        background: customstyles.hoverBackground || '#0069d9',
+        borderColor: customstyles.hoverBorderColor || '#0062cc',
+        color: customstyles.hoverColor || '#fff'
     },
     '&:active': {
         boxShadow: 'none',
-        background: customStyles.activeBackground || 'var(--button-color-active)',
-        borderColor: customStyles.activeBorderColor || 'var(--button-border-color-active)'
+        background: customstyles.activeBackground || 'var(--button-color-active)',
+        borderColor: customstyles.activeBorderColor || 'var(--button-border-color-active)'
     },
     '&:focus': {
-        boxShadow: customStyles.focusBoxShadow || '0 0 0 0.2rem rgba(238, 65, 59, 0.5)'
+        boxShadow: customstyles.focusBoxShadow || '0 0 0 0.2rem rgba(238, 65, 59, 0.5)'
     }
 }));
 
-function VButton({ label, buttonStyles = {} }) {
-    return <StyledButton customStyles={buttonStyles}>{label}</StyledButton>;
+function VButton({ label, buttonStyles = {}, disableRipple = true }) {
+    return (
+        <StyledButton customstyles={buttonStyles} disableRipple={disableRipple}>
+            {label}
+        </StyledButton>
+    );
 }
 
 VButton.propTypes = {
@@ -65,13 +70,10 @@ VButton.propTypes = {
         height: PropTypes.string,
         width: PropTypes.string,
         transition: PropTypes.string,
-        hoverColor: PropTypes.string
-    })
-};
-
-VButton.defaultProps = {
-    disableRipple: true,
-    buttonStyles: {}
+        hoverColor: PropTypes.string,
+        maxWidth: PropTypes.string
+    }),
+    disableRipple: PropTypes.bool
 };
 
 export default VButton;

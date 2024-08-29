@@ -10,6 +10,7 @@
     /* Buttons */
     /* Button gradient */
     --button-color-white: #fff;
+    --button-color-secondary: #DFDFDF;
     --button-color-hover: linear-gradient(to bottom, #ff7067, #ff7067);
     --button-color-active: #f57365;
     --button-border-color-active: #f57365;

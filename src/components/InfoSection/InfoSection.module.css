@@ -1,7 +1,8 @@
 .infoContainerSecondary {
-    width: 1924px;
+    width: 100%;
+    max-width: 1924px;
     height: 742px;
-    background-image: url(../../assets/backInfoSectionSecondary.png);
+    background-image: url(../../assets/mainPageImg/bcg-infoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,12 +10,9 @@
 }
 
 .infoContainer {
-    min-width: 1920px;
-    height: 720px;
-    background-image: url(../../assets/backInfoSection.png);
-    background-position: center 40px;
-    background-repeat: no-repeat;
-    background-size: contain;
+    width: 100%;
+    max-width: 1920px;
+    height: 724px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +30,10 @@
 }
 
 .card {
-    width: 540px;
-    height: 400px;
+  display: flex;
+  flex-direction: column;
+    width: 100%;
+    max-width: 540px;
     border-radius: 10px;
     background-color: var(--main-bg-color);
     padding: 40px;
@@ -44,8 +44,11 @@
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    gap: 10px;
+
     margin-bottom: 10px;
-    width: 420px;
+    width: 100%;
+    max-width: 420px;
 }
 
 .cardHeader img {
@@ -65,7 +68,6 @@
 .header {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    margin-bottom: 10px;
 }
 
 .headerTitle {
@@ -86,29 +88,37 @@
     line-height: 33.6px;
     text-align: center;
     color: var(--font-color-fourthy);
+
     margin-left: 40px;
 }
 
 .description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+
     font-size: 16px;
     font-weight: 250;
     line-height: 19.2px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
     margin-bottom: 20px;
 }
 
-.descriptionBottom{
-  margin-bottom: 78px;
+.descriptionBottom {
+    margin-bottom: 78px;
 }
 
 .buttons {
     display: flex;
     gap: 11px;
     margin-bottom: 10px;
-    width: 478px;
+    width: 100%;
+    max-width: 478px;
+}
+
+.buttonSize{
+  flex-basis: 50%;
 }
 
 .detais {
@@ -166,48 +176,124 @@
 }
 
 .secondCircle {
-  margin-bottom: 39px;
+    margin-bottom: 39px;
 }
 
 .verticalLine2 {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 180px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
 }
 
 .verticalLine2::before {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background-color: var(--separate-line-main-color);
-  z-index: 0;
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--separate-line-main-color);
+    z-index: 0;
 }
 
 .circle2 {
-  background: var(--gradient-button);
-  border-radius: 50%;
-  z-index: 1;
+    background: var(--gradient-button);
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .large2 {
-  width: 9px;
-  height: 68px;
-  border-radius: 25px;
-  margin-bottom: 19px;
+    width: 9px;
+    height: 68px;
+    border-radius: 25px;
+    margin-bottom: 19px;
 }
 
 .small2 {
-  width: 9px;
-  height: 9px;
+    width: 9px;
+    height: 9px;
 }
 
 .firstCircle2 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .secondCircle2 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1440px) {
+    .cardHeader img {
+        width: 64px;
+        height: 45px;
+    }
+    .cardTitle {
+        font-size: 1.5rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .card {
+        padding: 20px;
+        max-width: 500px;
+    }
+    .infoContainer {
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+        max-height: 720px;
+    }
+    .infoContainerSecondary {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .headerSubTitle {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 33.6px;
+        margin-left: 10px;
+    }
+    .container {
+        display: flex;
+        transform: translateX(-77px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .cardHeader img {
+        width: 4%;
+        height: 25px;
+    }
+    .cardTitle {
+        font-size: 1.5rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .card {
+        padding: 20px;
+        max-width: 500px;
+    }
+    .infoContainer {
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+        max-height: 720px;
+    }
+    .infoContainerSecondary {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .headerSubTitle {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 33.6px;
+        margin-left: 10px;
+    }
+    .container {
+        display: flex;
+        transform: translateX(-77px);
+    }
 }

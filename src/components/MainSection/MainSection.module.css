@@ -3,16 +3,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    min-width: 1920px;
 }
+
 .money {
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     height: 1000px;
-    background-image: url(../../assets/money.png);
+    background-image: url(../../assets/mainPageImg/money.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
@@ -21,38 +21,25 @@
 .globus {
     position: absolute;
     left: 141px;
-    top: 152px;
+    top: 135px;
     width: 406px;
     height: 360px;
-    background-image: url(../../assets/earthWithMoney.png);
+    background-image: url(../../assets/mainPageImg/earthWithMoney.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1;
 }
+
 .mainSectionContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    width: 700px;
-    height: 400px;
+    width: 100%;
+    max-width: 700px;
     margin: 0 auto;
     padding-top: 80px;
-}
-
-@media (max-width: 768px) {
-  .mainSectionContainer {
-      width: 80%;
-      padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mainSectionContainer {
-      width: 90%;
-      padding: 10px;
-  }
 }
 
 .headerTitle {
@@ -107,7 +94,58 @@
 }
 
 .toogle {
-    background-image: url(../../assets/Toggle.png);
+    background-image: url(../../assets/mainPageImg/toggle.png);
     width: 24px;
     height: 24px;
+}
+
+@media (max-width: 1440px) {
+    .globus {
+        display: none;
+    }
+
+    .headerTitle {
+        font-size: 4rem;
+    }
+
+    .subTitle {
+        font-size: 3rem;
+    }
+
+    .info {
+        font-size: 1em;
+    }
+    .mainSectionContainer {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .headerTitle {
+        font-size: 3rem;
+        line-height: 30px;
+    }
+
+    .subTitle {
+        font-size: 2rem;
+    }
+
+    .info {
+        font-size: 1em;
+        line-height: 19.2px;
+         margin-bottom: 15px;
+    }
+    .mainSectionContainer {
+        padding-top: 30px;
+        max-width: 600px;
+    }
+
+    .money {
+     
+        height: 500px;
+        background-image: url(/vaasi/src/assets/mainPageImg/money.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center 60px;
+    }
 }

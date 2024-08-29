@@ -1,14 +1,16 @@
-.header {
-    min-width: 1920px;
-    height: 61px;
-    padding: 0 405px 0 60px;
+.headerToolbar {
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: space-between;
-    gap: 8px;
     background-color: var(--main-bg-color);
     box-shadow: 0px 2px 15px 0px var(--dropShadow-header-color);
+}
+
+.header {
+    display: flex;
+    gap: 8px;
+    padding: 0 450px 0 60px;
+    height: 61px;
 }
 
 .headerLeft {
@@ -37,13 +39,15 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 5px;
-    width: 252px;
     flex-shrink: 0;
+    gap: 5px;
+
+    width: 100%;
+    min-width: 252px;
+
     color: var(--font-color-primary);
     text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow);
-    font-family: 'Museo Sans Cyrl';
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -62,8 +66,9 @@
 }
 
 .clockeItemWithImg {
+    width: 100%;
+    min-width: 127px;
     display: flex;
-    width: 127px;
     height: 49px;
 }
 
@@ -76,6 +81,7 @@
     line-height: 16.8px;
     margin-top: 10px;
     text-align: left;
+    color: var(--font-color-primary);
 }
 
 .watch {
@@ -102,4 +108,53 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+@media (max-width: 1440px) {
+    .clocks {
+        display: none;
+    }
+    .header {
+        gap: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .headerLeft {
+        gap: 10px;
+    }
+    .header {
+      gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+  .headerRight {
+      display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .burgerMenu {
+      display: none;
+  }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px 0 60px;
+    }
+    .navLinks {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .header {
+        padding: 0 5px 0 30px;
+    }
+
+    .headerRight {
+        display: none;
+    }
 }

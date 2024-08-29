@@ -5,7 +5,7 @@ import UkraineFlag from '../../../assets/flags/UkraineFlag.svg';
 import GermanyFlag from '../../../assets/flags/GermanyFlag.svg';
 import USFlag from '../../../assets/flags/USFlag.svg';
 import s from './LanguageSelect.module.css';
-import arrowDownImg from '../../../assets/arrowDown.png'
+import arrowDownImg from '../../../assets/mainPageImg/arrowDown.png';
 
 const FlagIcon = styled('img')({
     marginRight: '8px',
@@ -28,6 +28,7 @@ const LanguageSelect = () => {
                 displayEmpty
                 variant="outlined"
                 MenuProps={{
+                    disableScrollLock: true,
                     PaperProps: {
                         sx: {
                             maxHeight: '400px',

@@ -2,14 +2,15 @@ import React from 'react';
 import style from './Footer.module.css';
 import { Link } from 'react-router-dom';
 import VButton from '../../components/UI/VButton/VButton';
-import logoImg from '../../assets/logo.png';
-import insta from '../../assets/instagram.png';
-import telegram from '../../assets/telegram.png';
-import callImg from '../../assets/call.png';
-import messageImg from '../../assets/message.png';
+import logoImg from '../../assets/mainPageImg/logo.png';
+import insta from '../../assets/mainPageImg/instagram.png';
+import telegram from '../../assets/mainPageImg/telegram.png';
+import callImg from '../../assets/mainPageImg/call.png';
+import messageImg from '../../assets/mainPageImg/message.png';
 
 export default function Footer() {
     return (
+      <div className='container'>
         <footer className={style.footer}>
             <div className={style.container}>
                 <div className={style.left}>
@@ -64,12 +65,12 @@ export default function Footer() {
                                 label="Зворотній зв'язок"
                                 buttonStyles={{
                                     background: 'var(--gradient-button)',
-                                    textColor: 'var(--button-color-white)',
+                                    textColor: 'var(--button-color-secondary)',
                                     fontSize: 16,
                                     padding: '8px 8px',
                                     borderRadius: '25px',
                                     lineHeight: '19px',
-                                    borderColor: 'transparent',
+                                    borderColor: 'none',
                                     hoverBackground: 'var(--button-color-hover)',
                                     hoverBorderColor: 'transparent',
                                     height: '31px',
@@ -96,5 +97,6 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
+        </div>
     );
 }

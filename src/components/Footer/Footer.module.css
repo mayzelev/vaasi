@@ -1,6 +1,5 @@
 .footer {
     background-color: var(--main-bg-color);
-    min-width: 1920px;
     height: 183px;
 }
 
@@ -112,7 +111,6 @@
 }
 
 .copyrightContainer {
-    min-width: 1920px;
     height: 31px;
     margin: 0 auto;
     background-color: var(--secndary-bg-color);
