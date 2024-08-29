@@ -13,12 +13,10 @@ export default function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
-        console.log('test');
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
         setDrawerOpen(open);
-        console.log('test');
     };
 
     const menuItems = (
