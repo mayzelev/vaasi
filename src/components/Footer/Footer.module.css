@@ -134,3 +134,12 @@
     font-size: 12px;
     line-height: 14px;
 }
+
+@media (max-width: 768px) {
+    .right {
+        flex-direction: column-reverse;
+    }
+    .linksInfo {
+        display: none;
+    }
+}

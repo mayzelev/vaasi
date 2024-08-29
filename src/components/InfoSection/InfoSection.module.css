@@ -291,14 +291,11 @@
         max-width: 500px;
     }
     .infoContainer {
-        background-position: center center;
-        background-size: cover;
+
         height: 100%;
         max-height: 720px;
     }
     .infoContainerSecondary {
-        background-position: center center;
-        background-size: cover;
         padding: 100px;
     }
 
@@ -354,31 +351,42 @@
         flex-direction: column;
     }
     .infoContainerSecondary {
-        padding: 90px;
+        padding: 130px;
+    }
+    .description {
+        font-size: 0.8rem;
+    }
+    .card {
+        padding: 13px 20px;
+        max-width: 355px;
     }
     .descriptionBottom {
         margin-bottom: 5px;
     }
     .cardTitle {
-        line-height: 24px;
+        line-height: none;
+        font-size: 19px;
     }
     .verticalLine {
-        height: 200px;
+        height: 210px;
     }
     .firstCircle {
-        margin-bottom: 10px;
+        margin-bottom: 60px;
     }
     .secondCircle {
-        margin-bottom: 58px;
+        margin-bottom: 40px;
+    }
+    .large2 {
+        margin-bottom: 15px;
     }
     .verticalLine2 {
-        height: 200px;
+        height: 190px;
     }
     .firstCircle2 {
         margin-bottom: 39px;
     }
 
     .secondCircle2 {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 }

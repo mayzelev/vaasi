@@ -1,12 +1,10 @@
 .container {
- 
     background-image: url(../../assets/mainPageImg/backCalculator.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .containerTop {
@@ -31,7 +29,6 @@
 
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.13);
     margin-bottom: 63px;
-   
 }
 
 .card {
@@ -88,7 +85,8 @@
 }
 
 .bankImg {
-    width: 306px;
+    width: 100%;
+    max-width: 306px;
     height: 352px;
     transform: translateY(-130px);
 }
@@ -159,7 +157,21 @@
 }
 
 @media (max-width: 1024px) {
-  .containerBottom{
-    padding: 50px;
-  }
+    .containerBottom {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+  .containerBottom {
+    padding: 40px;
+}
+    .bankImg {
+        display: none;
+    }
+    .headerTitle {
+        font-size: 36px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
 }
