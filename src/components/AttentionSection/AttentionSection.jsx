@@ -39,8 +39,8 @@ export default function AttentionSection() {
                     <img className={style.bankImg} src={bankImg} alt="bank" />
                 </div>
                 <div className={style.containerBottom}>
-                    <h3 className={style.headerTitle}>So what are you waiting for?</h3>
-                    <p className={style.subTitle}>Choose us and dive into your cashless funds</p>
+                    <h3 className={style.headerTitle}>Так чого ви чекаєте?</h3>
+                    <p className={style.subTitle}>Обирайте нас і занурюйтесь у світ безготівкових рахунків</p>
                     <Link to="/registration" className="registration">
                         <VButton
                             label="Реєстрація"

@@ -34,7 +34,6 @@
 .card {
     width: 100%;
     max-width: 520px;
-    height: 200px;
     border-radius: 10px;
     background-color: transparent;
 }
@@ -163,9 +162,9 @@
 }
 
 @media (max-width: 768px) {
-  .containerBottom {
-    padding: 40px;
-}
+    .containerBottom {
+        padding: 40px;
+    }
     .bankImg {
         display: none;
     }
@@ -173,5 +172,26 @@
         font-size: 36px;
         line-height: 16px;
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardTitleFirst {
+        font-size: 40px;
+    }
+    .cardTitleSecond {
+        font-size: 40px;
+    }
+    .containerTop {
+        padding: 10px;
+        transform: translateY(-60px);
+    }
+    .headerTitle {
+        font-size: 28px;
+        margin-bottom: 11px;
+    }
+    .subTitle {
+        font-size: 10px;
+        margin-bottom: 11px;
     }
 }

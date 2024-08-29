@@ -25,7 +25,6 @@ export default function Header() {
                 <div className={style.headerLeft}>
                     <Link to="/">
                         <div className={style.logoContainer}>
-                            <img className={style.sfere} src={sfereImg} alt="VAASI Logo" />
                             <img className={style.logo} src={logoImg} alt="VAASI Logo" />
                         </div>
                     </Link>

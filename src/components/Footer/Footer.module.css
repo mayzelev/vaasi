@@ -143,3 +143,8 @@
         display: none;
     }
 }
+@media (max-width: 600px) {
+    .left {
+        display: none;
+    }
+}
