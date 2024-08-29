@@ -9,7 +9,7 @@
 .header {
     display: flex;
     gap: 8px;
-    padding: 0 450px 0 60px;
+    padding: 0 60px 0 60px;
     height: 61px;
 }
 
@@ -120,7 +120,9 @@
     }
     .header {
         gap: 200px;
+        padding: 0 60px 0 60px;
     }
+    
 }
 
 @media (max-width: 1279px) {

@@ -63,11 +63,14 @@
 .line {
     display: flex;
     margin-bottom: 5px;
+    justify-content: center;
+    width: 100%;
 }
 
 .thin,
 .thick {
-    width: 230px;
+    width: 100%;
+    max-width: 230px;
     height: 1px;
     background-color: var(--separate-line-main-color);
 }

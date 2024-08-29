@@ -160,18 +160,14 @@ export default function Header() {
                         <MenuIcon />
                     </IconButton>
                     <Drawer
-                        // ModalProps={{
-                        //     disableScrollLock: true
-                        // }}
                         anchor="right"
                         open={drawerOpen}
                         onClose={toggleDrawer(false)}
                         // sx={{
                         //     '& .MuiDrawer-paper': {
                         //         width: '100%',
-                        //         height: '50%', // Займає весь екран
-                        //         backgroundColor: 'white', // Зміна кольору фону
-                        //         paddingRight: 'unset'
+                        //         height: '100%', // Займає весь екран
+                        //         backgroundColor: 'white' // Зміна кольору фону
                         //     }
                         // }}
                     >
