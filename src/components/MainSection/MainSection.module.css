@@ -77,7 +77,8 @@
 
 .thick {
     height: 7px;
-    width: 39px;
+    width: 100%;
+    max-width: 39px;
     background: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
     border-radius: 20px;
     transform: translateY(-50%);

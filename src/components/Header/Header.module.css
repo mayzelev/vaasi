@@ -129,11 +129,11 @@
         gap: 10px;
     }
     .header {
-        gap: 40px;
+        gap: 150px;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 899px) {
     .headerRight {
         display: none;
     }

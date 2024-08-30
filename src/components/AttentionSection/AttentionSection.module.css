@@ -176,6 +176,9 @@
 }
 
 @media (max-width: 600px) {
+    .containerBottom {
+        padding: 30px 10px;
+    }
     .cardTitleFirst {
         font-size: 40px;
     }
