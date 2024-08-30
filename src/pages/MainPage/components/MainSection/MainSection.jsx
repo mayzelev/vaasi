@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import style from './MainSection.module.css';
-import VButton from '../../components/UI/VButton/VButton';
+import VButton from '../../../../components/UI/VButton/VButton';
 
 export default function MainSection() {
     return (
-        <div className='container'>
+        <div className="container">
             <div className={style.container}>
                 <div className={style.money}></div>
                 <div className={style.globus}></div>
@@ -17,9 +17,9 @@ export default function MainSection() {
                         <div className={style.thin}></div>
                     </div>
                     <p className={style.info}>
-                        Наша компанія надає високоякісні послуги конвертації грошей, спеціально розроблені для <br /> корпоративних клієнтів. З
-                        нами ви отримаєте ефективний та надійний інструмент <br /> для оптимізації обміну валют та максимізації вашого фінансового
-                        портфеля.
+                        Наша компанія надає високоякісні послуги конвертації грошей, спеціально розроблені для <br /> корпоративних
+                        клієнтів. З нами ви отримаєте ефективний та надійний інструмент <br /> для оптимізації обміну валют та максимізації
+                        вашого фінансового портфеля.
                     </p>
                     <Link to="/about-us" className={style.aboutUs}>
                         <VButton

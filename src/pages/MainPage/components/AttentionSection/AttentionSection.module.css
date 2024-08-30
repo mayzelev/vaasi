@@ -1,5 +1,5 @@
 .container {
-    background-image: url(../../assets/mainPageImg/backCalculator.png);
+    background-image: url(../../../../assets/mainPageImg/backCalculator.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -23,7 +23,7 @@
     width: 100%;
     max-width: 1107px;
     padding: 77px 90px 55px 90px;
-    background: url(../../assets/mainPageImg/moneyBcg.png) no-repeat center/cover;
+    background: url(../../../../assets/mainPageImg/moneyBcg.png) no-repeat center/cover;
     border-radius: 20px;
     overflow: hidden;
 

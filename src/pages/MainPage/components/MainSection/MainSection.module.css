@@ -12,7 +12,7 @@
     width: 100%;
     max-width: 1920px;
     height: 1000px;
-    background-image: url(../../assets/mainPageImg/money.png);
+    background-image: url(../../../../assets/mainPageImg/money.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
@@ -24,7 +24,7 @@
     top: 135px;
     width: 406px;
     height: 360px;
-    background-image: url(../../assets/mainPageImg/earthWithMoney.png);
+    background-image: url(../../../../assets/mainPageImg/earthWithMoney.png);
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1;
@@ -98,7 +98,7 @@
 }
 
 .toogle {
-    background-image: url(../../assets/mainPageImg/toggle.png);
+    background-image: url(../../../../assets/mainPageImg/toggle.png);
     width: 24px;
     height: 24px;
 }

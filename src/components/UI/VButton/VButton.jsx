@@ -44,9 +44,9 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     }
 }));
 
-function VButton({ label, buttonStyles = {}, disableRipple = true }) {
+function VButton({ label, buttonStyles = {}, disableRipple = true, onClick }) {
     return (
-        <StyledButton customstyles={buttonStyles} disableRipple={disableRipple}>
+        <StyledButton customstyles={buttonStyles} disableRipple={disableRipple} onClick={onClick}>
             {label}
         </StyledButton>
     );

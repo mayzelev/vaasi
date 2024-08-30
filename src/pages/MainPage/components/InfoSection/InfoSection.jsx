@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import style from './InfoSection.module.css';
-import VButton from '../../components/UI/VButton/VButton';
-import peopleImg from '../../assets/mainPageImg/people.png';
-import factoryImg from '../../assets/mainPageImg/factory.png';
+import VButton from '../../../../components/UI/VButton/VButton';
+import peopleImg from '../../../../assets/mainPageImg/people.png';
+import factoryImg from '../../../../assets/mainPageImg/factory.png';
+import useStore from '../../../../store';
 
 export default function InfoSection() {
+    const { openRegistration } = useStore();
+
     return (
         <div className="container">
             <div className={style.infoContainerSecondary}>
@@ -42,47 +45,44 @@ export default function InfoSection() {
                                 </div>
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
-                                        <Link to="/login/natural-persons" className="login">
-                                            <VButton
-                                                label="Увійти"
-                                                buttonStyles={{
-                                                    background: 'var(--gradient-button)',
-                                                    textColor: 'var(--button-color-white)',
-                                                    fontSize: 16,
-                                                    padding: '8px 8px',
-                                                    borderRadius: '50px',
-                                                    lineHeight: '19.2px',
-                                                    borderColor: 'none',
-                                                    hoverBackground: 'var(--button-color-hover)',
-                                                    hoverBorderColor: 'transparent',
-                                                    height: '34px',
-                                                    maxWidth: '234px',
-                                                    transition: 'background 0.3s ease'
-                                                }}
-                                            />
-                                        </Link>
+                                        <VButton
+                                            label="Увійти"
+                                            buttonStyles={{
+                                                background: 'var(--gradient-button)',
+                                                textColor: 'var(--button-color-white)',
+                                                fontSize: 16,
+                                                padding: '8px 8px',
+                                                borderRadius: '50px',
+                                                lineHeight: '19.2px',
+                                                borderColor: 'none',
+                                                hoverBackground: 'var(--button-color-hover)',
+                                                hoverBorderColor: 'transparent',
+                                                height: '34px',
+                                                maxWidth: '234px',
+                                                transition: 'background 0.3s ease'
+                                            }}
+                                        />
                                     </div>
                                     <div className={style.buttonSize}>
-                                        <Link to="/registration/natural-persons" className="registration">
-                                            <VButton
-                                                label="Зареєструватися"
-                                                buttonStyles={{
-                                                    background: 'var(--button-color-grey)',
-                                                    textColor: 'var(--font-color-primary)',
-                                                    fontSize: 16,
-                                                    padding: '8px 8px',
-                                                    borderRadius: '50px',
-                                                    lineHeight: '19.2px',
-                                                    borderColor: 'none',
-                                                    hoverColor: 'white',
-                                                    hoverBackground: 'var(--button-color-hover)',
-                                                    hoverBorderColor: 'transparent',
-                                                    height: '34px',
-                                                    maxWidth: '234px',
-                                                    transition: 'background 0.3s ease'
-                                                }}
-                                            />
-                                        </Link>
+                                        <VButton
+                                            onClick={openRegistration}
+                                            label="Зареєструватися"
+                                            buttonStyles={{
+                                                background: 'var(--button-color-grey)',
+                                                textColor: 'var(--font-color-primary)',
+                                                fontSize: 16,
+                                                padding: '8px 8px',
+                                                borderRadius: '50px',
+                                                lineHeight: '19.2px',
+                                                borderColor: 'none',
+                                                hoverColor: 'white',
+                                                hoverBackground: 'var(--button-color-hover)',
+                                                hoverBorderColor: 'transparent',
+                                                height: '34px',
+                                                maxWidth: '234px',
+                                                transition: 'background 0.3s ease'
+                                            }}
+                                        />
                                     </div>
                                 </div>
                                 <Link className={style.detais} to={'/natural-persons/details'}>
@@ -116,46 +116,43 @@ export default function InfoSection() {
                                 </div>
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
-                                        <Link to="/login/legal-persons" className="login">
-                                            <VButton
-                                                label="Увійти"
-                                                buttonStyles={{
-                                                    background: 'var(--gradient-button)',
-                                                    textColor: 'var(--button-color-white)',
-                                                    fontSize: 16,
-                                                    padding: '8px 8px',
-                                                    borderRadius: '50px',
-                                                    lineHeight: '19.2px',
-                                                    borderColor: 'none',
-                                                    hoverBackground: 'var(--button-color-hover)',
-                                                    hoverBorderColor: 'transparent',
-                                                    height: '34px',
-                                                    maxWidth: '234px',
-                                                    transition: 'background 0.3s ease'
-                                                }}
-                                            />
-                                        </Link>
+                                        <VButton
+                                            label="Увійти"
+                                            buttonStyles={{
+                                                background: 'var(--gradient-button)',
+                                                textColor: 'var(--button-color-white)',
+                                                fontSize: 16,
+                                                padding: '8px 8px',
+                                                borderRadius: '50px',
+                                                lineHeight: '19.2px',
+                                                borderColor: 'none',
+                                                hoverBackground: 'var(--button-color-hover)',
+                                                hoverBorderColor: 'transparent',
+                                                height: '34px',
+                                                maxWidth: '234px',
+                                                transition: 'background 0.3s ease'
+                                            }}
+                                        />
                                     </div>
                                     <div className={style.buttonSize}>
-                                        <Link to="/registration/legal-persons" className="registration">
-                                            <VButton
-                                                label="Зареєструватися"
-                                                buttonStyles={{
-                                                    background: 'var(--button-color-grey)',
-                                                    textColor: 'var(--font-color-primary)',
-                                                    fontSize: 16,
-                                                    padding: '8px 8px',
-                                                    borderRadius: '50px',
-                                                    lineHeight: '19.2px',
-                                                    borderColor: 'none',
-                                                    hoverBackground: 'var(--button-color-hover)',
-                                                    hoverBorderColor: 'transparent',
-                                                    height: '34px',
-                                                    maxWidth: '234px',
-                                                    transition: 'background 0.3s ease'
-                                                }}
-                                            />
-                                        </Link>
+                                        <VButton
+                                            onClick={openRegistration}
+                                            label="Зареєструватися"
+                                            buttonStyles={{
+                                                background: 'var(--button-color-grey)',
+                                                textColor: 'var(--font-color-primary)',
+                                                fontSize: 16,
+                                                padding: '8px 8px',
+                                                borderRadius: '50px',
+                                                lineHeight: '19.2px',
+                                                borderColor: 'none',
+                                                hoverBackground: 'var(--button-color-hover)',
+                                                hoverBorderColor: 'transparent',
+                                                height: '34px',
+                                                maxWidth: '234px',
+                                                transition: 'background 0.3s ease'
+                                            }}
+                                        />
                                     </div>
                                 </div>
                                 <Link className={style.detais} to={'/legal-persons/details'}>

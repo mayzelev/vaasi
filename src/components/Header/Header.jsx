@@ -8,8 +8,10 @@ import VButton from '../../components/UI/VButton/VButton';
 import sfereImg from '../../assets/mainPageImg/sfere.png';
 import logoImg from '../../assets/mainPageImg/logo.png';
 import watchImg from '../../assets/mainPageImg/watch.png';
+import useStore from '../../store';
 
 export default function Header() {
+    const { openRegistration } = useStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
@@ -50,9 +52,9 @@ export default function Header() {
                 />
             </ListItemButton>
             <ListItemButton>
-                <Link to="/registration" className={style.register}>
+                <button onClick={openRegistration}>
                     Реєстрація
-                </Link>
+                </button>
             </ListItemButton>
             <ListItemButton>
                 <Link to="/natural-persons">Фізичні особи</Link>
@@ -124,9 +126,8 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className={style.authButtons}>
-                                <Link to="/registration" className={style.register}>
-                                    Реєстрація
-                                </Link>
+                                <button onClick={openRegistration}>Реєстрація</button>
+
                                 <div className={style.separator}></div>
                                 <VButton
                                     label="Увійти"
