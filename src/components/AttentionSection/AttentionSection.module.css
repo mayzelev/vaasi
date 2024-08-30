@@ -187,11 +187,11 @@
         transform: translateY(-60px);
     }
     .headerTitle {
-        font-size: 28px;
+        font-size: 24px;
         margin-bottom: 11px;
     }
     .subTitle {
-        font-size: 10px;
+        font-size: 9px;
         margin-bottom: 11px;
     }
 }
