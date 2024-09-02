@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import style from './AttentionSection.module.css';
 import VButton from '../../../../components/UI/VButton/VButton';
 import bankImg from '../../../../assets/mainPageImg/BankMain.png';
-import useStore from '../../../../store';
+import useRegistrationStore from '../../../../store/useRegistrationStore';
 
 export default function AttentionSection() {
-    const { openRegistration } = useStore();
+    const { openRegistration } = useRegistrationStore();
 
     return (
         <div className="container">

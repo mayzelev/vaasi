@@ -13,7 +13,7 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     borderRadius: customstyles.borderRadius || '4px',
     color: customstyles.textColor || theme.palette.getContrastText(customstyles.backgroundColor || '#0063cc'),
     height: customstyles.height || 'auto',
-  width: customstyles.width || '100%',
+    width: customstyles.width || '100%',
     maxWidth: customstyles.maxWidth,
     transition: customstyles.transition || 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease',
     fontFamily: [
@@ -44,9 +44,9 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     }
 }));
 
-function VButton({ label, buttonStyles = {}, disableRipple = true, onClick }) {
+function VButton({ label, buttonStyles = {}, disableRipple = true, onClick, type = 'button' }) {
     return (
-        <StyledButton customstyles={buttonStyles} disableRipple={disableRipple} onClick={onClick}>
+        <StyledButton customstyles={buttonStyles} disableRipple={disableRipple} onClick={onClick} type={type}>
             {label}
         </StyledButton>
     );
@@ -73,7 +73,9 @@ VButton.propTypes = {
         hoverColor: PropTypes.string,
         maxWidth: PropTypes.string
     }),
-    disableRipple: PropTypes.bool
+    disableRipple: PropTypes.bool,
+    onClick: PropTypes.func,
+    type: PropTypes.oneOf(['button', 'submit', 'reset'])
 };
 
 export default VButton;

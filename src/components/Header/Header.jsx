@@ -8,10 +8,11 @@ import VButton from '../../components/UI/VButton/VButton';
 import sfereImg from '../../assets/mainPageImg/sfere.png';
 import logoImg from '../../assets/mainPageImg/logo.png';
 import watchImg from '../../assets/mainPageImg/watch.png';
-import useStore from '../../store';
+import useRegistrationStore from '../../store/useRegistrationStore';
+
 
 export default function Header() {
-    const { openRegistration } = useStore();
+    const { openRegistration } = useRegistrationStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {

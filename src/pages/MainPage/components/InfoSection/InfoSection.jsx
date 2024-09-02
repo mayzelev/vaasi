@@ -3,10 +3,18 @@ import style from './InfoSection.module.css';
 import VButton from '../../../../components/UI/VButton/VButton';
 import peopleImg from '../../../../assets/mainPageImg/people.png';
 import factoryImg from '../../../../assets/mainPageImg/factory.png';
-import useStore from '../../../../store';
+import useRegistrationStore from '../../../../store/useRegistrationStore';
 
 export default function InfoSection() {
-    const { openRegistration } = useStore();
+    const { openRegistration } = useRegistrationStore();
+
+    const handleOpenLegalEntityRegistration = () => {
+        openRegistration({ initialTab: 0 });
+    };
+
+    const handleOpenIndividualRegistration = () => {
+        openRegistration({ initialTab: 1 });
+    };
 
     return (
         <div className="container">
@@ -65,7 +73,7 @@ export default function InfoSection() {
                                     </div>
                                     <div className={style.buttonSize}>
                                         <VButton
-                                            onClick={openRegistration}
+                                            onClick={handleOpenIndividualRegistration}
                                             label="Зареєструватися"
                                             buttonStyles={{
                                                 background: 'var(--button-color-grey)',
@@ -136,7 +144,7 @@ export default function InfoSection() {
                                     </div>
                                     <div className={style.buttonSize}>
                                         <VButton
-                                            onClick={openRegistration}
+                                            onClick={handleOpenLegalEntityRegistration}
                                             label="Зареєструватися"
                                             buttonStyles={{
                                                 background: 'var(--button-color-grey)',
