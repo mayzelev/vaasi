@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, TextField, InputAdornment, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import PersonIcon from '@mui/icons-material/Person';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import LockIcon from '@mui/icons-material/Lock';
+import Snackbar from '@mui/material/Snackbar';
 import { v4 as uuidv4 } from 'uuid';
+
 import style from './IndividualForm.module.css';
 import VButton from '../../../../../../components/UI/VButton/VButton';
+import useRegistrationStore from '../../../../../../store/useRegistrationStore';
+import personIcon from '../../../../../../assets/formImg/user.svg';
+import phoneIcon from '../../../../../../assets/formImg/phone.svg';
+import emailIcon from '../../../../../../assets/formImg/email.svg';
+import lockIcon from '../../../../../../assets/formImg/lock.svg';
+import hyperLink from '../../../../../../assets/formImg/Hyperlink.svg';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
-        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.-]{1,62}$/, 'ПІБ повинно містити тільки літери.')
+        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
         .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 (0XX) XXX-XXXX.')
@@ -29,15 +33,27 @@ const validationSchema = Yup.object({
 });
 
 export default function IndividualForm({ setOpenSuccessModal }) {
+    const { closeRegistration } = useRegistrationStore();
     const [tokenCode, setTokenCode] = useState('');
+    const [copySuccess, setCopySuccess] = useState(false);
 
     const generateToken = () => {
         const token = uuidv4();
         setTokenCode(token);
     };
 
+    const handleCopyToken = () => {
+        navigator.clipboard.writeText(tokenCode);
+        setCopySuccess(true);
+    };
+
+    const loadSavedValues = () => {
+        const savedValues = localStorage.getItem('individualForm');
+        return savedValues ? JSON.parse(savedValues) : null;
+    };
+
     const formik = useFormik({
-        initialValues: {
+        initialValues: loadSavedValues() || {
             fullName: '',
             phone: '',
             email: '',
@@ -48,10 +64,16 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         },
         validationSchema,
         onSubmit: (values) => {
+            localStorage.removeItem('individualForm');
             console.log('Форма відправлена', values);
             setOpenSuccessModal(true);
+            closeRegistration();
         }
     });
+
+    useEffect(() => {
+        localStorage.setItem('individualForm', JSON.stringify(formik.values));
+    }, [formik.values]);
 
     useEffect(() => {
         formik.setFieldValue('tokenCode', tokenCode);
@@ -59,18 +81,28 @@ export default function IndividualForm({ setOpenSuccessModal }) {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <Box>
+            <Box sx={{ mt: -1 }}>
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="ПІБ"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <PersonIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={personIcon} alt="user" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="fullName"
                     name="fullName"
@@ -81,16 +113,26 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.fullName && formik.errors.fullName}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <PhoneIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={phoneIcon} alt="phone" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="phone"
                     name="phone"
@@ -101,16 +143,26 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <EmailIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={emailIcon} alt="email" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="email"
                     name="email"
@@ -121,16 +173,26 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <LockIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={lockIcon} alt="lock" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="adminCode"
                     name="adminCode"
@@ -166,15 +228,27 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     variant="outlined"
                     margin="normal"
                     InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <LockIcon style={{ position: 'absolute', top: 15, right: 15 }} />
+                        startAdornment: <InputAdornment position="start"></InputAdornment>,
+                        endAdornment: (
+                            <InputAdornment position="end" sx={{ transform: 'translateX(21px)' }}>
+                                <IconButton onClick={handleCopyToken}>
+                                    <div className={style.iconsContainer}>
+                                        <img className={style.icons} src={hyperLink} alt="hyperLink" />
+                                    </div>
+                                </IconButton>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px'
+                            }
+                        }
                     }}
                     id="tokenCode"
                     name="tokenCode"
@@ -184,28 +258,31 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
                     helperText={formik.touched.tokenCode && formik.errors.tokenCode}
                 />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            name="terms"
-                            checked={formik.values.terms}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            color="primary"
-                        />
-                    }
-                    label={
-                        <span className={style.agreeCheck}>
-                            Я ознайомився та погоджуюся з{' '}
-                            <strong>
-                                <a className={style.link} href="/terms-of-use" target="_blank" rel="noopener noreferrer">
-                                    правилами користування сайтом
-                                </a>
-                            </strong>
-                            .
-                        </span>
-                    }
-                />
+                <Snackbar open={copySuccess} autoHideDuration={3000} onClose={() => setCopySuccess(false)} message="Токен скопійовано" />
+                <Box sx={{ mt: 2 }}>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                name="terms"
+                                checked={formik.values.terms}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                color="primary"
+                            />
+                        }
+                        label={
+                            <span className={style.agreeCheck}>
+                                Я ознайомився та погоджуюся з{' '}
+                                <strong>
+                                    <a className={style.link} href="/terms-of-use" target="_blank" rel="noopener noreferrer">
+                                        правилами користування сайтом
+                                    </a>
+                                </strong>
+                                .
+                            </span>
+                        }
+                    />
+                </Box>
                 {formik.touched.terms && formik.errors.terms && <div style={{ color: 'red' }}>{formik.errors.terms}</div>}
                 <FormControlLabel
                     control={
@@ -231,7 +308,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                 />
                 {formik.touched.rules && formik.errors.rules && <div style={{ color: 'red' }}>{formik.errors.rules}</div>}
 
-                <Box sx={{ mt: 2 }}>
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
                     <VButton
                         type="submit"
                         label="Зареєструватися"

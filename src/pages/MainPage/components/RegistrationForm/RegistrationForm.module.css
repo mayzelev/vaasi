@@ -1,0 +1,9 @@
+.line {
+  width: 540px;
+  height: 1px;
+  background-color: var(--main-bg-color);
+  box-shadow: -2px -4px 5px 3px var(--dropShadow-header-color);
+  transform: translateX(-32px);
+}
+
+

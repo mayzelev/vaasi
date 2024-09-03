@@ -1,14 +1,11 @@
 import { Box, Button, IconButton, Modal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import useRegistrationStore from '../../../../../../store/useRegistrationStore';
 import style from './SuccessModalOpen.module.css';
 
 export default function SuccessModalOpen({ openSuccessModal, setOpenSuccessModal }) {
-    const { closeRegistration } = useRegistrationStore();
     const handleCloseSuccessModal = () => {
         setOpenSuccessModal(false);
-        closeRegistration();
     };
     return (
         <Modal

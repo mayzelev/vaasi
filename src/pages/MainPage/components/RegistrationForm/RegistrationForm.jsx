@@ -44,7 +44,9 @@ export default function RegistrationPopup() {
                     <IconButton sx={{ position: 'absolute', top: 16, right: 16 }} onClick={closeRegistration} aria-label="close">
                         <CloseIcon />
                     </IconButton>
-                    <Box sx={{ mt: 1, textAlign: 'center', fontWeight: '900', lineHeight: '36px', fontSize: '30px' }}>РЕЄСТРАЦІЯ</Box>
+                    <Box sx={{ mt: 1, mb: 1, textAlign: 'center', fontWeight: '900', lineHeight: '36px', fontSize: '30px' }}>
+                        РЕЄСТРАЦІЯ
+                    </Box>
                     <Tabs
                         value={activeTab}
                         onChange={handleTabChange}
@@ -52,17 +54,17 @@ export default function RegistrationPopup() {
                         sx={{
                             '.MuiTabs-indicator': {
                                 backgroundColor: 'var(--button-color-active)'
-                            },
-                            '.MuiTabs-flexContainer': {
-                                boxShadow: 'inset 0px -1px 0px 0px rgba(0, 0, 0, 0.15);'
                             }
                         }}
                     >
                         <Tab
                             sx={{
                                 textAlign: 'center',
-                                fontWeight: '700',
-                                lineHeight: '19px',
+                                fontWeight: '600',
+                                fontSize: '16px',
+                                lineHeight: '22px',
+                                padding: '0 20px',
+
                                 color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit'
                             }}
                             label="Юридичні особи"
@@ -73,8 +75,10 @@ export default function RegistrationPopup() {
                         <Tab
                             sx={{
                                 textAlign: 'center',
-                                fontWeight: '700',
-                                lineHeight: '19px',
+                                fontWeight: '600',
+                                fontSize: '16px',
+                                lineHeight: '22px',
+                                padding: '0 30px',
                                 color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit'
                             }}
                             label="Фізичні особи"
@@ -83,6 +87,9 @@ export default function RegistrationPopup() {
                             }}
                         />
                     </Tabs>
+                    <Box>
+                        <div className={style.line}></div>
+                    </Box>
 
                     <Box sx={{ mt: 2 }}>
                         {activeTab === 0 && <LegalEntityForm setOpenSuccessModal={setOpenSuccessModal} />}

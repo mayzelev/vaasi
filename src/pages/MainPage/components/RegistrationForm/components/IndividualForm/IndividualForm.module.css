@@ -1,3 +1,18 @@
+.iconsContainer {
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+}
+
 .agreeCheck {
     font-style: normal;
     font-weight: 300;

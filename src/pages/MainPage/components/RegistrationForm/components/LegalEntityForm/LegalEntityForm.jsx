@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, TextField, InputAdornment, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
-import PersonIcon from '@mui/icons-material/Person';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import LockIcon from '@mui/icons-material/Lock';
+import Snackbar from '@mui/material/Snackbar';
 
-import buildingIcon from '../../../../../../assets/formImg/building.png';
+import buildingIcon from '../../../../../../assets/formImg/building.svg';
+import personIcon from '../../../../../../assets/formImg/user.svg';
+import phoneIcon from '../../../../../../assets/formImg/phone.svg';
+import emailIcon from '../../../../../../assets/formImg/email.svg';
+import lockIcon from '../../../../../../assets/formImg/lock.svg';
+import hyperLink from '../../../../../../assets/formImg/Hyperlink.svg';
 import style from './LegalEntityForm.module.css';
 import VButton from '../../../../../../components/UI/VButton/VButton';
+import useRegistrationStore from '../../../../../../store/useRegistrationStore';
 
 const validationSchema = Yup.object({
     companyName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.-]{1,62}$/, 'Назва підприємства повинна містити тільки літери, цифри, крапку та дефіс.')
         .required("Обов'язкове поле"),
     contactPerson: Yup.string()
-        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.-]{1,62}$/, 'Контактна особа повинна містити тільки літери.')
+        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'Контактна особа повинна містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
         .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 (0XX) XXX-XXXX.')
@@ -33,15 +36,27 @@ const validationSchema = Yup.object({
 });
 
 export default function LegalEntityForm({ setOpenSuccessModal }) {
+    const { closeRegistration } = useRegistrationStore();
     const [tokenCode, setTokenCode] = useState('');
+    const [copySuccess, setCopySuccess] = useState(false);
 
     const generateToken = () => {
         const token = uuidv4();
         setTokenCode(token);
     };
 
+    const handleCopyToken = () => {
+        navigator.clipboard.writeText(tokenCode);
+        setCopySuccess(true);
+    };
+
+    const loadSavedValues = () => {
+        const savedValues = localStorage.getItem('legalEntityForm');
+        return savedValues ? JSON.parse(savedValues) : null;
+    };
+
     const formik = useFormik({
-        initialValues: {
+        initialValues: loadSavedValues() || {
             companyName: '',
             contactPerson: '',
             phone: '',
@@ -52,10 +67,16 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         },
         validationSchema,
         onSubmit: (values) => {
+            localStorage.removeItem('legalEntityForm');
             console.log('Форма відправлена', values);
             setOpenSuccessModal(true);
+            closeRegistration();
         }
     });
+
+    useEffect(() => {
+        localStorage.setItem('legalEntityForm', JSON.stringify(formik.values));
+    }, [formik.values]);
 
     useEffect(() => {
         formik.setFieldValue('tokenCode', tokenCode);
@@ -65,15 +86,25 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         <form onSubmit={formik.handleSubmit}>
             <Box>
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Назва підприємства"
                     variant="outlined"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <img className={style.icons} src={buildingIcon} alt="Building Icon" style={{ width: 40, height: 40 }} />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={buildingIcon} alt="building" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="companyName"
                     name="companyName"
@@ -84,16 +115,26 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.companyName && formik.errors.companyName}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Контактна особа"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <PersonIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={personIcon} alt="user" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="contactPerson"
                     name="contactPerson"
@@ -104,16 +145,26 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.contactPerson && formik.errors.contactPerson}
                 />
                 <TextField
+                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <PhoneIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={phoneIcon} alt="phone" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="phone"
                     name="phone"
@@ -124,16 +175,31 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
+                    sx={{
+                        backgroundColor: 'var(--bg-color-form)',
+                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                        borderRadius: '5px',
+                        
+                    }}
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <EmailIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={emailIcon} alt="email" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="email"
                     name="email"
@@ -144,16 +210,31 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
+                    sx={{
+                        backgroundColor: 'var(--bg-color-form)',
+                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                        borderRadius: '5px',
+                        
+                    }}
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
-                    margin="normal"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment position="start">
-                                <LockIcon />
+                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                                <div className={style.iconsContainer}>
+                                    <img className={style.icons} src={lockIcon} alt="lock" />
+                                </div>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px',
+                                boxSizing: 'border-box'
+                            }
+                        }
                     }}
                     id="adminCode"
                     name="adminCode"
@@ -189,15 +270,32 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
+                    sx={{
+                        backgroundColor: 'var(--bg-color-form)',
+                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                        borderRadius: '5px',
+                       
+                    }}
                     fullWidth
                     variant="outlined"
                     margin="normal"
                     InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <LockIcon style={{ position: 'absolute', top: 15, right: 15 }} />
+                        startAdornment: <InputAdornment position="start"></InputAdornment>,
+                        endAdornment: (
+                            <InputAdornment position="end" sx={{ transform: 'translateX(21px)' }}>
+                                <IconButton onClick={handleCopyToken}>
+                                    <div className={style.iconsContainer}>
+                                        <img className={style.icons} src={hyperLink} alt="hyperLink" />
+                                    </div>
+                                </IconButton>
                             </InputAdornment>
-                        )
+                        ),
+                        sx: {
+                            height: '40px',
+                            '& .MuiInputBase-input': {
+                                height: '40px'
+                            }
+                        }
                     }}
                     id="tokenCode"
                     name="tokenCode"
@@ -207,6 +305,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
                     helperText={formik.touched.tokenCode && formik.errors.tokenCode}
                 />
+                <Snackbar open={copySuccess} autoHideDuration={3000} onClose={() => setCopySuccess(false)} message="Токен скопійовано" />
                 <Box sx={{ mt: 2 }}>
                     <FormControlLabel
                         control={
@@ -232,7 +331,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     />
                 </Box>
                 {formik.touched.terms && formik.errors.terms && <div style={{ color: 'red' }}>{formik.errors.terms}</div>}
-                <Box sx={{ mt: 2 }}>
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
                     <VButton
                         type="submit"
                         label="Зареєструватися"
