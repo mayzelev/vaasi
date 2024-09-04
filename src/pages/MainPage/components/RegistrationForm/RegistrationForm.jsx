@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Box, Tab, Tabs, IconButton } from '@mui/material';
-import useRegistrationStore from '../../../../store/useRegistrationStore';
+import useAuthStore from '../../../../store/useAuthStore';
 import LegalEntityForm from './components/LegalEntityForm/LegalEntityForm';
 import IndividualForm from './components/IndividualForm/IndividualForm';
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,7 +8,7 @@ import style from './RegistrationForm.module.css';
 import SuccessModalOpen from './components/SuccessModalOpen/SuccessModalOpen';
 
 export default function RegistrationPopup() {
-    const { isRegistrationOpen, closeRegistration, initialTab } = useRegistrationStore();
+    const { isRegistrationOpen, closeRegistration, initialTab } = useAuthStore();
     const [activeTab, setActiveTab] = useState(initialTab);
     const [openSuccessModal, setOpenSuccessModal] = useState(false);
 

@@ -6,13 +6,16 @@ import Snackbar from '@mui/material/Snackbar';
 import { v4 as uuidv4 } from 'uuid';
 
 import style from './IndividualForm.module.css';
+
 import VButton from '../../../../../../components/UI/VButton/VButton';
-import useRegistrationStore from '../../../../../../store/useRegistrationStore';
 import personIcon from '../../../../../../assets/formImg/user.svg';
 import phoneIcon from '../../../../../../assets/formImg/phone.svg';
 import emailIcon from '../../../../../../assets/formImg/email.svg';
 import lockIcon from '../../../../../../assets/formImg/lock.svg';
 import hyperLink from '../../../../../../assets/formImg/Hyperlink.svg';
+
+import { authUser } from '../../../../../../api/auth.js';
+import useAuthStore from '../../../../../../store/useAuthStore';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
@@ -33,7 +36,8 @@ const validationSchema = Yup.object({
 });
 
 export default function IndividualForm({ setOpenSuccessModal }) {
-    const { closeRegistration } = useRegistrationStore();
+    const { closeRegistration, closeLogin } = useAuthStore();
+
     const [tokenCode, setTokenCode] = useState('');
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -52,6 +56,14 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         return savedValues ? JSON.parse(savedValues) : null;
     };
 
+    const handleSubmit = ({ fullName: username, phone, email, adminCode: code, tokenCode: token }) => {
+        authUser({ username, phone, email, code, token }).then(() => {
+            setOpenSuccessModal(true);
+            closeRegistration();
+            closeLogin();
+        });
+    };
+
     const formik = useFormik({
         initialValues: loadSavedValues() || {
             fullName: '',
@@ -66,8 +78,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         onSubmit: (values) => {
             localStorage.removeItem('individualForm');
             console.log('Форма відправлена', values);
-            setOpenSuccessModal(true);
-            closeRegistration();
+            handleSubmit(values);
         }
     });
 
@@ -90,7 +101,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={personIcon} alt="user" />
                                 </div>
@@ -120,7 +131,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={phoneIcon} alt="phone" />
                                 </div>
@@ -150,7 +161,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={emailIcon} alt="email" />
                                 </div>
@@ -180,7 +191,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={lockIcon} alt="lock" />
                                 </div>
@@ -228,7 +239,11 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
+                    sx={{
+                        backgroundColor: 'var(--bg-color-form)',
+                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                        borderRadius: '5px'
+                    }}
                     fullWidth
                     variant="outlined"
                     margin="normal"
@@ -258,7 +273,22 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
                     helperText={formik.touched.tokenCode && formik.errors.tokenCode}
                 />
-                <Snackbar open={copySuccess} autoHideDuration={3000} onClose={() => setCopySuccess(false)} message="Токен скопійовано" />
+                <Snackbar
+                    open={copySuccess}
+                    autoHideDuration={500}
+                    onClose={() => setCopySuccess(false)}
+                    message="Токен скопійовано"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    sx={{
+                        position: 'absolute',
+                        top: '400px',
+                        bottom: '0',
+                        left: '0',
+                        right: '0',
+
+                        maxWidth: '400px'
+                    }}
+                />
                 <Box sx={{ mt: 2 }}>
                     <FormControlLabel
                         control={
@@ -311,7 +341,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                 <Box sx={{ mt: 2, textAlign: 'center' }}>
                     <VButton
                         type="submit"
-                        label="Зареєструватися"
+                        label="ЗАРЕЄСТРУВАТИСЯ"
                         buttonStyles={{
                             background: 'var(--button-color-grey)',
                             textColor: 'var(--font-color-primary)',

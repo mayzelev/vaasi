@@ -13,7 +13,8 @@ import lockIcon from '../../../../../../assets/formImg/lock.svg';
 import hyperLink from '../../../../../../assets/formImg/Hyperlink.svg';
 import style from './LegalEntityForm.module.css';
 import VButton from '../../../../../../components/UI/VButton/VButton';
-import useRegistrationStore from '../../../../../../store/useRegistrationStore';
+import { authCompany } from '../../../../../../api/auth';
+import useAuthStore from '../../../../../../store/useAuthStore';
 
 const validationSchema = Yup.object({
     companyName: Yup.string()
@@ -36,7 +37,8 @@ const validationSchema = Yup.object({
 });
 
 export default function LegalEntityForm({ setOpenSuccessModal }) {
-    const { closeRegistration } = useRegistrationStore();
+    const { closeRegistration, closeLogin } = useAuthStore();
+
     const [tokenCode, setTokenCode] = useState('');
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -55,6 +57,14 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         return savedValues ? JSON.parse(savedValues) : null;
     };
 
+    const handleSubmit = ({ companyName: username, phone, email, adminCode: code, tokenCode: token, contactPerson: contact }) => {
+        authCompany({ username, phone, email, code, token, contact }).then(() => {
+            setOpenSuccessModal(true);
+            closeRegistration();
+            closeLogin();
+        });
+    };
+
     const formik = useFormik({
         initialValues: loadSavedValues() || {
             companyName: '',
@@ -69,8 +79,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         onSubmit: (values) => {
             localStorage.removeItem('legalEntityForm');
             console.log('Форма відправлена', values);
-            setOpenSuccessModal(true);
-            closeRegistration();
+            handleSubmit(values);
         }
     });
 
@@ -92,7 +101,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     variant="outlined"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={buildingIcon} alt="building" />
                                 </div>
@@ -122,7 +131,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={personIcon} alt="user" />
                                 </div>
@@ -152,7 +161,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={phoneIcon} alt="phone" />
                                 </div>
@@ -178,8 +187,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     sx={{
                         backgroundColor: 'var(--bg-color-form)',
                         boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px',
-                        
+                        borderRadius: '5px'
                     }}
                     fullWidth
                     placeholder="Електронна пошта"
@@ -187,7 +195,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={emailIcon} alt="email" />
                                 </div>
@@ -213,8 +221,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     sx={{
                         backgroundColor: 'var(--bg-color-form)',
                         boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px',
-                        
+                        borderRadius: '5px'
                     }}
                     fullWidth
                     placeholder="Код адміністратора"
@@ -222,7 +229,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     margin="dense"
                     InputProps={{
                         startAdornment: (
-                            <InputAdornment sx={{ transform: 'translateX(-13px)' }}>
+                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
                                 <div className={style.iconsContainer}>
                                     <img className={style.icons} src={lockIcon} alt="lock" />
                                 </div>
@@ -273,8 +280,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     sx={{
                         backgroundColor: 'var(--bg-color-form)',
                         boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px',
-                       
+                        borderRadius: '5px'
                     }}
                     fullWidth
                     variant="outlined"
@@ -305,7 +311,22 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
                     helperText={formik.touched.tokenCode && formik.errors.tokenCode}
                 />
-                <Snackbar open={copySuccess} autoHideDuration={3000} onClose={() => setCopySuccess(false)} message="Токен скопійовано" />
+                <Snackbar
+                    open={copySuccess}
+                    autoHideDuration={500}
+                    onClose={() => setCopySuccess(false)}
+                    message="Токен скопійовано"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    sx={{
+                        position: 'absolute',
+                        top: '500px',
+                        bottom: '0',
+                        left: '0',
+                        right: '0',
+
+                        maxWidth: '400px'
+                    }}
+                />
                 <Box sx={{ mt: 2 }}>
                     <FormControlLabel
                         control={
@@ -334,7 +355,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                 <Box sx={{ mt: 2, textAlign: 'center' }}>
                     <VButton
                         type="submit"
-                        label="Зареєструватися"
+                        label="ЗАРЕЄСТРУВАТИСЯ"
                         buttonStyles={{
                             background: 'var(--button-color-grey)',
                             textColor: 'var(--font-color-primary)',

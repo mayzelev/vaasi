@@ -8,11 +8,12 @@ import VButton from '../../components/UI/VButton/VButton';
 import sfereImg from '../../assets/mainPageImg/sfere.png';
 import logoImg from '../../assets/mainPageImg/logo.png';
 import watchImg from '../../assets/mainPageImg/watch.png';
-import useRegistrationStore from '../../store/useRegistrationStore';
+
+import useAuthStore from '../../store/useAuthStore';
 
 
 export default function Header() {
-    const { openRegistration } = useRegistrationStore();
+    const { openRegistration, openLogin } = useAuthStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
@@ -35,6 +36,7 @@ export default function Header() {
             </ListItem>
             <ListItemButton>
                 <VButton
+                    onClick={openLogin}
                     label="Увійти"
                     buttonStyles={{
                         background: 'var(--gradient-button)',
@@ -53,9 +55,7 @@ export default function Header() {
                 />
             </ListItemButton>
             <ListItemButton>
-                <button onClick={openRegistration}>
-                    Реєстрація
-                </button>
+                <button onClick={openRegistration}>Реєстрація</button>
             </ListItemButton>
             <ListItemButton>
                 <Link to="/natural-persons">Фізичні особи</Link>
@@ -131,6 +131,7 @@ export default function Header() {
 
                                 <div className={style.separator}></div>
                                 <VButton
+                                    onClick={openLogin}
                                     label="Увійти"
                                     buttonStyles={{
                                         background: 'var(--gradient-button)',
@@ -161,18 +162,7 @@ export default function Header() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Drawer
-                        anchor="right"
-                        open={drawerOpen}
-                        onClose={toggleDrawer(false)}
-                        // sx={{
-                        //     '& .MuiDrawer-paper': {
-                        //         width: '100%',
-                        //         height: '100%', // Займає весь екран
-                        //         backgroundColor: 'white' // Зміна кольору фону
-                        //     }
-                        // }}
-                    >
+                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                         {menuItems}
                     </Drawer>
                 </Toolbar>

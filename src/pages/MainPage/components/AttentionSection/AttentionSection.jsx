@@ -1,10 +1,16 @@
 import style from './AttentionSection.module.css';
 import VButton from '../../../../components/UI/VButton/VButton';
 import bankImg from '../../../../assets/mainPageImg/BankMain.png';
-import useRegistrationStore from '../../../../store/useRegistrationStore';
+import useAuthStore from '../../../../store/useAuthStore';
+// import { useEffect } from 'react';
+// import { getUsers } from '../../../../api/apiUsers';
 
 export default function AttentionSection() {
-    const { openRegistration } = useRegistrationStore();
+    const { openRegistration } = useAuthStore();
+
+    // useEffect(() => {
+    //   getUsers()
+    // }, []);
 
     return (
         <div className="container">

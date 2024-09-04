@@ -3,10 +3,11 @@ import style from './InfoSection.module.css';
 import VButton from '../../../../components/UI/VButton/VButton';
 import peopleImg from '../../../../assets/mainPageImg/people.png';
 import factoryImg from '../../../../assets/mainPageImg/factory.png';
-import useRegistrationStore from '../../../../store/useRegistrationStore';
+
+import useAuthStore from '../../../../store/useAuthStore';
 
 export default function InfoSection() {
-    const { openRegistration } = useRegistrationStore();
+    const { openRegistration, openLogin } = useAuthStore();
 
     const handleOpenLegalEntityRegistration = () => {
         openRegistration({ initialTab: 0 });
@@ -54,6 +55,7 @@ export default function InfoSection() {
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
                                         <VButton
+                                            onClick={openLogin}
                                             label="Увійти"
                                             buttonStyles={{
                                                 background: 'var(--gradient-button)',
@@ -125,6 +127,7 @@ export default function InfoSection() {
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
                                         <VButton
+                                            onClick={openLogin}
                                             label="Увійти"
                                             buttonStyles={{
                                                 background: 'var(--gradient-button)',
