@@ -1,3 +1,7 @@
+.button {
+    align-items: center;
+    width: 100%;
+}
 
 .registration {
     text-decoration: underline;
