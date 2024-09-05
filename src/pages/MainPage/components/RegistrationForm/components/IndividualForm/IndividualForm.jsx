@@ -328,7 +328,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         <span className={style.agreeCheck}>
                             Я ознайомився та погоджуюся з{' '}
                             <strong>
-                                <a className={style.link} href="/terms-of-use" target="_blank" rel="noopener noreferrer">
+                                <a className={style.link} href="/terms-of-use-code-vaasi" target="_blank" rel="noopener noreferrer">
                                     правилами користування кодами VAASI
                                 </a>
                             </strong>

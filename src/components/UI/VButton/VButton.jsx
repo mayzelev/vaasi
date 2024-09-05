@@ -15,7 +15,7 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     height: customstyles.height || 'auto',
     width: customstyles.width || '100%',
     maxWidth: customstyles.maxWidth,
-    transition: customstyles.transition || 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease',
+    transition: customstyles.transition || 'background 0.3s ease, border-color 1s ease, color 0.3s ease', // Додаємо плавний перехід
     fontFamily: [
         '-apple-system',
         'BlinkMacSystemFont',
@@ -40,7 +40,11 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
         borderColor: customstyles.activeBorderColor || 'var(--button-border-color-active)'
     },
     '&:focus': {
-        boxShadow: customstyles.focusBoxShadow || '0 0 0 0.2rem rgba(238, 65, 59, 0.5)'
+        borderColor: customstyles.focusBorderColor || '#0063cc',
+        transition: 'border-color 0.3s ease'
+    },
+    '&:focus-visible': {
+        borderColor: 'var(--button-color-active)'
     }
 }));
 
@@ -66,6 +70,7 @@ VButton.propTypes = {
         hoverBorderColor: PropTypes.string,
         activeBackgroundColor: PropTypes.string,
         activeBorderColor: PropTypes.string,
+        focusBorderColor: PropTypes.string,
         focusBoxShadow: PropTypes.string,
         height: PropTypes.string,
         width: PropTypes.string,

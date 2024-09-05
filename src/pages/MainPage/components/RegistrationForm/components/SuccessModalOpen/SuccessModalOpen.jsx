@@ -36,8 +36,7 @@ export default function SuccessModalOpen({ openSuccessModal, setOpenSuccessModal
                     ВІТАЄМО!
                 </h2>
                 <p id="success-modal-description" className={style.description}>
-                    Ви успішно зареєстровані. Використовуйте токен <br /> для входу в особистий кабінет. Виконайте наступні кроки для
-                    завершення реєстрації на порталі.
+                    Ви успішно зареєстровані.<br /> Використовуйте токен для входу в особистий кабінет.
                 </p>
             </Box>
         </Modal>
