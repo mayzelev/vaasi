@@ -14,14 +14,14 @@ const FlagIcon = styled('img')({
 });
 
 const LanguageSelect = () => {
-    const [language, setLanguage] = useState('UKR');
+    const [language, setLanguage] = useState('UA');
 
     const handleChange = (event) => {
         setLanguage(event.target.value);
     };
 
     return (
-        <FormControl sx={{ minWidth: 120 }}>
+        <FormControl sx={{ minWidth: 100 }}>
             <Select
                 value={language}
                 onChange={handleChange}
@@ -31,10 +31,11 @@ const LanguageSelect = () => {
                     disableScrollLock: true,
                     PaperProps: {
                         sx: {
-                            maxHeight: '400px',
+                            maxHeight: '100%',
                             '& .MuiMenu-list': {
                                 height: '110px',
-                                width: '187px'
+                                width: '100%',
+                                maxWidth: '120px'
                             }
                         }
                     }
@@ -56,7 +57,7 @@ const LanguageSelect = () => {
                     '.MuiOutlinedInput-notchedOutline': { border: 0 },
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': { border: 0 },
                     '& .MuiSelect-select': {
-                        paddingLeft: '8px',
+                        paddingLeft: '25px',
                         paddingRight: '8px',
                         display: 'flex',
                         alignItems: 'center',
@@ -69,27 +70,27 @@ const LanguageSelect = () => {
                         justifyContent: 'center',
                         order: -1,
                         right: 'unset',
-                        left: '7px',
+                        left: '8px',
                         top: 'unset'
                     }
                 }}
             >
-                <MenuItem value="UKR" className={s.languageItem}>
+                <MenuItem value="UA" className={s.languageItem}>
                     <Box display="flex" alignItems="center">
                         <FlagIcon src={UkraineFlag} alt="Ukraine Flag" />
-                        <div className={s.languageFont}>UKR</div>
+                        <div className={s.languageFont}>UA</div>
                     </Box>
                 </MenuItem>
-                <MenuItem value="DEU" className={s.languageItem}>
-                    <Box display="flex" alignItems="center">
-                        <FlagIcon src={GermanyFlag} alt="Germany Flag" />
-                        <div className={s.languageFont}>DEU</div>
-                    </Box>
-                </MenuItem>
-                <MenuItem value="ENG" className={s.languageItem}>
+                <MenuItem value="EN" className={s.languageItem}>
                     <Box display="flex" alignItems="center">
                         <FlagIcon src={USFlag} alt="US Flag" />
-                        <div className={s.languageFont}>ENG</div>
+                        <div className={s.languageFont}>EN</div>
+                    </Box>
+                </MenuItem>
+                <MenuItem value="DE" className={s.languageItem}>
+                    <Box display="flex" alignItems="center">
+                        <FlagIcon src={GermanyFlag} alt="Germany Flag" />
+                        <div className={s.languageFont}>DE</div>
                     </Box>
                 </MenuItem>
             </Select>

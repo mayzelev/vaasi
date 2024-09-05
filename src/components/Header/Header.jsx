@@ -11,7 +11,6 @@ import watchImg from '../../assets/mainPageImg/watch.png';
 
 import useAuthStore from '../../store/useAuthStore';
 
-
 export default function Header() {
     const { openRegistration, openLogin } = useAuthStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
