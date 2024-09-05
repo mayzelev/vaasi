@@ -27,7 +27,7 @@ vaasiApiClient.interceptors.response.use(
         if (error.response.status === 401) {
             //main page redirect
         }
-        return error;
+        return Promise.reject(error);
     }
 );
 

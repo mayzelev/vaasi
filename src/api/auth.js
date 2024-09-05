@@ -1,5 +1,7 @@
 import vaasiApiClient from './apiClient';
 
+export const INVALID_USER = 'Invalid user';
+
 export function authUser(body) {
     return vaasiApiClient.post(`/auth/user/signup`, body);
 }

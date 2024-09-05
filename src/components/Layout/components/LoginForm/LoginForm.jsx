@@ -5,7 +5,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import VButton from '../../../../components/UI/VButton/VButton';
 import style from './LoginForm.module.css';
 import useAuthStore from '../../../../store/useAuthStore';
-import { loginUser } from '../../../../api/auth';
+import { INVALID_USER, loginUser } from '../../../../api/auth';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,6 +18,7 @@ const validationSchema = Yup.object({
 export default function LoginForm() {
     const { openRegistration, IsLoginOpen, closeLogin, setToken } = useAuthStore();
     const [isTooltipVisible, setTooltipVisible] = useState(false);
+    const [authError, setAuthError] = useState(null);
 
     const formik = useFormik({
         initialValues: {
@@ -31,10 +32,16 @@ export default function LoginForm() {
     });
 
     const handleSubmit = ({ tokenCode: token }) => {
-        loginUser({ token }).then((res) => {
-            setToken(res.data.token);
-            closeLogin();
-        });
+        loginUser({ token })
+            .then((res) => {
+                setToken(res.data.token);
+                closeLogin();
+            })
+            .catch((e) => {
+                if (INVALID_USER === e?.response?.data?.message) {
+                    setAuthError('Перевірте свій токен та повторіть спробу!');
+                }
+            });
     };
 
     return (
@@ -107,10 +114,15 @@ export default function LoginForm() {
                         id="tokenCode"
                         name="tokenCode"
                         value={formik.values.tokenCode}
-                        onChange={formik.handleChange}
+                        onChange={(params) => {
+                            formik.handleChange(params);
+                            if (authError) {
+                                setAuthError(null);
+                            }
+                        }}
                         onBlur={formik.handleBlur}
-                        error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
-                        helperText={formik.touched.tokenCode && formik.errors.tokenCode}
+                        error={!!authError || (formik.touched.tokenCode && Boolean(formik.errors.tokenCode))}
+                        helperText={authError || (formik.touched.tokenCode && formik.errors.tokenCode)}
                     />
 
                     {isTooltipVisible && (
@@ -132,48 +144,25 @@ export default function LoginForm() {
                         </Box>
                     )}
                 </Box>
-                <Box sx={{ display: 'flex' }}>
-                    <div className={style.buttons}>
-                        <div className={style.buttonSize}>
-                            <VButton
-                                onClick={formik.handleSubmit}
-                                label="ВХІД"
-                                buttonStyles={{
-                                    background: 'var(--gradient-button)',
-                                    textColor: 'var(--button-color-white)',
-                                    fontSize: 16,
-                                    padding: '8px 8px',
-                                    borderRadius: '50px',
-                                    lineHeight: '19.2px',
-                                    borderColor: 'none',
-                                    hoverBackground: 'var(--button-color-hover)',
-                                    hoverBorderColor: 'transparent',
-                                    height: '35px',
-                                    maxWidth: '234px',
-                                    transition: 'background 0.3s ease'
-                                }}
-                            />
-
-                            <VButton
-                                label="ПЕРЕВІРИТИ ТОКЕН"
-                                buttonStyles={{
-                                    background: 'var(--button-color-grey)',
-                                    textColor: 'var(--font-color-primary)',
-                                    fontSize: 16,
-                                    padding: '8px 8px',
-                                    borderRadius: '50px',
-                                    lineHeight: '19.2px',
-                                    borderColor: 'none',
-                                    hoverColor: 'white',
-                                    hoverBackground: 'var(--button-color-hover)',
-                                    hoverBorderColor: 'transparent',
-                                    height: '35px',
-                                    maxWidth: '234px',
-                                    transition: 'background 0.3s ease'
-                                }}
-                            />
-                        </div>
-                    </div>
+                <Box sx={{ display: 'flex', mb: '15px' }}>
+                    <VButton
+                        onClick={formik.handleSubmit}
+                        label="ВХІД"
+                        buttonStyles={{
+                            background: 'var(--gradient-button)',
+                            textColor: 'var(--button-color-white)',
+                            fontSize: 16,
+                            padding: '8px 8px',
+                            borderRadius: '50px',
+                            lineHeight: '19.2px',
+                            borderColor: 'none',
+                            hoverBackground: 'var(--button-color-hover)',
+                            hoverBorderColor: 'transparent',
+                            height: '35px',
+                            maxWidth: '540px',
+                            transition: 'background 0.3s ease'
+                        }}
+                    />
                 </Box>
                 <Typography variant="body2" sx={{ textAlign: 'center' }}>
                     Немає токена?{' '}

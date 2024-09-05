@@ -33,7 +33,6 @@ const LanguageSelect = () => {
                         sx: {
                             maxHeight: '100%',
                             '& .MuiMenu-list': {
-                                height: '110px',
                                 width: '100%',
                                 maxWidth: '120px'
                             }
