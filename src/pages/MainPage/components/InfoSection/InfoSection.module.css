@@ -17,7 +17,7 @@
 
 .container {
     display: flex;
-    transform: translateX(-95px);
+    transform: translateX(-90px);
 }
 
 .content {
@@ -250,7 +250,7 @@
     }
     .container {
         display: flex;
-        transform: translateX(-77px);
+        transform: translateX(-75px);
     }
     .descriptionBottom {
         margin-bottom: 37px;
