@@ -32,9 +32,6 @@ export default function InfoSection() {
                                     <div className={style.lineContainer}>
                                         <div className={style.verticalLine}>
                                             <div className={`${style.circle} ${style.large}`}></div>
-                                            <div className={`${style.circle} ${style.small} ${style.firstCircle}`}></div>
-                                            <div className={`${style.circle} ${style.small} ${style.secondCircle}`}></div>
-                                            <div className={`${style.circle} ${style.small}`}></div>
                                         </div>
                                     </div>
                                     <div>
@@ -104,9 +101,6 @@ export default function InfoSection() {
                                     <div className={style.lineContainer}>
                                         <div className={style.verticalLine2}>
                                             <div className={`${style.circle2} ${style.large2}`}></div>
-                                            <div className={`${style.circle2} ${style.small2} ${style.firstCircle2}`}></div>
-                                            <div className={`${style.circle2} ${style.small2} ${style.secondCircle2}`}></div>
-                                            <div className={`${style.circle2} ${style.small2}`}></div>
                                         </div>
                                     </div>
                                     <div>

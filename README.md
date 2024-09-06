@@ -1,7 +1,7 @@
 # VAASI
 Demo link: [DEMO](https://mayzelev.github.io/vaasi/)
 
-Simple web application VAASI [API](https://api.exemple.com).
+Simple web application VAASI [API](https://www.devsm.space/api/).
 Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-International-Group?node-id=263-1408&node-type=&t=wFSP002kpo7WoV3E-0).
 
 # Technologies used

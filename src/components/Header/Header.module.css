@@ -5,6 +5,8 @@
     background-color: var(--main-bg-color);
     box-shadow: 0px 2px 15px 0px var(--dropShadow-header-color);
     padding: unset;
+    z-index: 20;
+    position: relative;
 }
 
 .header {

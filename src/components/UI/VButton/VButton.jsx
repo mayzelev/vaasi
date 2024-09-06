@@ -15,7 +15,8 @@ const StyledButton = styled(Button)(({ theme, customstyles }) => ({
     height: customstyles.height || 'auto',
     width: customstyles.width || '100%',
     maxWidth: customstyles.maxWidth,
-    transition: customstyles.transition || 'background 0.3s ease, border-color 1s ease, color 0.3s ease', // Додаємо плавний перехід
+    transition: customstyles.transition || 'background 0.3s ease, border-color 1s ease, color 0.3s ease',
+    zIndex: customstyles.zIndex || '10',
     fontFamily: [
         '-apple-system',
         'BlinkMacSystemFont',
@@ -76,7 +77,8 @@ VButton.propTypes = {
         width: PropTypes.string,
         transition: PropTypes.string,
         hoverColor: PropTypes.string,
-        maxWidth: PropTypes.string
+        maxWidth: PropTypes.string,
+        zIndex: PropTypes.number,
     }),
     disableRipple: PropTypes.bool,
     onClick: PropTypes.func,

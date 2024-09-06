@@ -1,156 +1,121 @@
 .container {
-  width: 1924px;
-  height: 567px;
-  background-image: url(../../assets/backCalculator.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-image: url(../../../../assets/naturalPageImg/moneyTop.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 679px;
+}
+
+.containerGirl {
+  
+    background-image: url(../../../../assets/naturalPageImg/girl.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right 40% top -58px;
+    height: 679px;
+    z-index: -1;
+    position: relative;
 }
 
 .containerTop {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  height: 270px;
-}
-
-.containerBottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  width: 1107px;
-  height: 253px;
-  background: url(../../assets/moneyBcg.png) no-repeat center/cover;
-  border-radius: 20px;
-  overflow: hidden;
-
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.13);
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 22%;
 }
 
 .card {
-  width: 467px;
-  height: 200px;
-  border-radius: 10px;
-  background-color: transparent;
+    z-index: 999;
+    max-width: 467px;
+    width: 100%;
+    margin-top: 100px;
 }
 
 .containerForLine {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .lineContainer {
-  margin-top: 10px;
-  width: 5px;
+    margin-top: 10px;
+    width: 5px;
 }
 
 .verticalLine {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 230px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .verticalLine::before {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background-color: var(--separate-line-main-color);
-  z-index: 0;
-}
-
-.circle {
-  background: var(--gradient-button);
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.large {
-  width: 9px;
-  height: 41px;
-  border-radius: 50px;
-}
-
-.small {
-  width: 9px;
-  height: 9px;
-}
-
-.bankImg {
-  width: 306px;
-  height: 352px;
-  transform: translateY(-130px);
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--separate-line-main-color);
+    z-index: 0;
 }
 
 .cardTitle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    max-width: 612px;
+    height: 267px;
+    width: 100%;
 }
 
 .cardTitleFirst {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 60px;
-  color: var(--font-color-primary);
+    position: relative;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    color: var(--font-color-primary);
+}
+
+.cardTitleFirst::before {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 70%;
+    border-radius: 50px;
+    background: var(--gradient-button);
+    left: -26px;
+    top: 0;
+    margin-top: 10px;
 }
 
 .cardTitleSecond {
-  font-style: normal;
-  font-weight: 900;
-  font-size: 50px;
-  line-height: 60px;
-  color: var(--font-color-thirdy);
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 250;
+    line-height: normal;
+    color: var(--font-color-primary);
+}
+
+.description {
+    margin-bottom: 10px;
 }
 
 .subDescription1 {
-font-style: normal;
-font-weight: 900;
-font-size: 16px;
-line-height: 19px;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 
-color: var(--font-color-primary);
-margin-bottom: 10px;
+    color: var(--font-color-primary);
+    margin-bottom: 10px;
 }
 
 .subDescription2 {
-  font-style: normal;
-  font-weight: 250;
-  font-size: 16px;
-  line-height: 19px;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 
-  color: var(--font-color-secondary);
-}
-
-.headerTitle {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 45px;
-  line-height: 54px;
-  text-align: center;
-  text-transform: uppercase;
-
-  color: var(--font-color-fourthy);
-}
-
-.subTitle {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-
-  color: var(--font-color-fourthy);
-  margin-bottom: 11px;
+    color: var(--font-color-six);
 }
