@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, TextField, Typography, IconButton, Modal, Tabs, Tab } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import style from './LoginForm.module.css';
-import useAuthStore from '../../store/useAuthStore.js';
-import { INVALID_USER, loginCompany,  } from '../../api/auth';
+import useAuthStore from '../../store/useAuthStore';
+import { INVALID_USER, loginCompany, loginUser } from '../../api/auth';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import VButton from '../VButton';

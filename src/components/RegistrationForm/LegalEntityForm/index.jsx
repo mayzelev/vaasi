@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -13,7 +13,7 @@ import lockIcon from '../../../assets/icons/lock.svg';
 import hyperLink from '../../../assets/icons/Hyperlink.svg';
 import style from './LegalEntityForm.module.css';
 import { authCompany } from '../../../api/auth.js';
-import useAuthStore from '../../../store/useAuthStore.js';
+import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
 
 const validationSchema = Yup.object({

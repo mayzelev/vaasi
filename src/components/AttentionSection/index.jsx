@@ -1,7 +1,7 @@
 import style from './AttentionSection.module.css';
 import VButton from '../VButton';
 import bankImg from '../../assets/img/BankMain.png';
-import useAuthStore from '../../store/useAuthStore.js';
+import useAuthStore from '../../store/useAuthStore';
 
 export default function AttentionSection() {
     const { openRegistration } = useAuthStore();

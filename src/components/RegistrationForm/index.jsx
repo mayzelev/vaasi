@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, Box, Tab, Tabs, IconButton } from '@mui/material';
-import useAuthStore from '../../store/useAuthStore.js';
+import useAuthStore from '../../store/useAuthStore';
 import LegalEntityForm from './LegalEntityForm';
 import IndividualForm from './IndividualForm';
 import CloseIcon from '@mui/icons-material/Close';

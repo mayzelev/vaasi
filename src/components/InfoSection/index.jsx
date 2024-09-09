@@ -4,7 +4,7 @@ import VButton from '../VButton';
 import peopleImg from '../../assets/icons/people.png';
 import factoryImg from '../../assets/icons/factory.png';
 
-import useAuthStore from '../../store/useAuthStore.js';
+import useAuthStore from '../../store/useAuthStore';
 
 export default function InfoSection() {
     const { openRegistration, openLogin } = useAuthStore();
