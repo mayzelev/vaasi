@@ -3,6 +3,7 @@ import './App.css';
 import MainPage from './pages/MainPage/MainPage';
 import NaturalPersonPage from './pages/NaturalPersonPage/NaturalPersonPage';
 import DefaultLayout from './components/Layout/DefaultLayout';
+import LegalEntitiesPage from './pages/LegalEntitiesPage/LegalEntitiesPage';
 
 function App() {
     return (
@@ -28,7 +29,7 @@ function App() {
                     path="/legal-entities"
                     element={
                         <DefaultLayout>
-                            <NaturalPersonPage />
+                            <LegalEntitiesPage />
                         </DefaultLayout>
                     }
                 />

@@ -1,17 +1,17 @@
 import React from 'react';
 import PersonMainSection from '../PersonMainSection/PersonMainSection';
-import girlImg from '../../assets/naturalPageImg/girl.png';
-import backgroundImg from '../../assets/naturalPageImg/moneyTop.png'
+import girlImg from '../../assets/naturalPageImg/girlLegal.png';
+import backgroundImg from '../../assets/naturalPageImg/moneyLegal.png';
 
-export default function NaturalPersonMainSection() {
+export default function LegalMainSection() {
     return (
         <PersonMainSection
             girlImgSrc={girlImg}
-            mainTitle="Занурюйся"
-            subTitle="у світ цифрових можливостей"
-            subDescription1="Отримуй переваги співпраці разом з"
+            mainTitle="МИ Єднаємо"
+            subTitle="Реальний та цифровий світ у бізнесі"
+            subDescription1="Відкрийте нові можливості для вашого бізнесу з"
             subDescription2="VAASI INTERNATIONAL GROUP"
-            buttonLabel="ОТРИМАТИ ПЕРЕВАГИ"
+            buttonLabel="ВІДКРИТИ МОЖЛИВОСТІ"
             buttonStyles={{
                 background: 'var(--gradient-button)',
                 textColor: 'var(--button-color-white)',
@@ -23,7 +23,7 @@ export default function NaturalPersonMainSection() {
                 hoverBackground: 'var(--button-color-hover)',
                 hoverBorderColor: 'transparent',
                 height: '35px',
-                maxWidth: '221px',
+                maxWidth: '268px',
                 transition: 'background 0.3s ease',
                 zIndex: 20
             }}

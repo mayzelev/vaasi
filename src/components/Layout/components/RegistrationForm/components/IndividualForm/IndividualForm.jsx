@@ -92,7 +92,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <Box sx={{ mt: -1 }}>
+            <Box sx={{ mt: 1 }}>
                 <TextField
                     sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth

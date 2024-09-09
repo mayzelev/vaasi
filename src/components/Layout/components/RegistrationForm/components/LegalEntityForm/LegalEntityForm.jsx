@@ -99,6 +99,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     fullWidth
                     placeholder="Назва підприємства"
                     variant="outlined"
+                    margin="dense"
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
