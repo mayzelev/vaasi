@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './NaturalPersonMainSection.module.css';
-import VButton from '../../../../components/UI/VButton/VButton';
+import VButton from '../UI/VButton/VButton';
 
 export default function NaturalPersonMainSection() {
     return (

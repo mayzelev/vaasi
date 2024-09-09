@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Box, TextField, Typography, IconButton, Modal } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, TextField, Typography, IconButton, Modal, Tabs, Tab } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import VButton from '../../../../components/UI/VButton/VButton';
 import style from './LoginForm.module.css';
 import useAuthStore from '../../../../store/useAuthStore';
-import { INVALID_USER, loginUser } from '../../../../api/auth';
+import { INVALID_USER, loginCompany, loginUser } from '../../../../api/auth';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -16,9 +16,16 @@ const validationSchema = Yup.object({
 });
 
 export default function LoginForm() {
-    const { openRegistration, IsLoginOpen, closeLogin, setToken } = useAuthStore();
+    const { openRegistration, IsLoginOpen, closeLogin, setToken, initialTabLogin } = useAuthStore();
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const [authError, setAuthError] = useState(null);
+    const [activeTab, setActiveTab] = useState(initialTabLogin);
+
+    useEffect(() => {
+        setActiveTab(initialTabLogin);
+    }, [initialTabLogin]);
+
+    const handleTabChange = (event, newValue) => setActiveTab(newValue);
 
     const formik = useFormik({
         initialValues: {
@@ -26,22 +33,44 @@ export default function LoginForm() {
         },
         validationSchema,
         onSubmit: (values) => {
-            console.log('Login відправлена', values);
             handleSubmit(values);
         }
     });
 
     const handleSubmit = ({ tokenCode: token }) => {
-        loginUser({ token })
-            .then((res) => {
-                setToken(res.data.token);
-                closeLogin();
-            })
-            .catch((e) => {
-                if (INVALID_USER === e?.response?.data?.message) {
-                    setAuthError('Перевірте свій токен та повторіть спробу!');
-                }
-            });
+        if (activeTab === 0) {
+            loginCompany({ token })
+                .then((res) => {
+                    if (res.data.token) {
+                        setToken(res.data.token);
+                        closeLogin();
+                    } else {
+                        setAuthError('Не вдалося отримати токен');
+                    }
+                })
+                .catch((e) => {
+                    if (INVALID_USER === e?.response?.data?.message) {
+                        setAuthError('Перевірте свій токен та повторіть спробу!');
+                    }
+                });
+        }
+
+        if (activeTab === 1) {
+            loginUser({ token })
+                .then((res) => {
+                    if (res.data.token) {
+                        setToken(res.data.token);
+                        closeLogin();
+                    } else {
+                        setAuthError('Не вдалося отримати токен');
+                    }
+                })
+                .catch((e) => {
+                    if (INVALID_USER === e?.response?.data?.message) {
+                        setAuthError('Перевірте свій токен та повторіть спробу!');
+                    }
+                });
+        }
     };
 
     return (
@@ -84,7 +113,49 @@ export default function LoginForm() {
                 >
                     ЛОГІН
                 </Typography>
+                <Tabs
+                    value={activeTab}
+                    onChange={handleTabChange}
+                    centered
+                    sx={{
+                        '.MuiTabs-indicator': {
+                            backgroundColor: 'var(--button-color-active)'
+                        }
+                    }}
+                >
+                    <Tab
+                        sx={{
+                            textAlign: 'center',
+                            fontWeight: '600',
+                            fontSize: '16px',
+                            lineHeight: '22px',
+                            padding: '0 20px',
 
+                            color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit'
+                        }}
+                        label="Юридичні особи"
+                        style={{
+                            color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit'
+                        }}
+                    />
+                    <Tab
+                        sx={{
+                            textAlign: 'center',
+                            fontWeight: '600',
+                            fontSize: '16px',
+                            lineHeight: '22px',
+                            padding: '0 30px',
+                            color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit'
+                        }}
+                        label="Фізичні особи"
+                        style={{
+                            color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit'
+                        }}
+                    />
+                </Tabs>
+                <Box>
+                    <div className={style.line}></div>
+                </Box>
                 <Box sx={{ position: 'relative', marginBottom: '20px' }}>
                     <Typography>
                         Токен

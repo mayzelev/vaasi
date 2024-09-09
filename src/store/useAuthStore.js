@@ -9,13 +9,19 @@ const useAuthStore = create((set) => ({
     closeRegistration: () => set({ isRegistrationOpen: false, initialTab: 0 }),
 
     IsLoginOpen: false,
-    openLogin: () => set({ IsLoginOpen: true }),
-    closeLogin: () => set({ IsLoginOpen: false }),
+    initialTabLogin: 0,
+    openLogin: (config) => set({ IsLoginOpen: true, initialTabLogin: config.initialTabLogin || 0 }),
+    closeLogin: () => set({ IsLoginOpen: false, initialTabLogin: 0 }),
 
-    isAuthorized: localStorage.getItem(TOKEN_KEY) || false,
+    isAuthorized: !!localStorage.getItem(TOKEN_KEY),
     setToken: (token) => {
         set({ isAuthorized: true });
         localStorage.setItem(TOKEN_KEY, token);
+    },
+
+    logout: () => {
+        localStorage.removeItem(TOKEN_KEY);
+        set({ isAuthorized: false });
     }
 }));
 

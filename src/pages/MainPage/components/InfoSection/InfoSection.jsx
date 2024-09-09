@@ -16,6 +16,13 @@ export default function InfoSection() {
     const handleOpenIndividualRegistration = () => {
         openRegistration({ initialTab: 1 });
     };
+    const handleOpenLegalLogin = () => {
+        openLogin({ initialTabLogin: 0 });
+    };
+
+    const handleOpenIndividualLogin = () => {
+        openLogin({ initialTabLogin: 1 });
+    };
 
     return (
         <div className="container">
@@ -52,7 +59,7 @@ export default function InfoSection() {
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
                                         <VButton
-                                            onClick={openLogin}
+                                            onClick={handleOpenIndividualLogin}
                                             label="Увійти"
                                             buttonStyles={{
                                                 background: 'var(--gradient-button)',
@@ -121,7 +128,7 @@ export default function InfoSection() {
                                 <div className={style.buttons}>
                                     <div className={style.buttonSize}>
                                         <VButton
-                                            onClick={openLogin}
+                                            onClick={handleOpenLegalLogin}
                                             label="Увійти"
                                             buttonStyles={{
                                                 background: 'var(--gradient-button)',
