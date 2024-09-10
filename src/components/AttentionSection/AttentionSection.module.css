@@ -1,0 +1,202 @@
+.container {
+    background-image: url(../../assets/img/backCalculator.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerTop {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 270px;
+}
+
+.containerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 1107px;
+    padding: 77px 90px 55px 90px;
+    background: url(../../assets/img/moneyBcg.png) no-repeat center/cover;
+    border-radius: 20px;
+    overflow: hidden;
+
+    margin-bottom: 60px;
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.containerForLine {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.lineContainer {
+    margin-top: 10px;
+    width: 5px;
+}
+
+.verticalLine {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 230px;
+}
+
+.verticalLine::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--separate-line-main-color);
+    z-index: 0;
+}
+
+.circle {
+    background: var(--gradient-button);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.large {
+    width: 9px;
+    height: 41px;
+    border-radius: 50px;
+}
+
+.small {
+    width: 9px;
+    height: 9px;
+}
+
+.bankImg {
+    width: 100%;
+    max-width: 306px;
+    height: 352px;
+    transform: translateY(-130px);
+}
+
+.cardTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+}
+
+.cardTitleFirst {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 60px;
+    color: var(--font-color-primary);
+}
+
+.cardTitleSecond {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 60px;
+    color: var(--font-color-thirdy);
+}
+
+.subDescription1 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: var(--font-color-primary);
+    margin-bottom: 10px;
+}
+
+.subDescription2 {
+    font-style: normal;
+    font-weight: 250;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: var(--font-color-secondary);
+}
+
+.headerTitle {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--font-color-fourthy);
+}
+
+.subTitle {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: var(--font-color-fourthy);
+    margin-bottom: 11px;
+}
+
+@media (max-width: 1024px) {
+    .containerBottom {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerBottom {
+        padding: 40px;
+    }
+    .bankImg {
+        display: none;
+    }
+    .headerTitle {
+        font-size: 36px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .containerBottom {
+        padding: 30px 10px;
+    }
+    .cardTitleFirst {
+        font-size: 40px;
+    }
+    .cardTitleSecond {
+        font-size: 40px;
+    }
+    .containerTop {
+        padding: 10px;
+        transform: translateY(-60px);
+    }
+    .headerTitle {
+        font-size: 24px;
+        margin-bottom: 11px;
+    }
+    .subTitle {
+        font-size: 9px;
+        margin-bottom: 11px;
+    }
+    .verticalLine {
+        height: 250px;
+    }
+}

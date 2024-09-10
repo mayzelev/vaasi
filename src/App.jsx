@@ -1,9 +1,9 @@
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import MainPage from './pages/MainPage/MainPage';
-import NaturalPersonPage from './pages/NaturalPersonPage/NaturalPersonPage';
 import DefaultLayout from './components/Layout/DefaultLayout';
-import LegalEntitiesPage from './pages/LegalEntitiesPage/LegalEntitiesPage';
+import NaturalPersonPage from './pages/NaturalPersonPage';
+import LegalEntitiesPage from './pages/LegalEntitiesPage/index.jsx';
+import MainPage from './pages/MainPage/index.jsx';
 
 function App() {
     return (

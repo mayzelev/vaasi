@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import RegistrationPopup from './components/RegistrationForm/RegistrationForm';
-import LoginForm from './components/LoginForm/LoginForm';
+import Header from '../Header';
+import RegistrationPopup from '../RegistrationForm';
+import LoginForm from '../LoginForm';
+import Footer from '../Footer';
 
 export default function DefaultLayout({ children }) {
   

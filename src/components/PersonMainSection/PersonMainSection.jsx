@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './PersonMainSection.module.css';
-import VButton from '../UI/VButton/VButton';
+import VButton from '../VButton';
 
 export default function PersonMainSection({
     girlImgSrc,
