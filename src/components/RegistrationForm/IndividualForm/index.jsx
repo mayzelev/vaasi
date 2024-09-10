@@ -84,11 +84,8 @@ export default function IndividualForm({ setOpenSuccessModal }) {
 
     useEffect(() => {
         localStorage.setItem('individualForm', JSON.stringify(formik.values));
-    }, [formik.values]);
-
-    useEffect(() => {
         formik.setFieldValue('tokenCode', tokenCode);
-    }, [tokenCode]);
+    }, [formik.values, tokenCode]);
 
     return (
         <form onSubmit={formik.handleSubmit}>
@@ -216,7 +213,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
             </Box>
             <Box sx={{ mt: 2, textAlign: 'center' }}>
                 <div className={style.attentionToken}>
-                    Обов'язково збережіть свій токен зараз, оскільки він <br /> буде використовуватися для входу в особистий кабінет
+                    Обов&apos;язково збережіть свій токен зараз, оскільки він <br /> буде використовуватися для входу в особистий кабінет
                 </div>
             </Box>
             <Box sx={{ mt: 2 }}>
