@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
+
 import style from './InfoSection.module.css';
 import VButton from '../VButton';
 import peopleImg from '../../assets/icons/people.png';
 import factoryImg from '../../assets/icons/factory.png';
-
 import useAuthStore from '../../store/useAuthStore';
 
 export default function InfoSection() {

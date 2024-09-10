@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { Box, TextField, Typography, IconButton, Modal, Tabs, Tab } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 import style from './LoginForm.module.css';
 import useAuthStore from '../../store/useAuthStore';
 import { INVALID_USER, loginCompany, loginUser } from '../../api/auth';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import VButton from '../VButton';
 
 const validationSchema = Yup.object({

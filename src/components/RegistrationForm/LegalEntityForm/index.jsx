@@ -11,6 +11,7 @@ import phoneIcon from '../../../assets/icons/phone.svg';
 import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
 import hyperLink from '../../../assets/icons/Hyperlink.svg';
+
 import style from './LegalEntityForm.module.css';
 import { authCompany } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';

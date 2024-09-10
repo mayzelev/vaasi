@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+
 import LanguageSelect from '../LanguageSelect';
+import VButton from '../VButton';
 import style from './Header.module.css';
+
 import sfereImg from '../../assets/icons/sfere.png';
 import logoImg from '../../assets/icons/logo.png';
 import watchImg from '../../assets/img/watch.png';
 
 import useAuthStore from '../../store/useAuthStore';
-import VButton from '../VButton';
 
 export default function Header() {
     const { openRegistration, openLogin } = useAuthStore();
@@ -77,7 +79,7 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <div className={style.headerRight} sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <div className={style.headerRight}>
                             <div className={style.clocks}>
                                 <div className={style.clockeItemWithImg}>
                                     <img className={style.watch} src={watchImg} alt="watch" />

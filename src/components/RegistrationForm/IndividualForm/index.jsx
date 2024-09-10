@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import Snackbar from '@mui/material/Snackbar';
+import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
+import * as Yup from 'yup';
 
 import style from './IndividualForm.module.css';
 

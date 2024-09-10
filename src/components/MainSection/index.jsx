@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+
 import style from './MainSection.module.css';
 import VButton from '../VButton';
 
 export default function MainSection() {
     return (
         <div className="container">
-            <div className={style.container} >
+            <div className={style.container}>
                 <div className={style.money} />
                 <div className={style.globus} />
                 <div className={style.mainSectionContainer}>
@@ -26,8 +27,8 @@ export default function MainSection() {
                             label="Про нас"
                             buttonStyles={{
                                 height: '35px',
-                                width: '160px',
-                                                            }}
+                                width: '160px'
+                            }}
                         />
                     </Link>
                     <div className={style.toogle}></div>
