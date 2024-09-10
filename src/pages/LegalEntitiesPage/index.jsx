@@ -1,5 +1,4 @@
-import React from 'react';
-import LegalMainSection from '../../components/LegalMainSection/LegalMainSection';
+import LegalMainSection from '../../components/LegalMainSection';
 
 export default function LegalEntitiesPage() {
     return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './PersonMainSection.module.css';
 import VButton from '../VButton';
 

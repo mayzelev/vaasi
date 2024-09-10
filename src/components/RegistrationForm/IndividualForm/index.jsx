@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import Snackbar from '@mui/material/Snackbar';
+import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
+import * as Yup from 'yup';
 
 import style from './IndividualForm.module.css';
 
@@ -84,11 +84,8 @@ export default function IndividualForm({ setOpenSuccessModal }) {
 
     useEffect(() => {
         localStorage.setItem('individualForm', JSON.stringify(formik.values));
-    }, [formik.values]);
-
-    useEffect(() => {
         formik.setFieldValue('tokenCode', tokenCode);
-    }, [tokenCode]);
+    }, [formik.values, tokenCode]);
 
     return (
         <form onSubmit={formik.handleSubmit}>
@@ -216,7 +213,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
             </Box>
             <Box sx={{ mt: 2, textAlign: 'center' }}>
                 <div className={style.attentionToken}>
-                    Обов'язково збережіть свій токен зараз, оскільки він <br /> буде використовуватися для входу в особистий кабінет
+                    Обов&apos;язково збережіть свій токен зараз, оскільки він <br /> буде використовуватися для входу в особистий кабінет
                 </div>
             </Box>
             <Box sx={{ mt: 2 }}>

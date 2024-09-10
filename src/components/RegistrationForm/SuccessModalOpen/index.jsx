@@ -1,6 +1,5 @@
 import { Box, IconButton, Modal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import React from 'react';
 import style from './SuccessModalOpen.module.css';
 
 export default function SuccessModalOpen({ openSuccessModal, setOpenSuccessModal }) {
@@ -36,7 +35,8 @@ export default function SuccessModalOpen({ openSuccessModal, setOpenSuccessModal
                     ВІТАЄМО!
                 </h2>
                 <p id="success-modal-description" className={style.description}>
-                    Ви успішно зареєстровані.<br /> Використовуйте токен для входу в особистий кабінет.
+                    Ви успішно зареєстровані.
+                    <br /> Використовуйте токен для входу в особистий кабінет.
                 </p>
             </Box>
         </Modal>

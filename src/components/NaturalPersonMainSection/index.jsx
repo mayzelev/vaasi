@@ -1,7 +1,6 @@
-import React from 'react';
-import PersonMainSection from '../PersonMainSection/PersonMainSection';
 import girlImg from '../../assets/naturalPageImg/girl.png';
 import backgroundImg from '../../assets/naturalPageImg/moneyTop.png';
+import PersonMainSection from '../PersonMainSection';
 
 export default function NaturalPersonMainSection() {
     return (

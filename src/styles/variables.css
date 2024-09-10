@@ -11,14 +11,14 @@
     /* Buttons */
     /* Button gradient */
     --button-color-white: #fff;
-    --button-color-secondary: #DFDFDF;
+    --button-color-secondary: #dfdfdf;
     --button-color-hover: linear-gradient(to bottom, #ff7067, #ff7067);
     --button-color-active: #ff7068;
     --button-border-color-active: #f57365;
     --button-gradient-color-start: #ffb6b1;
     --button-gradient-color-finish: #ff7067;
     --gradient-button: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
-    
+
     /* Button grey */
     --button-color-grey: #d9d9d9;
 
@@ -26,10 +26,8 @@
     --separator-color: #bfbfbf;
     --main-bg-color: #ffffff;
     --secndary-bg-color: #525252;
-    --dropShadow-header-color: rgba(0, 0, 0, 0.10);
+    --dropShadow-header-color: rgba(0, 0, 0, 0.1);
     --text-shadow: rgba(0, 0, 0, 0.25);
     --separate-line-main-color: #d9d9d9;
-    --bg-color-form: #F5F5F5;
+    --bg-color-form: #f5f5f5;
 }
-
-

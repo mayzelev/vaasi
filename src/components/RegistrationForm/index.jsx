@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Modal, Box, Tab, Tabs, IconButton } from '@mui/material';
+
 import useAuthStore from '../../store/useAuthStore';
 import LegalEntityForm from './LegalEntityForm';
 import IndividualForm from './IndividualForm';
 import CloseIcon from '@mui/icons-material/Close';
-import style from './RegistrationForm.module.css';
 import SuccessModalOpen from './SuccessModalOpen';
+import style from './RegistrationForm.module.css';
 
 export default function RegistrationPopup() {
     const { isRegistrationOpen, closeRegistration, initialTab } = useAuthStore();

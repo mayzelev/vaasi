@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 
-const StyledButton = styled(Button)(({ theme, customstyles }) => ({
+const StyledButton = styled(Button)(({ customstyles }) => ({
     boxShadow: 'none',
     textTransform: 'none',
     fontSize: customstyles.fontSize || 16,
@@ -78,7 +78,7 @@ VButton.propTypes = {
         transition: PropTypes.string,
         hoverColor: PropTypes.string,
         maxWidth: PropTypes.string,
-        zIndex: PropTypes.number,
+        zIndex: PropTypes.number
     }),
     disableRipple: PropTypes.bool,
     onClick: PropTypes.func,
