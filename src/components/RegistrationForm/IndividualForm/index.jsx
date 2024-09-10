@@ -224,18 +224,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     onClick={generateToken}
                     label="ЗГЕНЕРУВАТИ ТОКЕН"
                     buttonStyles={{
-                        background: 'var(--gradient-button)',
-                        textColor: 'var(--button-color-white)',
-                        fontSize: 16,
                         padding: '20px 10px',
-                        borderRadius: '50px',
-                        lineHeight: '19.2px',
-                        borderColor: 'none',
-                        hoverBackground: 'var(--button-color-hover)',
-                        hoverBorderColor: 'transparent',
                         height: '34px',
-                        maxWidth: '540px',
-                        transition: 'background 0.3s ease'
+                        maxWidth: '540px'
                     }}
                 />
                 <TextField
@@ -345,17 +336,11 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         buttonStyles={{
                             background: 'var(--button-color-grey)',
                             textColor: 'var(--font-color-primary)',
-                            fontSize: 16,
                             padding: '20px 10px',
-                            borderRadius: '50px',
-                            lineHeight: '19px',
-                            borderColor: 'none',
                             hoverColor: 'white',
                             hoverBackground: 'var(--button-color-hover)',
-                            hoverBorderColor: 'transparent',
                             height: '34px',
-                            maxWidth: '540px',
-                            transition: 'background 0.3s ease'
+                            maxWidth: '540px'
                         }}
                     />
                 </Box>

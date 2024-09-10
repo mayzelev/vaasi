@@ -18,6 +18,7 @@
     --button-gradient-color-start: #ffb6b1;
     --button-gradient-color-finish: #ff7067;
     --gradient-button: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
+    
     /* Button grey */
     --button-color-grey: #d9d9d9;
 

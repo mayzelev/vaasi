@@ -48,18 +48,8 @@ export default function AttentionSection() {
                         onClick={openRegistration}
                         label="Реєстрація"
                         buttonStyles={{
-                            background: 'var(--gradient-button)',
-                            textColor: 'var(--button-color-white)',
-                            fontSize: 16,
-                            padding: '8px 8px',
-                            borderRadius: '25px',
-                            lineHeight: '19.2px',
-                            borderColor: 'none',
-                            hoverBackground: 'var(--button-color-hover)',
-                            hoverBorderColor: 'transparent',
                             height: '34px',
-                            width: '234px',
-                            transition: 'background 0.3s ease'
+                            width: '234px'
                         }}
                     />
                 </div>
