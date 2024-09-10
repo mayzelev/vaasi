@@ -25,19 +25,9 @@ export default function MainSection() {
                         <VButton
                             label="Про нас"
                             buttonStyles={{
-                                background: 'var(--gradient-button)',
-                                textColor: '#fff',
-                                fontSize: 16,
-                                padding: '8px 8px',
-                                borderRadius: '50px',
-                                lineHeight: '19.2px',
-                                borderColor: 'none',
-                                hoverBackground: 'var(--button-color-hover)',
-                                hoverBorderColor: 'transparent',
                                 height: '35px',
                                 width: '160px',
-                                transition: 'background 0.3s ease'
-                            }}
+                                                            }}
                         />
                     </Link>
                     <div className={style.toogle}></div>
