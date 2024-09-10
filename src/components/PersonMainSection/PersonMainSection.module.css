@@ -3,16 +3,16 @@
     background-size: contain;
     background-position: center right;
     position: relative;
-    height: 645px;
+    height: 615px;
 }
 
 .girlImg {
     position: absolute;
+    top: -50px;
+    right: 0;
     width: 100%;
     max-width: 880px;
     margin: 0 auto;
-    top: -50px;
-    right: 0;
     margin-right: 15%;
     z-index: -1;
 }
@@ -63,7 +63,6 @@
     flex-direction: column;
     text-transform: uppercase;
     max-width: 612px;
-    height: 267px;
     width: 100%;
 }
 
@@ -94,6 +93,7 @@
     font-weight: 250;
     line-height: normal;
     color: var(--font-color-primary);
+    margin-bottom: 30px;
 }
 
 .description {

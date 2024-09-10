@@ -1,0 +1,141 @@
+.containerBcg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1000px;
+    margin-top: -235px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color-fourthy);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.line {
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: center;
+    width: 100%;
+}
+
+.thin,
+.thick {
+    width: 100%;
+    max-width: 120px;
+    height: 1px;
+    background-color: var(--separate-line-main-color);
+}
+
+.thick {
+    height: 7px;
+    width: 100%;
+    max-width: 71px;
+    background: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
+    border-radius: 20px;
+    transform: translateY(-50%);
+}
+
+.description {
+    color: var(--font-color-fourthy);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    width: 100%;
+    max-width: 729px;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: var(--font-color-fourthy);
+
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 50px;
+}
+
+.iconsContainer {
+    display: flex;
+    gap: 70px;
+    position: relative;
+}
+
+.iconItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.iconItem:nth-child(1),
+.iconItem:nth-child(2) {
+    max-width: 170px;
+}
+
+.iconItem:nth-child(3),
+.iconItem:nth-child(4) {
+    max-width: 250px;
+}
+
+.iconImage {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 42px;
+}
+
+.iconDescription {
+    color: var(--font-color-fourthy);
+    text-align: center;
+    font-family: 'Museo Sans Cyrl';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.arrowLeft {
+    position: absolute;
+    left: 560px;
+    bottom: -70px;
+    background-image: url(../../assets/naturalPageImg/arrowLeftInfoSection.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 142px;
+    height: 41.384px;
+}
+
+.arrowCenter {
+    position: absolute;
+    left: 800px;
+    bottom: -150px;
+    background-image: url(../../assets/naturalPageImg/arrowCenterInfoSection.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 159px;
+    height: 42px;
+}
+
+.arrowRight {
+    position: absolute;
+    right: 640px;
+    background-image: url(../../assets/naturalPageImg/arrowRightInfoSection.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 159px;
+    height: 42px;
+}
