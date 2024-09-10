@@ -62,18 +62,7 @@ export default function InfoSection() {
                                             onClick={handleOpenIndividualLogin}
                                             label="Увійти"
                                             buttonStyles={{
-                                                background: 'var(--gradient-button)',
-                                                textColor: 'var(--button-color-white)',
-                                                fontSize: 16,
-                                                padding: '8px 8px',
-                                                borderRadius: '50px',
-                                                lineHeight: '19.2px',
-                                                borderColor: 'none',
-                                                hoverBackground: 'var(--button-color-hover)',
-                                                hoverBorderColor: 'transparent',
-                                                height: '34px',
-                                                maxWidth: '234px',
-                                                transition: 'background 0.3s ease'
+                                                maxWidth: '234px'
                                             }}
                                         />
                                     </div>
@@ -84,17 +73,8 @@ export default function InfoSection() {
                                             buttonStyles={{
                                                 background: 'var(--button-color-grey)',
                                                 textColor: 'var(--font-color-primary)',
-                                                fontSize: 16,
-                                                padding: '8px 8px',
-                                                borderRadius: '50px',
-                                                lineHeight: '19.2px',
-                                                borderColor: 'none',
-                                                hoverColor: 'white',
                                                 hoverBackground: 'var(--button-color-hover)',
-                                                hoverBorderColor: 'transparent',
-                                                height: '34px',
-                                                maxWidth: '234px',
-                                                transition: 'background 0.3s ease'
+                                                maxWidth: '234px'
                                             }}
                                         />
                                     </div>
@@ -131,18 +111,7 @@ export default function InfoSection() {
                                             onClick={handleOpenLegalLogin}
                                             label="Увійти"
                                             buttonStyles={{
-                                                background: 'var(--gradient-button)',
-                                                textColor: 'var(--button-color-white)',
-                                                fontSize: 16,
-                                                padding: '8px 8px',
-                                                borderRadius: '50px',
-                                                lineHeight: '19.2px',
-                                                borderColor: 'none',
-                                                hoverBackground: 'var(--button-color-hover)',
-                                                hoverBorderColor: 'transparent',
-                                                height: '34px',
-                                                maxWidth: '234px',
-                                                transition: 'background 0.3s ease'
+                                                maxWidth: '234px'
                                             }}
                                         />
                                     </div>
@@ -153,16 +122,8 @@ export default function InfoSection() {
                                             buttonStyles={{
                                                 background: 'var(--button-color-grey)',
                                                 textColor: 'var(--font-color-primary)',
-                                                fontSize: 16,
-                                                padding: '8px 8px',
-                                                borderRadius: '50px',
-                                                lineHeight: '19.2px',
-                                                borderColor: 'none',
                                                 hoverBackground: 'var(--button-color-hover)',
-                                                hoverBorderColor: 'transparent',
-                                                height: '34px',
-                                                maxWidth: '234px',
-                                                transition: 'background 0.3s ease'
+                                                maxWidth: '234px'
                                             }}
                                         />
                                     </div>
