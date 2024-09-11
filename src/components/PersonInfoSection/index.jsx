@@ -1,17 +1,19 @@
 import style from './PersonInfoSection.module.css';
 
 export default function PersonInfoSection({ data, backgroundImage }) {
+    const { header, description, title } = data;
+
     return (
         <div className="container">
             <div className={style.containerBcg} style={{ backgroundImage: `url(${backgroundImage})` }}>
-                <div className={style.header}>{data.header}</div>
+                <div className={style.header}>{header}</div>
                 <div className={style.line}>
                     <div className={style.thin} />
                     <div className={style.thick} />
                     <div className={style.thin} />
                 </div>
-                <div className={style.description}>{data.description}</div>
-                <div className={style.title}>{data.title}</div>
+                <div className={style.description}>{description}</div>
+                <div className={style.title}>{title}</div>
                 <div className={style.iconsContainer}>
                     {data.image.map((img) => (
                         <div key={img.id} className={style.iconItem}>

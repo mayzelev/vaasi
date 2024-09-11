@@ -1,11 +1,22 @@
-import shieldWithDollar from '../../assets/icons/shieldWithDollar.png';
-import handWithCircle from '../../assets/icons/handWithCircle.png';
-import descWithBitcoin from '../../assets/icons/descWithBitcoin.png';
-import exchangeRate from '../../assets/icons/exchangeRate.png';
-import PersonInfoSection from '../PersonInfoSection';
-import backgroundImage from '../../assets/naturalPageImg/bcgIndividualInfo.png';
+import shieldWithDollar from '../../assets/img/shieldWithDollar.png';
+import handWithCircle from '../../assets/img/handWithCircle.png';
+import descWithBitcoin from '../../assets/img/descWithBitcoin.png';
+import exchangeRate from '../../assets/img/exchangeRate.png';
+import girlImg from '../../assets/img/girl.png';
 
-export const data = {
+export const mockDataNaturalMain = {
+    girlImgSrc: girlImg,
+    mainTitle: 'Занурюйся',
+    subTitle: 'у світ цифрових можливостей',
+    subDescription1: 'Отримуй переваги співпраці разом з',
+    subDescription2: 'VAASI INTERNATIONAL GROUP',
+    buttonLabel: 'ОТРИМАТИ ПЕРЕВАГИ',
+    buttonStyles: {
+        maxWidth: '221px'
+    }
+};
+
+export const mockDataNaturalInfo = {
     header: 'Робота з фізичними особами',
     description:
         'Наша основна робота з фізичними особами це допомога у придбанні та обробці VAASI code. Ми пропонуємо послуги обробки VAASI code та технічну підтримку під час нашої взаємодії.',
@@ -37,7 +48,3 @@ export const data = {
         }
     ]
 };
-
-export default function NaturalInfoSection() {
-    return <PersonInfoSection data={data} backgroundImage={backgroundImage} />;
-}

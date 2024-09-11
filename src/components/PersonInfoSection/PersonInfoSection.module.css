@@ -1,26 +1,33 @@
 .containerBcg {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 1000px;
-    margin-top: -235px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 100%;
+    max-width: 1920px;
+    padding: 180px;
+    margin-top: -165px;
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+
     color: var(--font-color-fourthy);
-    font-size: 40px;
+
+    font-size: 2.857rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin-bottom: 20px;
-    text-transform: uppercase;
 }
 
 .line {
@@ -50,7 +57,7 @@
 .description {
     color: var(--font-color-fourthy);
     text-align: center;
-    font-size: 16px;
+    font-size: 1.14rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -61,8 +68,8 @@
 
 .title {
     color: var(--font-color-fourthy);
-
-    font-size: 29px;
+    text-align: center;
+    font-size: 2.071rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -101,8 +108,7 @@
 .iconDescription {
     color: var(--font-color-fourthy);
     text-align: center;
-    font-family: 'Museo Sans Cyrl';
-    font-size: 16px;
+    font-size: 1.14rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -111,8 +117,8 @@
 .arrowLeft {
     position: absolute;
     left: 560px;
-    bottom: -70px;
-    background-image: url(../../assets/naturalPageImg/arrowLeftInfoSection.png);
+    bottom: -60px;
+    background-image: url(../../assets/icons/arrowLeftInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
     width: 142px;
@@ -122,8 +128,8 @@
 .arrowCenter {
     position: absolute;
     left: 800px;
-    bottom: -150px;
-    background-image: url(../../assets/naturalPageImg/arrowCenterInfoSection.png);
+    bottom: -155px;
+    background-image: url(../../assets/icons/arrowCenterInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
     width: 159px;
@@ -133,7 +139,8 @@
 .arrowRight {
     position: absolute;
     right: 640px;
-    background-image: url(../../assets/naturalPageImg/arrowRightInfoSection.png);
+    bottom: -55px;
+    background-image: url(../../assets/icons/arrowRightInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
     width: 159px;

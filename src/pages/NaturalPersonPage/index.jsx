@@ -1,11 +1,16 @@
-import NaturalInfoSection from '../../components/NaturalInfoSection';
-import NaturalPersonMainSection from '../../components/NaturalPersonMainSection';
+import PersonInfoSection from '../../components/PersonInfoSection';
+import PersonMainSection from '../../components/PersonMainSection';
+
+import backgroundImg from '../../assets/img/moneyTop.png';
+import backgroundImage from '../../assets/img/bcgIndividualInfo.png';
+
+import { mockDataNaturalInfo, mockDataNaturalMain } from './mockData';
 
 export default function NaturalPersonPage() {
     return (
         <>
-            <NaturalPersonMainSection />
-            <NaturalInfoSection />
+            <PersonMainSection data={mockDataNaturalMain} backgroundImage={backgroundImg} />
+            <PersonInfoSection data={mockDataNaturalInfo} backgroundImage={backgroundImage} />
         </>
     );
 }
