@@ -1,11 +1,15 @@
 .container {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
     position: relative;
     width: 100%;
     max-width: 1920px;
-    padding: 155px 10px;
+    padding: 90px 10px;
+    margin-bottom: 100px;
+}
+
+.imgLegal {
+    position: absolute;
+    top: -60px;
+    right: 0;
 }
 
 .girlImg {
@@ -14,7 +18,7 @@
     right: 0;
     width: 100%;
     max-width: 880px;
-    transform: translateX(-250px);
+    transform: translateX(-300px);
     z-index: -1;
 }
 
@@ -46,6 +50,7 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    transform: translateX(2px);
 }
 
 .verticalLine::before {

@@ -1,12 +1,19 @@
 import style from './PersonMainSection.module.css';
 import VButton from '../VButton';
+import useAuthStore from '../../store/useAuthStore';
 
-export default function PersonMainSection({ data, backgroundImage }) {
-    const { girlImgSrc, mainTitle, subTitle, subDescription1, subDescription2, buttonLabel, onButtonClick, buttonStyles } = data;
+export default function PersonMainSection({ data, img, tabIndex }) {
+    const { openRegistration } = useAuthStore();
+    const { girlImgSrc, mainTitle, subTitle, subDescription1, subDescription2, buttonLabel } = data;
+
+    const handleButtonClick = () => {
+        openRegistration({ initialTab: tabIndex });
+    };
 
     return (
         <div className="container">
-            <div className={style.container} style={{ backgroundImage: `url(${backgroundImage})` }}>
+            <div className={style.container}>
+                <img className={style.imgLegal} src={img} alt="money" />
                 <img className={style.girlImg} src={girlImgSrc} alt="girl" />
                 <div className={style.containerTop}>
                     <div className={style.card}>
@@ -26,11 +33,11 @@ export default function PersonMainSection({ data, backgroundImage }) {
                                         {subDescription1} <strong>{subDescription2}</strong>
                                     </p>
                                 </div>
+
                                 <VButton
-                                    className={style.vButton}
                                     label={buttonLabel}
-                                    onClick={onButtonClick}
-                                    buttonStyles={buttonStyles}
+                                    onClick={handleButtonClick}
+                                    buttonStyles={{ width: 'auto', padding: '8px 25px' }}
                                 />
                             </div>
                         </div>

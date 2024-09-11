@@ -15,6 +15,7 @@ const StyledButton = styled(Button)(({ customstyles }) => ({
     height: customstyles.height || 'auto',
     width: customstyles.width || '100%',
     maxWidth: customstyles.maxWidth,
+    minWidth: customstyles.minWidth,
     transition: customstyles.transition || 'background 0.3s ease',
     zIndex: customstyles.zIndex || '0',
     fontFamily: [

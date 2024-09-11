@@ -33,7 +33,14 @@ function App() {
                         </DefaultLayout>
                     }
                 />
-                <Route path="*" element={<div>Element not found</div>} />
+                <Route
+                    path="*"
+                    element={
+                        <DefaultLayout>
+                            <MainPage />
+                        </DefaultLayout>
+                    }
+                />
             </Routes>
         </Router>
     );
