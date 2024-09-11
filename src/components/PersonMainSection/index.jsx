@@ -1,17 +1,9 @@
 import style from './PersonMainSection.module.css';
 import VButton from '../VButton';
 
-export default function PersonMainSection({
-    girlImgSrc,
-    mainTitle,
-    subTitle,
-    subDescription1,
-    subDescription2,
-    buttonLabel,
-    onButtonClick,
-    buttonStyles,
-    backgroundImage
-}) {
+export default function PersonMainSection({ data, backgroundImage }) {
+    const { girlImgSrc, mainTitle, subTitle, subDescription1, subDescription2, buttonLabel, onButtonClick, buttonStyles } = data;
+
     return (
         <div className="container">
             <div className={style.container} style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -30,8 +22,9 @@ export default function PersonMainSection({
                                     </div>
                                 </div>
                                 <div className={style.description}>
-                                    <p className={style.subDescription1}>{subDescription1}</p>
-                                    <p className={style.subDescription2}>{subDescription2}</p>
+                                    <p className={style.subDescription1}>
+                                        {subDescription1} <strong>{subDescription2}</strong>
+                                    </p>
                                 </div>
                                 <VButton
                                     className={style.vButton}
