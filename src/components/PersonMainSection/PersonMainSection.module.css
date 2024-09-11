@@ -5,7 +5,7 @@
     position: relative;
     width: 100%;
     max-width: 1920px;
-    padding: 140px 10px;
+    padding: 155px 10px;
 }
 
 .girlImg {
@@ -20,9 +20,8 @@
 
 .containerTop {
     display: flex;
-    align-items: center;
     justify-content: center;
-    transform: translateX(-250px);
+    transform: translateX(-230px);
 }
 
 .card {
@@ -99,10 +98,11 @@
 .description {
     margin-bottom: 10px;
     width: 100%;
-    max-width: 368px;
+    max-width: 380px;
 }
 
 .subDescription1 {
+    display: inline-block;
     font-size: 19px;
     font-style: normal;
     font-weight: 300;
@@ -113,6 +113,7 @@
 }
 
 .subDescription2 {
+    display: inline-block;
     font-size: 19px;
     font-style: normal;
     font-weight: 600;

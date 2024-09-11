@@ -22,8 +22,9 @@ export default function PersonMainSection({ data, backgroundImage }) {
                                     </div>
                                 </div>
                                 <div className={style.description}>
-                                    <p className={style.subDescription1}>{subDescription1}</p>
-                                    <p className={style.subDescription2}>{subDescription2}</p>
+                                    <p className={style.subDescription1}>
+                                        {subDescription1} <strong>{subDescription2}</strong>
+                                    </p>
                                 </div>
                                 <VButton
                                     className={style.vButton}

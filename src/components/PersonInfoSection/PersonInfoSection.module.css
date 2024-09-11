@@ -11,19 +11,24 @@
     width: 100%;
     max-width: 1920px;
     padding: 180px;
-    margin-top: -165px;
+    margin-top: -175px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 40px auto;
+    position: relative;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     text-transform: uppercase;
 
     color: var(--font-color-fourthy);
 
-    font-size: 2.857rem;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -57,28 +62,29 @@
 .description {
     color: var(--font-color-fourthy);
     text-align: center;
-    font-size: 1.14rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    margin: 0 auto;
     width: 100%;
-    max-width: 729px;
+    max-width: 720px;
     margin-bottom: 20px;
 }
 
 .title {
     color: var(--font-color-fourthy);
     text-align: center;
-    font-size: 2.071rem;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .iconsContainer {
     display: flex;
-    gap: 70px;
+    gap: 55px;
     position: relative;
 }
 
@@ -100,15 +106,15 @@
 }
 
 .iconImage {
-    width: 82px;
-    height: 82px;
+    width: auto;
+    max-height: 73px;
     margin-bottom: 42px;
 }
 
 .iconDescription {
     color: var(--font-color-fourthy);
     text-align: center;
-    font-size: 1.14rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -116,33 +122,36 @@
 
 .arrowLeft {
     position: absolute;
-    left: 560px;
-    bottom: -60px;
+    left: 121px;
+    top: 216px;
     background-image: url(../../assets/icons/arrowLeftInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
-    width: 142px;
-    height: 41.384px;
+    width: 100%;
+    max-width: 142px;
+    padding: 42px;
 }
 
 .arrowCenter {
     position: absolute;
-    left: 800px;
-    bottom: -155px;
+    left: 363px;
+    top: 299px;
     background-image: url(../../assets/icons/arrowCenterInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
-    width: 159px;
-    height: 42px;
+    width: 100%;
+    max-width: 159px;
+    padding: 42px;
 }
 
 .arrowRight {
     position: absolute;
-    right: 640px;
-    bottom: -55px;
+    right: 198px;
+    top: 200px;
     background-image: url(../../assets/icons/arrowRightInfoSection.png);
     background-position: center center;
     background-repeat: no-repeat;
-    width: 159px;
-    height: 42px;
+    width: 100%;
+    max-width: 159px;
+    padding: 42px;
 }

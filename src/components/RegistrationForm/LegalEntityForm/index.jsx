@@ -87,7 +87,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
     useEffect(() => {
         localStorage.setItem('legalEntityForm', JSON.stringify(formik.values));
         formik.setFieldValue('tokenCode', tokenCode);
-    }, [formik.values, tokenCode, formik]);
+    }, [formik.values, tokenCode]);
 
     return (
         <form onSubmit={formik.handleSubmit}>

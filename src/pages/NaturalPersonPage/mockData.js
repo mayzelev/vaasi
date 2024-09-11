@@ -1,7 +1,7 @@
-import shieldWithDollar from '../../assets/img/shieldWithDollar.png';
-import handWithCircle from '../../assets/img/handWithCircle.png';
-import descWithBitcoin from '../../assets/img/descWithBitcoin.png';
-import exchangeRate from '../../assets/img/exchangeRate.png';
+import shieldWithDollar from '../../assets/icons/shieldWithDollar.png';
+import handWithCircle from '../../assets/icons/handWithCircle.png';
+import descWithBitcoin from '../../assets/icons/descWithBitcoin.png';
+import exchangeRate from '../../assets/icons/exchangeRate.png';
 import girlImg from '../../assets/img/girl.png';
 
 export const mockDataNaturalMain = {
@@ -12,7 +12,10 @@ export const mockDataNaturalMain = {
     subDescription2: 'VAASI INTERNATIONAL GROUP',
     buttonLabel: 'ОТРИМАТИ ПЕРЕВАГИ',
     buttonStyles: {
-        maxWidth: '221px'
+        display: 'inline-block',
+        maxWidth: 'unset',
+        width: 'auto',
+        padding: '8px 25px'
     }
 };
 
