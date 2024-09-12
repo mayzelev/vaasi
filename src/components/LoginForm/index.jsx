@@ -9,6 +9,7 @@ import style from './LoginForm.module.css';
 import useAuthStore from '../../store/useAuthStore';
 import { INVALID_USER, loginCompany, loginUser } from '../../api/auth';
 import VButton from '../VButton';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object({
     tokenCode: Yup.string()
@@ -21,6 +22,7 @@ export default function LoginForm() {
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const [authError, setAuthError] = useState(null);
     const [activeTab, setActiveTab] = useState(initialTabLogin);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setActiveTab(initialTabLogin);
@@ -43,8 +45,9 @@ export default function LoginForm() {
             loginCompany({ token })
                 .then((res) => {
                     if (res.data.token) {
-                        setToken(res.data.token);
+                        setToken(res.data.token, res.data.userId);
                         closeLogin();
+                        navigate('/profile');
                     } else {
                         setAuthError('Не вдалося отримати токен');
                     }
@@ -60,8 +63,9 @@ export default function LoginForm() {
             loginUser({ token })
                 .then((res) => {
                     if (res.data.token) {
-                        setToken(res.data.token);
+                        setToken(res.data.token, res.data.userId);
                         closeLogin();
+                        navigate('/profile');
                     } else {
                         setAuthError('Не вдалося отримати токен');
                     }
