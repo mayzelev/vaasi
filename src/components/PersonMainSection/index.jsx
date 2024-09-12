@@ -2,7 +2,7 @@ import style from './PersonMainSection.module.css';
 import VButton from '../VButton';
 import useAuthStore from '../../store/useAuthStore';
 
-export default function PersonMainSection({ data, img, tabIndex }) {
+export default function PersonMainSection({ data, imgMain, tabIndex }) {
     const { openRegistration } = useAuthStore();
     const { girlImgSrc, mainTitle, subTitle, subDescription1, subDescription2, buttonLabel } = data;
 
@@ -13,7 +13,7 @@ export default function PersonMainSection({ data, img, tabIndex }) {
     return (
         <div className="container">
             <div className={style.container}>
-                <img className={style.imgLegal} src={img} alt="money" />
+                <img className={style.imgMoney} src={imgMain} alt="money" />
                 <img className={style.girlImg} src={girlImgSrc} alt="girl" />
                 <div className={style.containerTop}>
                     <div className={style.card}>

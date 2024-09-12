@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 100%;
+    max-width: 1920px;
+    padding: 180px;
+    margin-top: -240px;
+
+    position: relative;
+}
+
+.imgMoney {
+    position: absolute;
+    top: 245px;
+    right: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: var(--font-color-primary);
+
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.description {
+    color: var(--font-color-primary);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.line {
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: center;
+    width: 100%;
+}
+
+.thin,
+.thick {
+    width: 100%;
+    max-width: 131.5px;
+    height: 1px;
+    background-color: var(--separate-line-main-color);
+}
+
+.thick {
+    height: 7px;
+    width: 100%;
+    max-width: 71px;
+    background: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
+    border-radius: 20px;
+    transform: translateY(-50%);
+}
+
+.banerContainer {
+    position: relative;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.banerContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 97.5%;
+    height: 100%;
+    max-height: 210px;
+    background: var(--button-color-active);
+    border-radius: 10px;
+    box-shadow: 0 0 0 0 var(--button-color-active);
+    transform: rotate(-1.5deg);
+    z-index: -1;
+}
+
+.baner {
+    text-align: center;
+    background-image: url(../../assets/img/banerAttention.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    width: 100%;
+    max-width: 938px;
+    padding: 58px 136px;
+    border-radius: 10px;
+}
+
+.banerHeader {
+    color: var(--font-color-thirdy);
+
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.banerdDscription {
+    color: var(--font-color-fourthy);
+
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+}
