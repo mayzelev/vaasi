@@ -64,7 +64,6 @@ export default function Footer() {
                                     label="Зворотній зв'язок"
                                     buttonStyles={{
                                         textColor: 'var(--button-color-secondary)',
-                                        height: '31px',
                                         maxWidth: '180px'
                                     }}
                                 />

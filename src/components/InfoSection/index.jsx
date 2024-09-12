@@ -57,27 +57,24 @@ export default function InfoSection() {
                                     </div>
                                 </div>
                                 <div className={style.buttons}>
-                                    <div className={style.buttonSize}>
-                                        <VButton
-                                            onClick={handleOpenIndividualLogin}
-                                            label="Увійти"
-                                            buttonStyles={{
-                                                maxWidth: '234px'
-                                            }}
-                                        />
-                                    </div>
-                                    <div className={style.buttonSize}>
-                                        <VButton
-                                            onClick={handleOpenIndividualRegistration}
-                                            label="Зареєструватися"
-                                            buttonStyles={{
-                                                background: 'var(--button-color-grey)',
-                                                textColor: 'var(--font-color-primary)',
-                                                hoverBackground: 'var(--button-color-hover)',
-                                                maxWidth: '234px'
-                                            }}
-                                        />
-                                    </div>
+                                    <VButton
+                                        onClick={handleOpenIndividualLogin}
+                                        label="Увійти"
+                                        buttonStyles={{
+                                            minWidth: 'fit-content'
+                                        }}
+                                    />
+
+                                    <VButton
+                                        onClick={handleOpenIndividualRegistration}
+                                        label="Зареєструватися"
+                                        buttonStyles={{
+                                            background: 'var(--button-color-grey)',
+                                            textColor: 'var(--font-color-primary)',
+                                            hoverBackground: 'var(--button-color-hover)',
+                                            minWidth: 'fit-content'
+                                        }}
+                                    />
                                 </div>
                                 <Link className={style.detais} to={'/natural-persons/details'}>
                                     Детальніше
@@ -106,27 +103,24 @@ export default function InfoSection() {
                                     </div>
                                 </div>
                                 <div className={style.buttons}>
-                                    <div className={style.buttonSize}>
-                                        <VButton
-                                            onClick={handleOpenLegalLogin}
-                                            label="Увійти"
-                                            buttonStyles={{
-                                                maxWidth: '234px'
-                                            }}
-                                        />
-                                    </div>
-                                    <div className={style.buttonSize}>
-                                        <VButton
-                                            onClick={handleOpenLegalEntityRegistration}
-                                            label="Зареєструватися"
-                                            buttonStyles={{
-                                                background: 'var(--button-color-grey)',
-                                                textColor: 'var(--font-color-primary)',
-                                                hoverBackground: 'var(--button-color-hover)',
-                                                maxWidth: '234px'
-                                            }}
-                                        />
-                                    </div>
+                                    <VButton
+                                        onClick={handleOpenLegalLogin}
+                                        label="Увійти"
+                                        buttonStyles={{
+                                            minWidth: 'fit-content'
+                                        }}
+                                    />
+
+                                    <VButton
+                                        onClick={handleOpenLegalEntityRegistration}
+                                        label="Зареєструватися"
+                                        buttonStyles={{
+                                            background: 'var(--button-color-grey)',
+                                            textColor: 'var(--font-color-primary)',
+                                            hoverBackground: 'var(--button-color-hover)',
+                                            minWidth: 'fit-content'
+                                        }}
+                                    />
                                 </div>
                                 <Link className={style.detais} to={'/legal-persons/details'}>
                                     Детальніше

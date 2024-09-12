@@ -10,13 +10,7 @@ export const mockDataLegalMain = {
     subTitle: 'Реальний та цифровий світ у бізнесі',
     subDescription1: 'Відкрийте нові можливості для вашого бізнесу з',
     subDescription2: 'VAASI INTERNATIONAL GROUP',
-    buttonLabel: 'ВІДКРИТИ МОЖЛИВОСТІ',
-    buttonStyles: {
-        display: 'inline-block',
-        maxWidth: 'unset',
-        width: 'auto',
-        padding: '8px 25px'
-    }
+    buttonLabel: 'ВІДКРИТИ МОЖЛИВОСТІ'
 };
 
 export const mockDataLegalInfo = {

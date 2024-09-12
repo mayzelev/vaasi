@@ -10,13 +10,7 @@ export const mockDataNaturalMain = {
     subTitle: 'у світ цифрових можливостей',
     subDescription1: 'Отримуй переваги співпраці разом з',
     subDescription2: 'VAASI INTERNATIONAL GROUP',
-    buttonLabel: 'ОТРИМАТИ ПЕРЕВАГИ',
-    buttonStyles: {
-        display: 'inline-block',
-        maxWidth: 'unset',
-        width: 'auto',
-        padding: '8px 25px'
-    }
+    buttonLabel: 'ОТРИМАТИ ПЕРЕВАГИ'
 };
 
 export const mockDataNaturalInfo = {
