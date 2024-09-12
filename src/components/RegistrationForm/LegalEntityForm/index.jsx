@@ -93,7 +93,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         <form onSubmit={formik.handleSubmit}>
             <Box>
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Назва підприємства"
                     variant="outlined"
@@ -107,6 +106,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -123,7 +125,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.companyName && formik.errors.companyName}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Контактна особа"
                     variant="outlined"
@@ -137,6 +138,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -153,7 +157,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.contactPerson && formik.errors.contactPerson}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
@@ -167,6 +170,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -183,11 +189,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
-                    sx={{
-                        backgroundColor: 'var(--bg-color-form)',
-                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px'
-                    }}
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
@@ -201,6 +202,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -217,11 +221,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
-                    sx={{
-                        backgroundColor: 'var(--bg-color-form)',
-                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px'
-                    }}
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
@@ -235,6 +234,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -267,11 +269,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
-                    sx={{
-                        backgroundColor: 'var(--bg-color-form)',
-                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px'
-                    }}
                     fullWidth
                     variant="outlined"
                     margin="normal"
@@ -287,6 +284,9 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px'

@@ -91,7 +91,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         <form onSubmit={formik.handleSubmit}>
             <Box sx={{ mt: 1 }}>
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="ПІБ"
                     variant="outlined"
@@ -105,6 +104,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -121,7 +123,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.fullName && formik.errors.fullName}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
@@ -135,6 +136,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -151,7 +155,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
@@ -165,6 +168,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -181,7 +187,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
-                    sx={{ backgroundColor: 'var(--bg-color-form)', boxShadow: 'inset 0px 1px 3px var(--text-shadow)', borderRadius: '5px' }}
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
@@ -195,6 +200,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px',
@@ -227,11 +235,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
-                    sx={{
-                        backgroundColor: 'var(--bg-color-form)',
-                        boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                        borderRadius: '5px'
-                    }}
                     fullWidth
                     variant="outlined"
                     margin="normal"
@@ -247,6 +250,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             </InputAdornment>
                         ),
                         sx: {
+                            backgroundColor: 'var(--bg-color-form)',
+                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
+                            borderRadius: '5px',
                             height: '40px',
                             '& .MuiInputBase-input': {
                                 height: '40px'
