@@ -77,7 +77,6 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         validationSchema,
         onSubmit: (values) => {
             localStorage.removeItem('individualForm');
-            console.log('Форма відправлена', values);
             handleSubmit(values);
         }
     });

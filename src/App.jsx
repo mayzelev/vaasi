@@ -1,49 +1,11 @@
-import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import './App.css';
-import DefaultLayout from './components/Layout/DefaultLayout';
-import NaturalPersonPage from './pages/NaturalPersonPage';
-import LegalEntitiesPage from './pages/LegalEntitiesPage/index.jsx';
-import MainPage from './pages/MainPage/index.jsx';
+import AppRoutes from './routes/AppRoutes.jsx';
 
-function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <DefaultLayout>
-                            <MainPage />
-                        </DefaultLayout>
-                    }
-                />
-                <Route
-                    path="/natural-persons"
-                    element={
-                        <DefaultLayout>
-                            <NaturalPersonPage />
-                        </DefaultLayout>
-                    }
-                />
-                <Route
-                    path="/legal-entities"
-                    element={
-                        <DefaultLayout>
-                            <LegalEntitiesPage />
-                        </DefaultLayout>
-                    }
-                />
-                <Route
-                    path="*"
-                    element={
-                        <DefaultLayout>
-                            <MainPage />
-                        </DefaultLayout>
-                    }
-                />
-            </Routes>
-        </Router>
-    );
-}
+const App = () => (
+    <Router>
+        <AppRoutes />
+    </Router>
+);
 
 export default App;

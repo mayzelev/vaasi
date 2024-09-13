@@ -79,7 +79,6 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         validationSchema,
         onSubmit: (values) => {
             localStorage.removeItem('legalEntityForm');
-            console.log('Форма відправлена', values);
             handleSubmit(values);
         }
     });
