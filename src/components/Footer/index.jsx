@@ -27,7 +27,7 @@ export default function Footer() {
                     <div className={style.center}>
                         <ul className={style.links}>
                             <li>
-                                <Link to="/">Про нас</Link>
+                                <Link to="/about-us">Про нас</Link>
                             </li>
                             <li>
                                 <Link to="/">Правила користування кодами VAASI</Link>

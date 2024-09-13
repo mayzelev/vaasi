@@ -18,6 +18,7 @@ Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-Inte
 -   [MUI](https://mui.com/material-ui/getting-started/) - react component library
 -   [i18next](https://react.i18next.com/) - translations
 -   [Axios](https://react.i18next.com/) - http client
+-   [Husky](https://typicode.github.io/husky/) - Automatically lint your commit messages, code, and run tests upon committing or pushing.
 
 # How to run
 
@@ -44,6 +45,11 @@ npm run dev
 ```
 http://localhost:5173
 ```
+
+# Automatically lint your commit messages, code, and run tests upon committing or pushing.
+The project uses husky:
+1. pre-commit - npx lint-staged
+2. pre-push - npm run lint && npm run format
 
 # Automatic deployment
 

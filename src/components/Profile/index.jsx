@@ -1,9 +1,9 @@
-import Avatar from '../../Avatar/index.jsx';
 import { USER_ID } from '../../store/useAuthStore.js';
 import { getUser, updateUser } from '../../api/apiUsers.js';
 import { useEffect, useState } from 'react';
 import style from './Profile.module.css';
 import pencilImg from '../../assets/icons/pencil.svg';
+import Avatar from '../Avatar/index.jsx';
 
 export default function Profile() {
     const [editingField, setEditingField] = useState(null);

@@ -6,6 +6,7 @@ import LegalEntitiesPage from '../pages/LegalEntitiesPage/index.jsx';
 import PrivateRoute from './PrivateRoutes.jsx';
 import ProfilePage from '../pages/ProfilePage/index.jsx';
 import useAuthStore from '../store/useAuthStore.js';
+import AboutUsPage from '../pages/AboutUsPage/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -36,6 +37,14 @@ const AppRoutes = () => {
                 element={
                     <DefaultLayout>
                         <LegalEntitiesPage />
+                    </DefaultLayout>
+                }
+            />
+            <Route
+                path="/about-us"
+                element={
+                    <DefaultLayout>
+                        <AboutUsPage />
                     </DefaultLayout>
                 }
             />

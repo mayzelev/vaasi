@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import imgUploader from '../assets/icons/uploader.svg';
+import imgUploader from '../../assets/icons/uploader.svg';
 import style from './Avatar.module.css';
 
 const AvatarUpload = () => {
