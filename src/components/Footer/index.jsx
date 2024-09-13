@@ -14,7 +14,9 @@ export default function Footer() {
                 <div className={style.container}>
                     <div className={style.left}>
                         <div className={style.logoContainer}>
-                            <img className={style.logo} src={logoImg} alt="VAASI Logo" />
+                            <Link to="/">
+                                <img className={style.logo} src={logoImg} alt="VAASI Logo" />
+                            </Link>
                         </div>
                         <div className={style.languages}>
                             <span>UA</span>
@@ -39,10 +41,10 @@ export default function Footer() {
                         </ul>
                         <ul className={`${style.links} ${style.linksInfo}`}>
                             <li>
-                                <Link to="/">Фізичні особи інформація</Link>
+                                <Link to="/natural-persons">Фізичні особи інформація</Link>
                             </li>
                             <li>
-                                <Link to="/">Юридичні особи інформація</Link>
+                                <Link to="/legal-entities">Юридичні особи інформація</Link>
                             </li>
                         </ul>
                     </div>
