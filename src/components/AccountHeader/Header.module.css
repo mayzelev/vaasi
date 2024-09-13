@@ -1,0 +1,114 @@
+.headerToolbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 2px 15px 0 var(--dropShadow-header-color);
+    z-index: 20;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 14px;
+    height: 61px;
+    width: 100%;
+    max-width: 1920px;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 81px;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.sfere {
+    width: 61px;
+    height: 44px;
+}
+
+.logo {
+    margin: 0 auto;
+}
+
+.logoMobile {
+    width: 136px;
+    height: 42px;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+.headerRightInfo {
+    display: flex;
+    align-items: center;
+}
+.menuList {
+    div {
+        padding: 0;
+    }
+    a {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-bottom: 1px solid #dfdfdf;
+        padding: 10px 24px 10px 14px;
+        img {
+            width: auto;
+        }
+    }
+}
+
+.accountHeader {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    p {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        text-align: right;
+        color: var(--font-color-primary);
+        line-height: normal;
+        span {
+            color: #1b8800;
+            font-weight: 600;
+        }
+    }
+    img {
+        width: auto;
+    }
+    .avatarImg {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 899px) {
+    .header {
+        padding: 0 5px 0 10px;
+    }
+    .navLinks {
+        display: none;
+    }
+    .headerRight .headerRightInfo {
+        display: none;
+    }
+    .accountText {
+        display: none;
+    }
+    .headerRight {
+        .avatarImg {
+            margin-right: 0;
+        }
+    }
+}
