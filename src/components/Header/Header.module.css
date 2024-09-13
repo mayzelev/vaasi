@@ -57,7 +57,7 @@
     color: var(--font-color-primary);
     text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow);
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
