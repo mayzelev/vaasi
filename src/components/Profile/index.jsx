@@ -53,7 +53,7 @@ export default function Profile() {
                 <div className={style.userInfo}>
                     {['username', 'phone', 'email'].map((field) => (
                         <p key={field}>
-                            <span>{field === 'username' ? 'ФІО' : field === 'phone' ? 'Номер телефона' : 'E-mail'}</span>
+                            <span>{field === 'username' ? 'ПІБ' : field === 'phone' ? 'Номер телефона' : 'E-mail'}</span>
                             {editingField === field ? (
                                 <input
                                     type="text"
