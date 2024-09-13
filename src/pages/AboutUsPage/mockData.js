@@ -2,6 +2,7 @@ import messageIconAbout from '../../assets/icons/messageIconAbout.png';
 import contractIconAbout from '../../assets/icons/contractIconAbout.png';
 import windowIconAbout from '../../assets/icons/windowIconAbout.png';
 import supportIconAbout from '../../assets/icons/supportIconAbout.png';
+import moneyBaner from '../../assets/img/moneyBaner.png';
 
 export const mockDataAboutMain = {
     mainTitle: 'Про нас',
@@ -54,7 +55,11 @@ export const mockDataAboutAttention = {
     baner: {
         header1: 'Підключення',
         header2: 'та користування сайтом',
-        description: 'для фізичних та юридичних осіб платне.'
+        description: 'для фізичних та юридичних осіб платне.',
+        img: {
+            alt: 'money',
+            src: moneyBaner
+        }
     }
 };
 

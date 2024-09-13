@@ -63,8 +63,6 @@
 }
 
 .cardTitle {
-    display: flex;
-    flex-direction: column;
     text-transform: uppercase;
 }
 

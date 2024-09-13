@@ -39,7 +39,6 @@ video,
 canvas,
 svg {
     display: block;
-    width: 100%;
 }
 
 p,

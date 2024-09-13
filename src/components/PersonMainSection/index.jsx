@@ -29,9 +29,11 @@ export default function PersonMainSection({ data, imgMain, tabIndex, showButton 
                                     </div>
                                 </div>
                                 <div className={style.description}>
-                                    <p className={style.subDescription1}>
-                                        {subDescription1} <strong>{subDescription2}</strong>
-                                    </p>
+                                    {subDescription1 && (
+                                        <p className={style.subDescription1}>
+                                            {subDescription1} <strong>{subDescription2}</strong>
+                                        </p>
+                                    )}
                                     <p className={style.subDescription3}>{subDescription3}</p>
                                 </div>
 

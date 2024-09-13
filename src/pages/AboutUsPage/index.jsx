@@ -5,7 +5,7 @@ import backgroundImage from '../../assets/img/bcgAboutInfo.png';
 import { mockDataAboutMain, mockDataAboutConsultation, mockDataAboutAttention, mockDataAboutInfo } from './mockData';
 import PersonOnlineConsultation from '../../components/PersonOnlineConsultation';
 import PersonInfoSection from '../../components/PersonInfoSection';
-import AboutUsAttentionSection from '../../components/AboutUsAttentionSection';
+import AboutUsAttentionSection from './AboutUsAttentionSection';
 
 export default function AboutUsPage() {
     return (

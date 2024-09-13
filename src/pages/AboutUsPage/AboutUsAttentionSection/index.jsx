@@ -29,6 +29,7 @@ export default function AboutUsAttentionSection({ data }) {
                                 <div className={style.banerHeader2}>{baner.header2}</div>
                             </div>
                             <div className={style.banerdDscription}>{baner.description}</div>
+                            <img className={style.banerdImg} src={baner.img.src} alt={baner.img.alt} />
                         </div>
                     </div>
                 </div>
