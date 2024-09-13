@@ -78,7 +78,7 @@
         align-items: center;
         gap: 4px;
         text-align: right;
-        color: #262626;
+        color: var(--font-color-primary);
         line-height: normal;
         span {
             color: #1b8800;

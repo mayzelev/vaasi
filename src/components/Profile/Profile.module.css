@@ -7,11 +7,11 @@
 
 .title {
     position: relative;
-    font-family: 'Museo Sans Cyrl';
+    font-family: 'Museo Sans Cyrl', serif;
     font-weight: 700;
     font-size: 35px;
     line-height: 42px;
-    color: #262626;
+    color: var(--font-color-primary);
     padding-left: 11px;
 }
 .title:before {
@@ -34,13 +34,13 @@
 
 .userInfo p {
     position: relative;
-    font-family: 'Museo Sans Cyrl';
+    font-family: 'Museo Sans Cyrl', serif;
     font-weight: 300;
     font-size: 16px;
     line-height: 19px;
     display: flex;
     align-items: center;
-    color: #262626;
+    color: var(--font-color-primary);
     padding: 8px 50px 8px 0;
     gap: 120px;
     border-bottom: 1px dashed #b5b5b5;
