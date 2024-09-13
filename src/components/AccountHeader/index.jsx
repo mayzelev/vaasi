@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -83,7 +83,7 @@ export default function AccountHeader() {
                                         Поточний баланс: <span>{user.balance || 0}</span> <img src={cashImg} alt={'cash'} />
                                     </p>
                                 </div>
-                                <img src={avatarImg} className={style.avatarImg} alt={"avatar"}/>
+                                <img src={avatarImg} className={style.avatarImg} alt={'avatar'} />
                             </div>
                             <div className={style.headerRightInfo}>
                                 <VButton
@@ -120,6 +120,18 @@ export default function AccountHeader() {
                         <ClickAwayListener onClickAway={handleClickAway}>
                             <div>
                                 <MenuItems />
+                                <ListItemButton>
+                                    <VButton
+                                        onClick={handleLogout}
+                                        label={'Вийти'}
+                                        buttonStyles={{
+                                            background: 'var(--button-color-grey)',
+                                            textColor: 'var(--font-color-primary)',
+                                            hoverBackground: 'var(--button-color-hover)',
+                                            width: '100%'
+                                        }}
+                                    />
+                                </ListItemButton>
                             </div>
                         </ClickAwayListener>
                     </Drawer>
