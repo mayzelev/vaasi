@@ -76,7 +76,7 @@ export default function InfoSection() {
                                         }}
                                     />
                                 </div>
-                                <Link className={style.detais} to={'/natural-persons/details'}>
+                                <Link className={style.detais} to={'/natural-persons'}>
                                     Детальніше
                                 </Link>
                             </div>
@@ -122,7 +122,7 @@ export default function InfoSection() {
                                         }}
                                     />
                                 </div>
-                                <Link className={style.detais} to={'/legal-persons/details'}>
+                                <Link className={style.detais} to={'/legal-entities'}>
                                     Детальніше
                                 </Link>
                             </div>
