@@ -47,7 +47,9 @@ http://localhost:5173
 ```
 
 # Automatically lint your commit messages, code, and run tests upon committing or pushing.
+
 The project uses husky:
+
 1. pre-commit - npx lint-staged
 2. pre-push - npm run lint && npm run format
 
