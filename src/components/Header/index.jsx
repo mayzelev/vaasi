@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import LanguageSelect from '../LanguageSelect';
 import VButton from '../VButton';
@@ -14,19 +14,13 @@ import watchImg from '../../assets/img/watch.png';
 import useAuthStore from '../../store/useAuthStore';
 
 export default function Header() {
-    const { openRegistration, openLogin, isAuthorized, logout } = useAuthStore();
+    const { openRegistration, openLogin } = useAuthStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const navigate = useNavigate();
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
         setDrawerOpen(open);
-    };
-
-    const handleLogout = () => {
-        logout();
-        navigate('/');
     };
 
     const menuItems = (
@@ -41,26 +35,14 @@ export default function Header() {
                 </div>
             </ListItem>
             <ListItemButton>
-                {!isAuthorized && (
-                    <VButton
-                        onClick={openLogin}
-                        label={isAuthorized ? 'Вийти' : 'Увійти'}
-                        buttonStyles={{
-                            height: '35px',
-                            width: '113px'
-                        }}
-                    />
-                )}
-                {isAuthorized && (
-                    <VButton
-                        onClick={handleLogout}
-                        label={'Вийти'}
-                        buttonStyles={{
-                            height: '35px',
-                            width: '113px'
-                        }}
-                    />
-                )}
+                <VButton
+                    onClick={openLogin}
+                    label={'Увійти'}
+                    buttonStyles={{
+                        height: '35px',
+                        width: '113px'
+                    }}
+                />
             </ListItemButton>
             <ListItemButton>
                 <button onClick={openRegistration}>Реєстрація</button>
@@ -138,26 +120,15 @@ export default function Header() {
                                 <button onClick={openRegistration}>Реєстрація</button>
 
                                 <div className={style.separator}></div>
-                                {!isAuthorized && (
-                                    <VButton
-                                        onClick={openLogin}
-                                        label={isAuthorized ? 'Вийти' : 'Увійти'}
-                                        buttonStyles={{
-                                            height: '35px',
-                                            width: '113px'
-                                        }}
-                                    />
-                                )}
-                                {isAuthorized && (
-                                    <VButton
-                                        onClick={handleLogout}
-                                        label={'Вийти'}
-                                        buttonStyles={{
-                                            height: '35px',
-                                            width: '113px'
-                                        }}
-                                    />
-                                )}
+
+                                <VButton
+                                    onClick={openLogin}
+                                    label={'Увійти'}
+                                    buttonStyles={{
+                                        height: '35px',
+                                        width: '113px'
+                                    }}
+                                />
                             </div>
                             <LanguageSelect />
                         </div>

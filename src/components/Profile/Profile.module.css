@@ -38,7 +38,7 @@
     line-height: 19px;
     display: flex;
     align-items: center;
-    color: #262626;
+    color: var(--font-color-primary);
     padding: 8px 50px 8px 0;
     gap: 120px;
     border-bottom: 1px dashed #b5b5b5;
