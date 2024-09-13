@@ -23,7 +23,6 @@ export default function LoginForm() {
     const [authError, setAuthError] = useState(null);
     const [activeTab, setActiveTab] = useState(initialTabLogin);
     const navigate = useNavigate();
-
     useEffect(() => {
         setActiveTab(initialTabLogin);
     }, [initialTabLogin]);
@@ -63,7 +62,7 @@ export default function LoginForm() {
             loginUser({ token })
                 .then((res) => {
                     if (res.data.token) {
-                        setToken(res.data.token, res.data.userId);
+                        setToken(res.data.token, res.data.id);
                         closeLogin();
                         navigate('/profile');
                     } else {
