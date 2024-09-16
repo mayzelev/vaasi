@@ -8,7 +8,8 @@ import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import { validationSchema } from '../../shared/utils.js';
 import useUserStore from '../../store/useUserStore.js';
-import { COMPANY } from '../../shared/constants.js';
+import { USER_TYPE } from '../../shared/constants.js';
+import bgImage from '../../assets/img/backCalculatorSmall.png';
 
 export default function Profile() {
     const [editingField, setEditingField] = useState(null);
@@ -18,7 +19,7 @@ export default function Profile() {
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-            const fetchFunction = personType === COMPANY ? getCompany : getUser;
+            const fetchFunction = personType === USER_TYPE.COMPANY ? getCompany : getUser;
             try {
                 const data = await fetchFunction(userId);
                 setUserInfo({ ...data });
@@ -44,7 +45,7 @@ export default function Profile() {
             setEditingField(null);
             const updatedData = { [field]: formik.values[field] };
 
-            const updateFunction = personType === COMPANY ? updateCompany : updateUser;
+            const updateFunction = personType === USER_TYPE.COMPANY ? updateCompany : updateUser;
             try {
                 await updateFunction(userId, updatedData);
                 setUserInfo({ username, phone, email, balance, ...updatedData });
@@ -81,18 +82,21 @@ export default function Profile() {
     );
 
     return (
-        <div className={style.container}>
-            <h1 className={style.title}>Профіль</h1>
-            <div className={style.userWrapper}>
-                <Avatar />
-                <form onSubmit={formik.handleSubmit}>
-                    <div className={style.userInfo}>
-                        {renderField('username', 'ПІБ')}
-                        {renderField('phone', 'Номер телефона')}
-                        {renderField('email', 'E-mail')}
-                    </div>
-                </form>
+        <section className={style.profile}>
+            <div className={style.container}>
+                <h1 className={style.title}>Профіль</h1>
+                <div className={style.userWrapper}>
+                    <Avatar />
+                    <form onSubmit={formik.handleSubmit}>
+                        <div className={style.userInfo}>
+                            {renderField('username', 'ПІБ')}
+                            {renderField('phone', 'Номер телефона')}
+                            {renderField('email', 'E-mail')}
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+            <img src={bgImage} className={style.bgImg} alt="money" />
+        </section>
     );
 }
