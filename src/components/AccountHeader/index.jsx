@@ -18,7 +18,8 @@ import useUserStore from '../../store/useUserStore.js';
 
 export default function AccountHeader() {
     const { logout } = useAuthStore();
-    const { username, balance } = useUserStore();
+    const { userData } = useUserStore();
+    const { username, balance } = userData;
 
     const [drawerOpen, setDrawerOpen] = useState(false);
     const navigate = useNavigate();

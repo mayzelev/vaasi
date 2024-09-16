@@ -1,19 +1,24 @@
 import { create } from 'zustand';
 
 const useUserStore = create((set) => ({
-    userId: null,
-    username: null,
-    email: null,
-    balance: null,
+    userData: {
+        token: null,
+        userId: null,
+        username: null,
+        phone: null,
+        email: null,
+        code: null,
+        balance: null,
+        active: false,
+        roleRoleId: 0
+    },
     setUserInfo: (data) => {
-        set({
-            userId: data.userId,
-            username: data.username,
-            phone: data.phone,
-            email: data.email,
-            balance: data.balance
-        });
+        set((state) => ({
+            userData: {
+                ...state.data,
+                ...data
+            }
+        }));
     }
 }));
-
 export default useUserStore;

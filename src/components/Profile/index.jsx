@@ -13,7 +13,8 @@ import bgImage from '../../assets/img/backCalculatorSmall.png';
 
 export default function Profile() {
     const [editingField, setEditingField] = useState(null);
-    const { setUserInfo, username, phone, email, balance } = useUserStore();
+    const { setUserInfo, userData } = useUserStore();
+    const { username, phone, email } = userData;
     const userId = localStorage.getItem(USER_ID);
     const personType = localStorage.getItem(PERSON_TYPE);
 
@@ -48,7 +49,7 @@ export default function Profile() {
             const updateFunction = personType === USER_TYPE.COMPANY ? updateCompany : updateUser;
             try {
                 await updateFunction(userId, updatedData);
-                setUserInfo({ username, phone, email, balance, ...updatedData });
+                setUserInfo({ ...userData, ...updatedData });
             } catch (error) {
                 console.error(`Failed to update ${personType} info:`, error);
             }
