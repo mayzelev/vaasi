@@ -1,4 +1,5 @@
 import style from './PersonOnlineConsultation.module.css';
+import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import VButton from '../VButton';
@@ -7,7 +8,16 @@ import personIcon from '../../assets/icons/user.svg';
 import phoneIcon from '../../assets/icons/phone.svg';
 import emailIcon from '../../assets/icons/email.svg';
 import SuccessConsultationModal from './SuccessConsultationModal';
-import { validationSchema } from '../../shared/utils.js';
+
+const validationSchema = Yup.object({
+    fullName: Yup.string()
+        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи та дефіси.')
+        .required("Обов'язкове поле"),
+    phone: Yup.string()
+        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +380XXXXXXXXX.')
+        .required("Обов'язкове поле"),
+    email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
+});
 
 export default function PersonOnlineConsultation({ data }) {
     const { header, description } = data;

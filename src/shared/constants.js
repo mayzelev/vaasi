@@ -1,2 +1,4 @@
-export const COMPANY = 'company';
-export const PERSON = 'person';
+export const USER_TYPE = {
+    COMPANY: 'company',
+    PERSON: 'person'
+};

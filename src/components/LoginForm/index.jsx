@@ -10,7 +10,7 @@ import useAuthStore from '../../store/useAuthStore';
 import { INVALID_USER, loginCompany, loginUser } from '../../api/auth';
 import VButton from '../VButton';
 import { useNavigate } from 'react-router-dom';
-import { COMPANY, PERSON } from '../../shared/constants.js';
+import { USER_TYPE } from '../../shared/constants.js';
 
 const validationSchema = Yup.object({
     tokenCode: Yup.string()
@@ -45,7 +45,7 @@ export default function LoginForm() {
             loginCompany({ token })
                 .then((res) => {
                     if (res.data.token) {
-                        setToken(res.data.token, res.data.id, COMPANY);
+                        setToken(res.data.token, res.data.id, USER_TYPE.COMPANY);
                         closeLogin();
                         navigate('/profile');
                     } else {
@@ -63,7 +63,7 @@ export default function LoginForm() {
             loginUser({ token })
                 .then((res) => {
                     if (res.data.token) {
-                        setToken(res.data.token, res.data.id, PERSON);
+                        setToken(res.data.token, res.data.id, USER_TYPE.PERSON);
                         closeLogin();
                         navigate('/profile');
                     } else {

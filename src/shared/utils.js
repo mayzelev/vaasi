@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const validationSchema = Yup.object({
-    fullName: Yup.string()
+    username: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
