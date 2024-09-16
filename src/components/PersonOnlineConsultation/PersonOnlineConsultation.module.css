@@ -7,7 +7,6 @@
     max-width: 1920px;
     padding: 180px;
     margin: -300px auto -100px auto;
-
     background-image: url(../../assets/img/backCalculatorSmall.png);
     background-repeat: no-repeat;
     background-position: center 250px;
@@ -15,37 +14,13 @@
 
 .header {
     color: var(--font-color-primary);
-
     text-align: center;
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     margin-bottom: 5px;
-}
-
-.line {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-.thin,
-.thick {
-    width: 100%;
-    max-width: 131.5px;
-    height: 1px;
-    background-color: var(--separate-line-main-color);
-}
-
-.thick {
-    height: 7px;
-    width: 100%;
-    max-width: 71px;
-    background: linear-gradient(to bottom, var(--button-gradient-color-start), var(--button-gradient-color-finish));
-    border-radius: 20px;
-    transform: translateY(-50%);
+    text-transform: uppercase;
 }
 
 .description {

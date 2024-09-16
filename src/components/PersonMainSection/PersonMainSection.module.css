@@ -23,9 +23,8 @@
 }
 
 .containerTop {
-    display: flex;
-    justify-content: center;
-    transform: translateX(-210px);
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .card {
@@ -106,7 +105,6 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-
     color: var(--font-color-primary);
     margin-bottom: 10px;
     width: 100%;
@@ -119,7 +117,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-
     color: var(--font-color-six);
 }
 
@@ -128,7 +125,6 @@
     font-weight: 100;
     font-size: 1rem;
     line-height: 22px;
-
     width: 100%;
     max-width: 450px;
     color: var(--font-color-six);

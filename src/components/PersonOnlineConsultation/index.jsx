@@ -8,6 +8,7 @@ import personIcon from '../../assets/icons/user.svg';
 import phoneIcon from '../../assets/icons/phone.svg';
 import emailIcon from '../../assets/icons/email.svg';
 import SuccessConsultationModal from './SuccessConsultationModal';
+import LineTitle from '../LineTitle';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
@@ -57,11 +58,7 @@ export default function PersonOnlineConsultation({ data }) {
             <div className={style.content}>
                 <div className={style.header}>{header}</div>
 
-                <div className={style.line}>
-                    <div className={style.thin} />
-                    <div className={style.thick} />
-                    <div className={style.thin} />
-                </div>
+                <LineTitle />
 
                 <div className={style.description}>{description}</div>
             </div>

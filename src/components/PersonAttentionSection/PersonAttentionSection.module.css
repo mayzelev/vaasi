@@ -29,7 +29,6 @@
 
 .header {
     color: var(--font-color-primary);
-
     text-align: center;
     font-size: 2.5rem;
     font-style: normal;
@@ -71,13 +70,13 @@
     transform: translateY(-50%);
 }
 
-.banerContainer {
+.bannerContainer {
     position: relative;
     border-radius: 10px;
     z-index: 1;
 }
 
-.banerContainer::before {
+.bannerContainer::before {
     content: '';
     position: absolute;
     top: 0;
@@ -92,22 +91,20 @@
     z-index: -1;
 }
 
-.baner {
+.banner {
     text-align: center;
-    background-image: url(../../assets/img/banerAttention.png);
+    background-image: url(../../assets/img/bannerAttention.png);
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 10px;
-
     width: 100%;
     max-width: 938px;
     padding: 58px 136px;
     border-radius: 10px;
 }
 
-.banerHeader {
+.bannerHeader {
     color: var(--font-color-thirdy);
-
     text-align: center;
     font-size: 25px;
     font-style: normal;
@@ -117,9 +114,8 @@
     margin-bottom: 5px;
 }
 
-.banerdDscription {
+.bannerdDscription {
     color: var(--font-color-fourthy);
-
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;

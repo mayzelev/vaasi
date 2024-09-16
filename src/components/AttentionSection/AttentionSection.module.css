@@ -26,7 +26,6 @@
     background: url(../../assets/img/moneyBcg.png) no-repeat center/cover;
     border-radius: 20px;
     overflow: hidden;
-
     margin-bottom: 60px;
 }
 
@@ -118,7 +117,6 @@
     font-weight: 900;
     font-size: 16px;
     line-height: 19px;
-
     color: var(--font-color-primary);
     margin-bottom: 10px;
 }
@@ -128,7 +126,6 @@
     font-weight: 250;
     font-size: 16px;
     line-height: 19px;
-
     color: var(--font-color-secondary);
 }
 
@@ -139,7 +136,6 @@
     line-height: 54px;
     text-align: center;
     text-transform: uppercase;
-
     color: var(--font-color-fourthy);
 }
 
@@ -149,7 +145,6 @@
     font-size: 16px;
     line-height: 19px;
     text-align: center;
-
     color: var(--font-color-fourthy);
     margin-bottom: 11px;
 }

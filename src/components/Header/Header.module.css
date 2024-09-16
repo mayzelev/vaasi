@@ -50,10 +50,8 @@
     flex-direction: row;
     flex-shrink: 0;
     gap: 5px;
-
     width: 100%;
     min-width: 252px;
-
     color: var(--font-color-primary);
     text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow);

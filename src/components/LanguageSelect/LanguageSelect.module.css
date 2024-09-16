@@ -34,7 +34,7 @@
 }
 
 .languageItem:hover {
-    transform: translateX(5px); /* Adjust the value as needed */
+    transform: translateX(5px);
 }
 
 .languageItem:hover::before {

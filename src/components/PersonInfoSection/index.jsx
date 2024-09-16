@@ -1,4 +1,5 @@
 import style from './PersonInfoSection.module.css';
+import LineTitle from '../LineTitle';
 
 export default function PersonInfoSection({ data, backgroundImage }) {
     const { header, description, title } = data;
@@ -8,11 +9,7 @@ export default function PersonInfoSection({ data, backgroundImage }) {
             <div className={style.containerBcg} style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <div className={style.content}>
                     <div className={style.header}>{header}</div>
-                    <div className={style.line}>
-                        <div className={style.thin} />
-                        <div className={style.thick} />
-                        <div className={style.thin} />
-                    </div>
+                    <LineTitle />
                     <div className={style.description}>{description}</div>
                     <div className={style.title}>{title}</div>
                     <div className={style.iconsContainer}>

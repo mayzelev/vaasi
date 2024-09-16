@@ -2,18 +2,18 @@ import messageIconAbout from '../../assets/icons/messageIconAbout.png';
 import contractIconAbout from '../../assets/icons/contractIconAbout.png';
 import windowIconAbout from '../../assets/icons/windowIconAbout.png';
 import supportIconAbout from '../../assets/icons/supportIconAbout.png';
-import moneyBaner from '../../assets/img/moneyBaner.png';
+import moneybanner from '../../assets/img/moneyBanner.png';
 
 export const mockDataAboutMain = {
     mainTitle: 'Про нас',
     subTitle: 'VAASI INTERNATIONAL GROUP',
     subDescription3:
-        'VAASI INTERNATIONAL GROUP - інтернет портал,  який створений для надання доступу у електронний світ, як фізичним так і юридичним особам за допомогою індивідуальних цифрових токенів.'
+        'VAASI INTERNATIONAL GROUP - інтернет портал,  який створений для надання доступу у електронний світ, як фізичним так і юридичним особам за допомогою індивідуальних цифрових токенів'
 };
 
 export const mockDataAboutInfo = {
     header: 'Наші кроки співпраці',
-    description: 'Скористайтеся нашими послугами та досвідом у створенні власного цифрового проекту вашого бізнесу.',
+    description: 'Скористайтеся нашими послугами та досвідом у створенні власного цифрового проекту вашого бізнесу',
     title: 'Ми пропонуємо консультативні послуги у наступних питаннях:',
     image: [
         {
@@ -52,13 +52,13 @@ export const mockDataAboutAttention = {
     description4: 'Поки ви займаєтесь бізнесом у реальному світі ми працюємо з вашим  підприємством у цифровому світі.',
     description5:
         'Ми єднаємо реальний світ бізнесу з електронним завдяки створенню цифрового проекту вашої діяльності та наданням технічного супроводу та інформаційно консультаційних послуг,  які стосуються подальшої співпраці. Також ми допомагаємо в опрацюванні та технічній підтримці VAASI code для фізичних осіб.',
-    baner: {
+    banner: {
         header1: 'Підключення',
         header2: 'та користування сайтом',
-        description: 'для фізичних та юридичних осіб платне.',
+        description: 'для фізичних та юридичних осіб платне',
         img: {
             alt: 'money',
-            src: moneyBaner
+            src: moneybanner
         }
     }
 };
@@ -66,5 +66,5 @@ export const mockDataAboutAttention = {
 export const mockDataAboutConsultation = {
     header: 'Замовити онлайн консультацію',
     description:
-        'З вами звяжуться наші адміністратори, або залиште ваше питання і ми надамо відповідь після його опрацювання шляхом направлення листа на вашу електронну скриньку.'
+        'З вами звяжуться наші адміністратори, або залиште ваше питання і ми надамо відповідь після його опрацювання шляхом направлення листа на вашу електронну скриньку'
 };
