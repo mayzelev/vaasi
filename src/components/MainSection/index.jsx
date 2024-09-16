@@ -6,7 +6,7 @@ import LineTitle from '../LineTitle';
 
 export default function MainSection() {
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.container}>
                 <div className={style.money} />
                 <div className={style.globus} />
@@ -31,6 +31,6 @@ export default function MainSection() {
                     <div className={style.toogle}></div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

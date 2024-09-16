@@ -5,7 +5,7 @@ export default function PersonAttentionSection({ data, imgAttention }) {
     const { header, description, banner } = data;
 
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.container}>
                 <img className={style.imgMoney} src={imgAttention} alt="money" />
                 <div className={style.content}>
@@ -20,6 +20,6 @@ export default function PersonAttentionSection({ data, imgAttention }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

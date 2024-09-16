@@ -1,5 +1,5 @@
 .iconsContainer {
-    border: 1px solid #c5c5c5;
+    border: 1px solid var(--icons-border-color);
     border-radius: 5px;
     width: 40px;
     height: 40px;

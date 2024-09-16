@@ -5,10 +5,8 @@
     flex-direction: column;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    max-width: 1920px;
-    padding: 180px;
+    background-size: cover;
+    padding: 180px 0;
     margin-top: -185px;
 }
 

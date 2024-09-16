@@ -54,27 +54,24 @@ export default function PersonOnlineConsultation({ data }) {
     }, [formik.values]);
 
     return (
-        <div className={style.container}>
-            <div className={style.content}>
-                <div className={style.header}>{header}</div>
+        <section className={style.container}>
+            <div className={style.header}>{header}</div>
 
-                <LineTitle />
+            <LineTitle />
 
-                <div className={style.description}>{description}</div>
-            </div>
+            <div className={style.description}>{description}</div>
             <form className={style.form} onSubmit={formik.handleSubmit}>
                 <Box
                     sx={{
                         mt: 2,
                         mb: 4,
                         display: 'flex',
-                        flexDirection: 'row',
-                        gap: '20px',
-                        width: '100%',
-                        maxWidth: '1200px'
+                        alignItems: 'center',
+                        gap: '20px'
                     }}
                 >
                     <TextField
+                        autoComplete="true"
                         fullWidth
                         placeholder="Ім'я"
                         variant="outlined"
@@ -108,6 +105,7 @@ export default function PersonOnlineConsultation({ data }) {
                         helperText={formik.touched.fullName && formik.errors.fullName}
                     />
                     <TextField
+                        autoComplete="true"
                         fullWidth
                         placeholder="+38(0XX)XXX XX XX"
                         variant="outlined"
@@ -125,11 +123,10 @@ export default function PersonOnlineConsultation({ data }) {
                                 boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
                                 borderRadius: '5px',
                                 height: '40px',
-                                maxWidth: '350px',
+
                                 '& .MuiInputBase-input': {
                                     height: '40px',
-                                    boxSizing: 'border-box',
-                                    maxWidth: '350px'
+                                    boxSizing: 'border-box'
                                 }
                             }
                         }}
@@ -142,6 +139,7 @@ export default function PersonOnlineConsultation({ data }) {
                         helperText={formik.touched.phone && formik.errors.phone}
                     />
                     <TextField
+                        autoComplete="true"
                         fullWidth
                         placeholder="Електронна пошта"
                         variant="outlined"
@@ -188,6 +186,6 @@ export default function PersonOnlineConsultation({ data }) {
                 </Box>
             </form>
             <SuccessConsultationModal openSuccessModal={openSuccessModal} setOpenSuccessModal={setOpenSuccessModal} />
-        </div>
+        </section>
     );
 }

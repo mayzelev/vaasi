@@ -1,15 +1,8 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1920px;
-    padding: 180px;
-    margin: -300px auto -100px auto;
+    padding-bottom: 90px;
     background-image: url(../../assets/img/backCalculatorSmall.png);
     background-repeat: no-repeat;
-    background-position: center 250px;
+    background-position: center 90px;
 }
 
 .header {
@@ -27,7 +20,6 @@
     color: var(--font-color-primary);
     text-align: center;
     font-size: 1rem;
-    font-style: normal;
     font-weight: 250;
     line-height: normal;
     max-width: 638px;
@@ -36,13 +28,13 @@
 }
 
 .iconsContainer {
-    border: 1px solid #c5c5c5;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid var(--icons-border-color);
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
 }
 .icons {
     width: 24px;
@@ -50,6 +42,6 @@
 }
 
 .form {
-    max-width: 1090px;
-    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
 }

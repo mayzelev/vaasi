@@ -7,7 +7,7 @@ export default function AttentionSection() {
     const { openRegistration } = useAuthStore();
 
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.container}>
                 <div className={style.containerTop}>
                     <div className={style.card}>
@@ -54,6 +54,6 @@ export default function AttentionSection() {
                     />
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

@@ -9,9 +9,9 @@ import VButton from '../VButton';
 
 export default function Footer() {
     return (
-        <div className="container">
-            <footer className={style.footer}>
-                <div className={style.container}>
+        <footer className={style.footer}>
+            <div className="container">
+                <div className={style.content}>
                     <div className={style.left}>
                         <div className={style.logoContainer}>
                             <Link to="/">
@@ -87,7 +87,7 @@ export default function Footer() {
                         <p>VAASI International Group: Connecting Worlds, Creating Opportunities</p>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
     );
 }

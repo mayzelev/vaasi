@@ -5,7 +5,7 @@ export default function PersonInfoSection({ data, backgroundImage }) {
     const { header, description, title } = data;
 
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.containerBcg} style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <div className={style.content}>
                     <div className={style.header}>{header}</div>
@@ -25,6 +25,6 @@ export default function PersonInfoSection({ data, backgroundImage }) {
                     <div className={style.arrowRight}></div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

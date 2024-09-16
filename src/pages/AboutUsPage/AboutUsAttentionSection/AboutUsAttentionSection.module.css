@@ -1,13 +1,6 @@
-.container {
-    display: flex;
-    align-items: center;
-    padding: 180px;
-    margin-top: -240px;
-    position: relative;
-}
-
 .content {
     max-width: 938px;
+    margin: 0 auto 50px;
 }
 
 .header {

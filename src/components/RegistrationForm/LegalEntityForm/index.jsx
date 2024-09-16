@@ -92,6 +92,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         <form onSubmit={formik.handleSubmit}>
             <Box>
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Назва підприємства"
                     variant="outlined"
@@ -124,6 +125,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.companyName && formik.errors.companyName}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Контактна особа"
                     variant="outlined"
@@ -156,6 +158,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.contactPerson && formik.errors.contactPerson}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
@@ -188,6 +191,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
@@ -220,6 +224,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
@@ -268,6 +273,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     variant="outlined"
                     margin="normal"

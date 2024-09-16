@@ -11,10 +11,11 @@ export default function PersonMainSection({ data, imgMain, tabIndex, showButton 
     };
 
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.container}>
                 <img className={style.imgMoney} src={imgMain} alt="money" />
-                <img className={style.girlImg} src={girlImgSrc} alt="girl" />
+                {girlImgSrc && <img className={style.girlImg} src={girlImgSrc} alt="girl" />}
+
                 <div className={style.containerTop}>
                     <div className={style.card}>
                         <div className={style.containerForLine}>
@@ -49,6 +50,6 @@ export default function PersonMainSection({ data, imgMain, tabIndex, showButton 
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

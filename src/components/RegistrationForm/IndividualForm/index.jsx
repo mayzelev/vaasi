@@ -90,6 +90,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         <form onSubmit={formik.handleSubmit}>
             <Box sx={{ mt: 1 }}>
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="ПІБ"
                     variant="outlined"
@@ -122,6 +123,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.fullName && formik.errors.fullName}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="+38(0XX)XXX XX XX"
                     variant="outlined"
@@ -154,6 +156,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.phone && formik.errors.phone}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Електронна пошта"
                     variant="outlined"
@@ -186,6 +189,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.email && formik.errors.email}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     placeholder="Код адміністратора"
                     variant="outlined"
@@ -234,6 +238,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     }}
                 />
                 <TextField
+                    autoComplete="true"
                     fullWidth
                     variant="outlined"
                     margin="normal"
