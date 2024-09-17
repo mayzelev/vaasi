@@ -93,10 +93,10 @@
     margin-bottom: 20px;
 }
 
-.descriptionTitle{
-  font-size: 16px;
-  font-weight: 250;
-  line-height: 19.2px;
+.descriptionTitle {
+    font-size: 16px;
+    font-weight: 250;
+    line-height: 19.2px;
 }
 
 .descriptionTitle::before {
