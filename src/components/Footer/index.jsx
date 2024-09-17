@@ -30,13 +30,13 @@ export default function Footer() {
                                 <Link to="/about-us">Про нас</Link>
                             </li>
                             <li>
-                                <Link to="/">Правила користування кодами VAASI</Link>
+                                <Link to="/rules-for-using-vaasi-code">Правила користування кодами VAASI</Link>
                             </li>
                             <li>
-                                <Link to="/">Політика конфіденційності</Link>
+                                <Link to="/privacy-policy">Політика конфіденційності</Link>
                             </li>
                             <li>
-                                <Link to="/">Правила користування сайтом</Link>
+                                <Link to="/rules-for-using-site">Правила користування сайтом</Link>
                             </li>
                         </ul>
                         <ul className={`${style.links} ${style.linksInfo}`}>
