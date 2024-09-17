@@ -10,25 +10,12 @@ export default function RulesForUsing({ data }) {
             <div className={style.wraper}>
                 <div className={style.content}>
                     <h1 className={style.header}>{header}</h1>
-                    {content.map((item) => (
-                        <>
-                            {item.header && (
-                                <p
-                                    className={style.headerItem}
-                                    dangerouslySetInnerHTML={{
-                                        __html: DOMPurify.sanitize(item.header)
-                                    }}
-                                ></p>
-                            )}
-                            <p
-                                className={style.title}
-                                key={item.id}
-                                dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(item.text)
-                                }}
-                            ></p>
-                        </>
-                    ))}
+                    <div
+                        className={style.headerItem}
+                        dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(content)
+                        }}
+                    ></div>
                 </div>
                 <img className={style.img} src={img} alt="calculator" />
             </div>

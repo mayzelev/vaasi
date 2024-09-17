@@ -90,13 +90,16 @@
     flex-direction: column;
     text-align: left;
     gap: 10px;
-    font-size: 16px;
-    font-weight: 250;
-    line-height: 19.2px;
     margin-bottom: 20px;
 }
 
-.description p::before {
+.descriptionTitle{
+  font-size: 16px;
+  font-weight: 250;
+  line-height: 19.2px;
+}
+
+.descriptionTitle::before {
     content: '';
     position: absolute;
     background: var(--gradient-button);

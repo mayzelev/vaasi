@@ -83,8 +83,8 @@ export default function Footer() {
                 </div>
                 <div className={style.copyrightContainer}>
                     <div className={style.copyright}>
-                        <p>Copyright 2024©.</p>
-                        <p>VAASI International Group: Connecting Worlds, Creating Opportunities</p>
+                        <p className={style.copyrightText}>Copyright 2024©.</p>
+                        <p className={style.copyrightText}>VAASI International Group: Connecting Worlds, Creating Opportunities</p>
                     </div>
                 </div>
             </div>
