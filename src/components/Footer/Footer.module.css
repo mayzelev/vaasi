@@ -1,6 +1,8 @@
 .footer {
     background-color: var(--main-bg-color);
     box-shadow: -1px -4px 10px rgba(0, 0, 0, 0.13);
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .content {
