@@ -5,6 +5,7 @@ import { USER_TYPE } from '../../shared/constants.js';
 import { PERSON_TYPE, USER_ID } from '../../store/useAuthStore.js';
 import { mockDataBasicAssets } from './mockData.js';
 import style from './BasicAssets.module.css';
+import bgImage from '../../assets/img/backCalculatorSmall.png';
 
 export default function BasicAssetsPage() {
     const [assets, setAssets] = useState(null);
@@ -27,10 +28,13 @@ export default function BasicAssetsPage() {
     }, [personType, userId]);
 
     return (
-        <section className={style.container}>
-            <h1 className="titleWithBorder">{title}</h1>
-            <p className="description">{description}</p>
-            {!isAssetsEmpty && <AccordionSection data={assets} />}
+        <section className={style.basicAssets}>
+            <div className={style.container}>
+                <h1 className="titleWithBorder">{title}</h1>
+                <p className="description">{description}</p>
+                {!isAssetsEmpty && <AccordionSection data={assets} />}
+            </div>
+            <img src={bgImage} className={style.bgImg} alt="money" />
         </section>
     );
 }
