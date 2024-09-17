@@ -60,7 +60,7 @@ export default function Header() {
     );
 
     return (
-        <div className="container">
+        <header className="container">
             <AppBar position="static">
                 <Toolbar className={style.headerToolbar}>
                     <div className={style.header}>
@@ -148,6 +148,6 @@ export default function Header() {
                     </Drawer>
                 </Toolbar>
             </AppBar>
-        </div>
+        </header>
     );
 }

@@ -25,7 +25,7 @@ export default function InfoSection() {
     };
 
     return (
-        <div className="container">
+        <section className="container">
             <div className={style.infoContainerSecondary}>
                 <div className={style.infoContainer}>
                     <div className={style.container}>
@@ -130,6 +130,6 @@ export default function InfoSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

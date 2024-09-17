@@ -1,7 +1,6 @@
 .header {
     color: var(--font-color-thirdy);
     margin-bottom: 16px;
-
     font-style: normal;
     font-weight: 900;
     font-size: 30px;
@@ -14,7 +13,6 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-
     color: var(--font-color-primary);
     margin-bottom: 10px;
 }

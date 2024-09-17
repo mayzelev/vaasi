@@ -1,5 +1,5 @@
 .iconsContainer {
-    border: 1px solid #c5c5c5;
+    border: 1px solid var(--icons-border-color);
     border-radius: 5px;
     width: 40px;
     height: 40px;
@@ -18,7 +18,6 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 22px;
-
     color: var(--font-color-primary);
 }
 .link {
@@ -32,6 +31,5 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-
     color: var(--font-color-primary);
 }

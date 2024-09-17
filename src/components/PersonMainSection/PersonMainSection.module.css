@@ -1,35 +1,32 @@
 .container {
     position: relative;
-    width: 100%;
-    max-width: 1920px;
-    padding: 90px 10px;
-    margin-bottom: 110px;
+    padding-top: 90px;
+    margin-bottom: 240px;
 }
 
 .imgMoney {
     position: absolute;
-    top: -60px;
+    top: -10%;
     right: 0;
+    z-index: -1;
 }
 
 .girlImg {
     position: absolute;
-    top: -50px;
+    top: -10%;
     right: 0;
-    width: 100%;
     max-width: 880px;
-    transform: translateX(-300px);
-    z-index: -1;
+    margin: 0px 15% auto;
+    z-index: -2;
 }
 
 .containerTop {
-    display: flex;
-    justify-content: center;
-    transform: translateX(-230px);
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .card {
-    max-width: 643px;
+    max-width: 709px;
     width: 100%;
 }
 
@@ -49,8 +46,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100%;
-    transform: translateX(2px);
 }
 
 .verticalLine::before {
@@ -63,17 +60,12 @@
 }
 
 .cardTitle {
-    display: flex;
-    flex-direction: column;
     text-transform: uppercase;
-    max-width: 612px;
-    width: 100%;
 }
 
 .cardTitleFirst {
     position: relative;
     font-size: 4.75rem;
-    font-style: normal;
     font-weight: 900;
     line-height: normal;
     color: var(--font-color-primary);
@@ -86,14 +78,13 @@
     height: 70%;
     border-radius: 50px;
     background: var(--gradient-button);
-    left: -26px;
+    left: -27px;
     top: 0;
     margin-top: 10px;
 }
 
 .cardTitleSecond {
     font-size: 3rem;
-    font-style: normal;
     font-weight: 250;
     line-height: normal;
     color: var(--font-color-primary);
@@ -102,27 +93,30 @@
 
 .description {
     margin-bottom: 10px;
-    width: 100%;
-    max-width: 380px;
 }
 
 .subDescription1 {
-    display: inline-block;
     font-size: 1.18rem;
-    font-style: normal;
     font-weight: 300;
     line-height: normal;
-
     color: var(--font-color-primary);
     margin-bottom: 10px;
+    width: 100%;
+    max-width: 361px;
 }
 
 .subDescription2 {
-    display: inline-block;
     font-size: 1.18rem;
-    font-style: normal;
     font-weight: 600;
     line-height: normal;
+    color: var(--font-color-six);
+}
 
+.subDescription3 {
+    font-weight: 100;
+    font-size: 1rem;
+    line-height: 22px;
+    width: 100%;
+    max-width: 450px;
     color: var(--font-color-six);
 }
