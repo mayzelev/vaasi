@@ -76,7 +76,7 @@ export default function Footer() {
                             </p>
                             <p className={style.contactLink}>
                                 <img className={style.iconsContact} src={messageImg} alt="message" />
-                                <a href="mailto:curlypittie@gufum.com">curlypittie@gufum.com</a>
+                                <a href="mailto:info.vaasi@gmail.com">info.vaasi@gmail.com</a>
                             </p>
                         </div>
                     </div>
