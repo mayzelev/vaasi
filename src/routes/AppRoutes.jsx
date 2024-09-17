@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoutes.jsx';
 import ProfilePage from '../pages/ProfilePage/index.jsx';
 import useAuthStore from '../store/useAuthStore.js';
 import AboutUsPage from '../pages/AboutUsPage/index.jsx';
+import BasicAssetsPage from '../pages/BasicAssets/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -54,6 +55,16 @@ const AppRoutes = () => {
                     <PrivateRoute>
                         <DefaultLayout>
                             <ProfilePage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/basic-assets"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <BasicAssetsPage />
                         </DefaultLayout>
                     </PrivateRoute>
                 }

@@ -15,25 +15,6 @@
     min-height: 69vh;
 }
 
-.title {
-    position: relative;
-    font-weight: 700;
-    font-size: 2.18rem;
-    line-height: 42px;
-    color: #262626;
-    padding-left: 11px;
-}
-.title:before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 29px;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #ff7067;
-    border-radius: 50px;
-}
 .userWrapper {
     display: flex;
     align-items: center;
