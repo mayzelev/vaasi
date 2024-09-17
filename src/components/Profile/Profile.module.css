@@ -1,7 +1,17 @@
+.profile {
+    position: relative;
+}
+
+.bgImg {
+    position: absolute;
+    bottom: -20px;
+    z-index: -1;
+}
+
 .container {
     max-width: 1050px;
     margin: 0 auto;
-    padding: 25px 10px;
+    padding: 34px 10px;
     min-height: 69vh;
 }
 
@@ -31,7 +41,7 @@
     gap: 30px;
 }
 
-.userInfo p {
+.lineWrapper {
     position: relative;
     font-weight: 300;
     font-size: 1rem;
@@ -39,38 +49,46 @@
     display: flex;
     align-items: center;
     color: var(--font-color-primary);
-    padding: 8px 50px 8px 0;
-    gap: 120px;
+    gap: 10px;
     border-bottom: 1px dashed #b5b5b5;
 }
-
-.userInfo p:last-child {
+.lineWrapper > div {
+    padding: 8px 50px 8px 0;
+}
+.lineWrapper:last-child {
     border: none;
 }
 
-.userInfo p span {
+.lineWrapper span {
     text-align: left;
     font-size: 1rem;
     padding: 4px;
 }
-.userInfo p input {
+.lineWrapper input {
     font-weight: 600;
     font-size: 1rem;
     border: 1px solid #ccc;
     padding: 4px;
 }
-.userInfo p span:first-child {
+.lineWrapper span:first-child {
     display: block;
-    min-width: 189px;
-    white-space: nowrap;
+    min-width: 289px;
 }
 
-.userInfo p span:nth-child(2) {
+.lineWrapper span:nth-child(2) {
     flex-grow: 1;
     min-width: 223px;
 }
 
-.userInfo p img {
+.userInfo > div fieldset {
+    display: none;
+}
+.error {
+    max-width: 330px;
+    color: red;
+}
+
+.userInfo > div img {
     width: 19px;
 }
 
@@ -94,9 +112,17 @@
     .userInfo {
         width: 100%;
     }
-    .userInfo p {
+    .lineWrapper {
+        position: relative;
+        width: 100%;
         flex-direction: column;
         gap: 10px;
         align-items: baseline;
+    }
+    .lineWrapper > div {
+        padding: 8px 20px 8px 0;
+    }
+    .userWrapper form {
+        width: 100%;
     }
 }

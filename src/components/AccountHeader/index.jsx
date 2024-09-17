@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,17 +12,18 @@ import logoImg from '../../assets/icons/logo.png';
 import avatarImg from '../../assets/img/account-mock.jpg';
 import cashImg from '../../assets/icons/cash.svg';
 
-import useAuthStore, { USER_ID } from '../../store/useAuthStore';
+import useAuthStore from '../../store/useAuthStore';
 import MenuItems from './MenuItem.jsx';
-import { getUser } from '../../api/apiUsers.js';
+import useUserStore from '../../store/useUserStore.js';
 
 export default function AccountHeader() {
     const { logout } = useAuthStore();
-    const userId = localStorage.getItem(USER_ID);
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const [user, setUser] = useState('');
+    const { userData } = useUserStore();
+    const { username, balance } = userData;
 
+    const [drawerOpen, setDrawerOpen] = useState(false);
     const navigate = useNavigate();
+
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -40,24 +41,6 @@ export default function AccountHeader() {
         logout();
         navigate('/');
     };
-
-    useEffect(() => {
-        if (!userId) {
-            return;
-        }
-        const fetchUserData = async () => {
-            try {
-                const data = await getUser(userId);
-                setUser({
-                    username: data.username,
-                    balance: data.balance
-                });
-            } catch (error) {
-                console.error('Error fetching user info:', error);
-            }
-        };
-        fetchUserData();
-    }, [userId]);
 
     return (
         <div className="container">
@@ -77,10 +60,10 @@ export default function AccountHeader() {
                             <div className={style.accountHeader}>
                                 <div className={style.accountText}>
                                     <p>
-                                        <strong>{user.username}</strong>
+                                        <strong>{username}</strong>
                                     </p>
                                     <p>
-                                        Поточний баланс: <span>{user.balance || 0}</span> <img src={cashImg} alt={'cash'} />
+                                        Поточний баланс: <span>{balance || 0}</span> <img src={cashImg} alt={'cash'} />
                                     </p>
                                 </div>
                                 <img src={avatarImg} className={style.avatarImg} alt={'avatar'} />
