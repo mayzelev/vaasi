@@ -1,6 +1,8 @@
 .footer {
     background-color: var(--main-bg-color);
     box-shadow: -1px -4px 10px rgba(0, 0, 0, 0.13);
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .content {
@@ -39,7 +41,7 @@
     cursor: pointer;
     font-style: bold;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     transition: color 0.3s ease;
 }
@@ -60,7 +62,7 @@
     gap: 10px;
     font-style: normal;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 0.87rem;
     line-height: 17px;
     color: var(--font-color-primary);
 }
@@ -107,6 +109,10 @@
 .contactLink {
     display: flex;
     gap: 10px;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 19px;
+    color: var(--font-color-primary);
 }
 
 .copyrightContainer {
@@ -125,11 +131,14 @@
     gap: 20px;
     width: 100%;
     max-width: 1050px;
+}
+
+.copyrightText {
     font-size: 12px;
     color: var(--font-color-fourthy);
     font-style: normal;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 14px;
 }
 

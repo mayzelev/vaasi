@@ -64,10 +64,11 @@ export default function PersonOnlineConsultation({ data }) {
                 <Box
                     sx={{
                         mt: 2,
-                        mb: 4,
+                        mb: 5,
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '20px'
+                        gap: '20px',
+                        WebkitAlignItems: 'unset'
                     }}
                 >
                     <TextField

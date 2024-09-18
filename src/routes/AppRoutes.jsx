@@ -7,6 +7,9 @@ import PrivateRoute from './PrivateRoutes.jsx';
 import ProfilePage from '../pages/ProfilePage/index.jsx';
 import useAuthStore from '../store/useAuthStore.js';
 import AboutUsPage from '../pages/AboutUsPage/index.jsx';
+import RulesForUsingVaasiCodePage from '../pages/RulesForUsingVaasiCodePage/index.jsx';
+import RulesForUsingSite from '../pages/RulesForUsingSite/index.jsx';
+import PrivacyPolicy from '../pages/PrivacyPolicy/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -45,6 +48,30 @@ const AppRoutes = () => {
                 element={
                     <DefaultLayout>
                         <AboutUsPage />
+                    </DefaultLayout>
+                }
+            />
+            <Route
+                path="/rules-for-using-vaasi-code"
+                element={
+                    <DefaultLayout>
+                        <RulesForUsingVaasiCodePage />
+                    </DefaultLayout>
+                }
+            />
+            <Route
+                path="/rules-for-using-site"
+                element={
+                    <DefaultLayout>
+                        <RulesForUsingSite />
+                    </DefaultLayout>
+                }
+            />
+            <Route
+                path="/privacy-policy"
+                element={
+                    <DefaultLayout>
+                        <PrivacyPolicy />
                     </DefaultLayout>
                 }
             />

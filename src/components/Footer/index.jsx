@@ -30,13 +30,13 @@ export default function Footer() {
                                 <Link to="/about-us">Про нас</Link>
                             </li>
                             <li>
-                                <Link to="/">Правила користування кодами VAASI</Link>
+                                <Link to="/rules-for-using-vaasi-code">Правила користування кодами VAASI</Link>
                             </li>
                             <li>
-                                <Link to="/">Політика конфіденційності</Link>
+                                <Link to="/privacy-policy">Політика конфіденційності</Link>
                             </li>
                             <li>
-                                <Link to="/">Правила користування сайтом</Link>
+                                <Link to="/rules-for-using-site">Правила користування сайтом</Link>
                             </li>
                         </ul>
                         <ul className={`${style.links} ${style.linksInfo}`}>
@@ -76,15 +76,15 @@ export default function Footer() {
                             </p>
                             <p className={style.contactLink}>
                                 <img className={style.iconsContact} src={messageImg} alt="message" />
-                                <a href="mailto:curlypittie@gufum.com">curlypittie@gufum.com</a>
+                                <a href="mailto:info.vaasi@gmail.com">info.vaasi@gmail.com</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div className={style.copyrightContainer}>
                     <div className={style.copyright}>
-                        <p>Copyright 2024©.</p>
-                        <p>VAASI International Group: Connecting Worlds, Creating Opportunities</p>
+                        <p className={style.copyrightText}>Copyright 2024©.</p>
+                        <p className={style.copyrightText}>VAASI International Group: Connecting Worlds, Creating Opportunities</p>
                     </div>
                 </div>
             </div>
