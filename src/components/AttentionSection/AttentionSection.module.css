@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .containerTop {
@@ -12,6 +13,8 @@
     flex-direction: row;
     gap: 10px;
     height: 270px;
+    padding: 0 10px;
+    margin-bottom: 40px;
 }
 
 .containerBottom {
@@ -40,6 +43,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    transform: translateY(-30px);
 }
 
 .lineContainer {
@@ -52,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 230px;
+    height: 100%;
 }
 
 .verticalLine::before {
@@ -99,7 +103,7 @@
 .cardTitleFirst {
     font-style: normal;
     font-weight: 900;
-    font-size: 50px;
+    font-size: 3.1rem;
     line-height: 60px;
     color: var(--font-color-primary);
 }
@@ -115,7 +119,7 @@
 .subDescription1 {
     font-style: normal;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     color: var(--font-color-primary);
     margin-bottom: 10px;
@@ -124,7 +128,7 @@
 .subDescription2 {
     font-style: normal;
     font-weight: 250;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     color: var(--font-color-secondary);
 }
@@ -132,7 +136,7 @@
 .headerTitle {
     font-style: normal;
     font-weight: 900;
-    font-size: 45px;
+    font-size: 2.8rem;
     line-height: 54px;
     text-align: center;
     text-transform: uppercase;
@@ -142,7 +146,7 @@
 .subTitle {
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     text-align: center;
     color: var(--font-color-fourthy);
@@ -163,7 +167,7 @@
         display: none;
     }
     .headerTitle {
-        font-size: 36px;
+        font-size: 2.25rem;
         line-height: 16px;
         margin-bottom: 20px;
     }
@@ -174,24 +178,22 @@
         padding: 30px 10px;
     }
     .cardTitleFirst {
-        font-size: 40px;
+        font-size: 2rem;
     }
     .cardTitleSecond {
-        font-size: 40px;
+        font-size: 2rem;
     }
     .containerTop {
         padding: 10px;
-        transform: translateY(-60px);
+        transform: translateY(-95px);
+        margin-bottom: 20px;
     }
     .headerTitle {
-        font-size: 24px;
+        font-size: 1.5rem;
         margin-bottom: 11px;
     }
     .subTitle {
-        font-size: 9px;
+        font-size: 0.9rem;
         margin-bottom: 11px;
-    }
-    .verticalLine {
-        height: 250px;
     }
 }
