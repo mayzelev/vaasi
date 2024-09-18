@@ -16,7 +16,7 @@ export default function BalanceCodePage() {
     };
 
     return (
-        <section>
+        <section className={style.balanceCode}>
             <div className={style.container}>
                 <h1 className="titleWithBorder">{title}</h1>
                 <p className="description">{description}</p>
