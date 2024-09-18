@@ -13,7 +13,7 @@
     bottom: -80px;
     z-index: -1;
 }
-label{
+label {
     font-style: normal;
     font-weight: 300;
     font-size: 1rem;
@@ -21,25 +21,25 @@ label{
     color: var(--font-color-six);
 }
 
-.textWrapper{
+.textWrapper {
     display: flex;
     align-items: center;
     gap: 5px;
     margin-bottom: 34px;
 }
 
-.textWrapper div{
+.textWrapper div {
     line-height: normal;
 }
 
-.total{
+.total {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
     gap: 20px;
-    background: #FFFFFF;
-    border: 1px solid #B9B3B3;
+    background: #ffffff;
+    border: 1px solid #b9b3b3;
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     max-width: 462px;
