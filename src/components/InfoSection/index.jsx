@@ -47,12 +47,16 @@ export default function InfoSection() {
                                             <img src={peopleImg} alt="people" />
                                         </div>
                                         <div className={style.description}>
-                                            <p>
+                                            <p className={style.descriptionTitle}>
                                                 Занурюйся у світ цифрових можливостей та отримуйте переваги співпраці разом з VAASI <br />{' '}
                                                 INTERNATIONAL GROUP.
                                             </p>
-                                            <p>Наша основна робота з фізичними особами це допомога у придбанні та обробці VAASI code.</p>
-                                            <p>Ми пропонуємо послуги з обробки VAASI code та технічну підтримку під час нашої взаємодії.</p>
+                                            <p className={style.descriptionTitle}>
+                                                Наша основна робота з фізичними особами це допомога у придбанні та обробці VAASI code.
+                                            </p>
+                                            <p className={style.descriptionTitle}>
+                                                Ми пропонуємо послуги з обробки VAASI code та технічну підтримку під час нашої взаємодії.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -93,9 +97,9 @@ export default function InfoSection() {
                                             <img src={factoryImg} alt="factory" />
                                         </div>
                                         <div className={`${style.description} ${style.descriptionBottom}`}>
-                                            <p>Ми єднаємо реальний та цифровий світ у бізнесі.</p>
-                                            <p>Відкрийте нові можливості для вашого бізнесу.</p>
-                                            <p>
+                                            <p className={style.descriptionTitle}>Ми єднаємо реальний та цифровий світ у бізнесі.</p>
+                                            <p className={style.descriptionTitle}>Відкрийте нові можливості для вашого бізнесу.</p>
+                                            <p className={style.descriptionTitle}>
                                                 Скористайтеся нашими послугами та досвідом у створенні власного цифрового проєкту вашого
                                                 бізнесу.
                                             </p>
