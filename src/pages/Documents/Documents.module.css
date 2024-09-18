@@ -4,7 +4,8 @@
     padding: 34px 10px;
     min-height: 69vh;
 }
-.balanceCode {
+
+.documents {
     position: relative;
 }
 
@@ -14,24 +15,6 @@
     z-index: -1;
     max-width: 100%;
 }
-label {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 19px;
-    color: var(--font-color-six);
-}
-
-.textWrapper {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 34px;
-}
-
-.textWrapper div {
-    line-height: normal;
-}
 
 .total {
     display: flex;
@@ -39,10 +22,14 @@ label {
     justify-content: space-between;
     padding: 16px;
     gap: 20px;
-    background: #ffffff;
+    background:var(--main-bg-color);
     border: 1px solid #b9b3b3;
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    max-width: 462px;
+    margin-top: 15px;
+    word-break: break-word;
+}
+
+.documentsWrapper{
     margin-top: 30px;
 }

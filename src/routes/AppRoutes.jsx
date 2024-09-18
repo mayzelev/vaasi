@@ -12,6 +12,7 @@ import RulesForUsingVaasiCodePage from '../pages/RulesForUsingVaasiCodePage/inde
 import RulesForUsingSite from '../pages/RulesForUsingSite/index.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy/index.jsx';
 import BalanceCodePage from '../pages/BalanceCode/index.jsx';
+import DocumentsPage from '../pages/Documents/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -103,6 +104,16 @@ const AppRoutes = () => {
                     <PrivateRoute>
                         <DefaultLayout>
                             <BasicAssetsPage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/documents"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <DocumentsPage />
                         </DefaultLayout>
                     </PrivateRoute>
                 }
