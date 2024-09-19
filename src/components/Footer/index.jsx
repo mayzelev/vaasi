@@ -14,7 +14,7 @@ export default function Footer() {
                 <div className={style.content}>
                     <div className={style.left}>
                         <div className={style.logoContainer}>
-                            <Link to="/">
+                            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                                 <img className={style.logo} src={logoImg} alt="VAASI Logo" />
                             </Link>
                         </div>
@@ -27,24 +27,36 @@ export default function Footer() {
                     <div className={style.center}>
                         <ul className={style.links}>
                             <li>
-                                <Link to="/about-us">Про нас</Link>
+                                <Link to="/about-us" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Про нас
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/rules-for-using-vaasi-code">Правила користування кодами VAASI</Link>
+                                <Link to="/rules-for-using-vaasi-code" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Правила користування кодами VAASI
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/privacy-policy">Політика конфіденційності</Link>
+                                <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Політика конфіденційності
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/rules-for-using-site">Правила користування сайтом</Link>
+                                <Link to="/rules-for-using-site" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Правила користування сайтом
+                                </Link>
                             </li>
                         </ul>
                         <ul className={`${style.links} ${style.linksInfo}`}>
                             <li>
-                                <Link to="/natural-persons">Фізичні особи інформація</Link>
+                                <Link to="/natural-persons" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Фізичні особи інформація
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/legal-entities">Юридичні особи інформація</Link>
+                                <Link to="/legal-entities" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                    Юридичні особи інформація
+                                </Link>
                             </li>
                         </ul>
                     </div>
