@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,17 +12,33 @@ import logoImg from '../../assets/icons/logo.png';
 import avatarImg from '../../assets/img/account-mock.jpg';
 import cashImg from '../../assets/icons/cash.svg';
 
-import useAuthStore from '../../store/useAuthStore';
+import useAuthStore, { PERSON_TYPE, USER_ID } from '../../store/useAuthStore';
 import MenuItems from './MenuItem.jsx';
 import useUserStore from '../../store/useUserStore.js';
+import { USER_TYPE } from '../../shared/constants.js';
+import { getCompany, getUser } from '../../api/apiUsers.js';
 
 export default function AccountHeader() {
     const { logout } = useAuthStore();
-    const { userData } = useUserStore();
+    const { setUserInfo, userData } = useUserStore();
     const { username, balance } = userData;
-
     const [drawerOpen, setDrawerOpen] = useState(false);
     const navigate = useNavigate();
+    const userId = localStorage.getItem(USER_ID);
+    const personType = localStorage.getItem(PERSON_TYPE);
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            const fetchFunction = personType === USER_TYPE.COMPANY ? getCompany : getUser;
+            try {
+                const data = await fetchFunction(userId);
+                setUserInfo({ ...data });
+            } catch (error) {
+                console.error(`Error fetching ${personType} info:`, error);
+            }
+        };
+        fetchUserInfo();
+    }, [personType, setUserInfo, userId]);
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

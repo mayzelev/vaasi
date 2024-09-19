@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoutes.jsx';
 import ProfilePage from '../pages/ProfilePage/index.jsx';
 import useAuthStore from '../store/useAuthStore.js';
 import AboutUsPage from '../pages/AboutUsPage/index.jsx';
+import BasicAssetsPage from '../pages/BasicAssets/index.jsx';
 import RulesForUsingVaasiCodePage from '../pages/RulesForUsingVaasiCodePage/index.jsx';
 import RulesForUsingSite from '../pages/RulesForUsingSite/index.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy/index.jsx';
@@ -81,6 +82,16 @@ const AppRoutes = () => {
                     <PrivateRoute>
                         <DefaultLayout>
                             <ProfilePage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/basic-assets"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <BasicAssetsPage />
                         </DefaultLayout>
                     </PrivateRoute>
                 }
