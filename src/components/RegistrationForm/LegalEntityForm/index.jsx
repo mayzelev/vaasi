@@ -86,7 +86,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
     useEffect(() => {
         localStorage.setItem('legalEntityForm', JSON.stringify(formik.values));
         formik.setFieldValue('tokenCode', tokenCode);
-    }, [formik.values, tokenCode]);
+    }, [formik.values, tokenCode]); // eslint-disable-line
 
     return (
         <form onSubmit={formik.handleSubmit}>

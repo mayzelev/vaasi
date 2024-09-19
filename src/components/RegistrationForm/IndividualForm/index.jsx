@@ -84,7 +84,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
     useEffect(() => {
         localStorage.setItem('individualForm', JSON.stringify(formik.values));
         formik.setFieldValue('tokenCode', tokenCode);
-    }, [formik.values, tokenCode]);
+    }, [formik.values, tokenCode]); // eslint-disable-line
 
     return (
         <form onSubmit={formik.handleSubmit}>
