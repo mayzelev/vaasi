@@ -4,11 +4,10 @@
 @import './styles/editor.css';
 
 body {
-    font-family: var(--primary-font);
+    font-family: var(--primary-font), serif;
     scroll-behavior: smooth;
     font-size: 14px;
     line-height: 24px;
-    background-color: var(--background-color);
     color: var(--font-color-primary);
     overflow-x: hidden;
 }
@@ -17,4 +16,34 @@ body {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
+}
+
+.titleWithBorder {
+    position: relative;
+    font-weight: 700;
+    font-size: 2.18rem;
+    line-height: 42px;
+    color: var(--font-color-primary);
+    padding-left: 16px;
+    text-transform: uppercase;
+}
+.titleWithBorder:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 29px;
+    left: 0;
+    top: 50%;
+    background: #ff7067;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #ffb6b1 1.89%, #ff7067 100%);
+    transform: translateY(-50%);
+}
+
+.description {
+    margin: 10px 0 35px;
+    font-weight: 250;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    color: var(--font-color-six);
 }

@@ -1,0 +1,35 @@
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 34px 10px;
+    min-height: 69vh;
+}
+
+.documents {
+    position: relative;
+}
+
+.bgImg {
+    position: absolute;
+    bottom: -80px;
+    z-index: -1;
+    max-width: 100%;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    gap: 20px;
+    background: var(--main-bg-color);
+    border: 1px solid #b9b3b3;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin-top: 15px;
+    word-break: break-word;
+}
+
+.documentsWrapper {
+    margin-top: 30px;
+}

@@ -39,7 +39,6 @@
     margin-right: 10px;
     color: var(--font-color-primary);
     cursor: pointer;
-    font-style: bold;
     font-weight: 700;
     font-size: 1rem;
     line-height: 19px;
@@ -134,7 +133,6 @@
 }
 
 .copyrightText {
-    font-size: 12px;
     color: var(--font-color-fourthy);
     font-style: normal;
     font-weight: 300;

@@ -1,0 +1,17 @@
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 34px 10px;
+    min-height: 69vh;
+}
+
+.basicAssets {
+    position: relative;
+}
+
+.bgImg {
+    position: absolute;
+    bottom: -80px;
+    z-index: -1;
+    max-width: 100%;
+}

@@ -7,9 +7,12 @@ import PrivateRoute from './PrivateRoutes.jsx';
 import ProfilePage from '../pages/ProfilePage/index.jsx';
 import useAuthStore from '../store/useAuthStore.js';
 import AboutUsPage from '../pages/AboutUsPage/index.jsx';
+import BasicAssetsPage from '../pages/BasicAssets/index.jsx';
 import RulesForUsingVaasiCodePage from '../pages/RulesForUsingVaasiCodePage/index.jsx';
 import RulesForUsingSite from '../pages/RulesForUsingSite/index.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy/index.jsx';
+import BalanceCodePage from '../pages/BalanceCode/index.jsx';
+import DocumentsPage from '../pages/Documents/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -81,6 +84,36 @@ const AppRoutes = () => {
                     <PrivateRoute>
                         <DefaultLayout>
                             <ProfilePage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/code-balance"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <BalanceCodePage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/basic-assets"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <BasicAssetsPage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/documents"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <DocumentsPage />
                         </DefaultLayout>
                     </PrivateRoute>
                 }

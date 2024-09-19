@@ -1,6 +1,6 @@
 import { PERSON_TYPE, USER_ID } from '../../store/useAuthStore.js';
-import { getCompany, getUser, updateCompany, updateUser } from '../../api/apiUsers.js';
-import { useEffect, useState } from 'react';
+import { updateCompany, updateUser } from '../../api/apiUsers.js';
+import { useState } from 'react';
 import style from './Profile.module.css';
 import pencilImg from '../../assets/icons/pencil.svg';
 import Avatar from '../Avatar/index.jsx';
@@ -17,19 +17,6 @@ export default function Profile() {
     const { username, phone, email } = userData;
     const userId = localStorage.getItem(USER_ID);
     const personType = localStorage.getItem(PERSON_TYPE);
-
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            const fetchFunction = personType === USER_TYPE.COMPANY ? getCompany : getUser;
-            try {
-                const data = await fetchFunction(userId);
-                setUserInfo({ ...data });
-            } catch (error) {
-                console.error(`Error fetching ${personType} info:`, error);
-            }
-        };
-        fetchUserInfo();
-    }, [personType, setUserInfo, userId]);
 
     const formik = useFormik({
         initialValues: { username, phone, email },
@@ -85,7 +72,7 @@ export default function Profile() {
     return (
         <section className={style.profile}>
             <div className={style.container}>
-                <h1 className={style.title}>Профіль</h1>
+                <h1 className="titleWithBorder">Профіль</h1>
                 <div className={style.userWrapper}>
                     <Avatar />
                     <form onSubmit={formik.handleSubmit}>
