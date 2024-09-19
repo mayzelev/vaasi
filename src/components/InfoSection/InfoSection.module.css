@@ -142,7 +142,6 @@
     left: -27px;
     top: 0;
     background: var(--gradient-button);
-    border-radius: 50%;
     width: 9px;
     height: 95%;
     border-radius: 25px;
@@ -187,23 +186,6 @@
         padding: 180px 10px;
     }
     .card {
-        padding: 13px 20px;
-        max-width: 355px;
-    }
-    .descriptionBottom {
-        margin-bottom: 5px;
-    }
-    .cardTitle {
-        font-size: 19px;
-    }
-    .verticalLine {
-        height: 210px;
-    }
-    .large2 {
-        margin-bottom: 15px;
-    }
-    .verticalLine2 {
-        height: 190px;
         padding: 15px 20px;
         max-width: 450px;
     }
