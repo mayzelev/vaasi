@@ -13,4 +13,5 @@
     position: absolute;
     bottom: -80px;
     z-index: -1;
+    max-width: 100%;
 }

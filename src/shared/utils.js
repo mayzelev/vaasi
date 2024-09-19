@@ -1,4 +1,6 @@
 import * as Yup from 'yup';
+import { downloadFile, downloadFileCompany } from '../api/apiFiles.js';
+import { USER_TYPE } from './constants.js';
 
 export const validationSchema = Yup.object({
     username: Yup.string()
@@ -9,3 +11,23 @@ export const validationSchema = Yup.object({
         .required("Обов'язкове поле"),
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
 });
+
+export async function downloadFileFn(id, personType) {
+    try {
+        const fetchFunction = personType === USER_TYPE.COMPANY ? downloadFileCompany : downloadFile;
+        const response = await fetchFunction(id);
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+
+        const contentDisposition = response.headers['content-disposition'];
+        const filename = contentDisposition ? contentDisposition.split('filename=')[1] : `downloaded_file_${id}.pdf`;
+
+        link.setAttribute('download', filename);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    } catch (error) {
+        console.error('Error downloading file:', error);
+    }
+}
