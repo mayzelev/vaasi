@@ -41,7 +41,7 @@ export default function DocumentsPage() {
                         files.map((item) => (
                             <div className={style.total} key={item.filename}>
                                 {item.filename}
-                                <img src={downloadImg} alt="download" onClick={() => handleClick(item.id)} />
+                                <img src={downloadImg} alt="download" className={style.iconDownload} onClick={() => handleClick(item.id)} />
                             </div>
                         ))}
                 </div>
