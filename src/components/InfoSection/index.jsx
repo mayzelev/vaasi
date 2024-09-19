@@ -74,7 +74,11 @@ export default function InfoSection() {
                                         }}
                                     />
                                 </div>
-                                <Link className={style.details} to={'/natural-persons'}>
+                                <Link
+                                    className={style.details}
+                                    to={'/natural-persons'}
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                >
                                     Детальніше
                                 </Link>
                             </div>
@@ -115,7 +119,11 @@ export default function InfoSection() {
                                         }}
                                     />
                                 </div>
-                                <Link className={style.details} to={'/legal-entities'}>
+                                <Link
+                                    className={style.details}
+                                    to={'/legal-entities'}
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                >
                                     Детальніше
                                 </Link>
                             </div>
