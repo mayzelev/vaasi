@@ -11,6 +11,7 @@ import BasicAssetsPage from '../pages/BasicAssets/index.jsx';
 import RulesForUsingVaasiCodePage from '../pages/RulesForUsingVaasiCodePage/index.jsx';
 import RulesForUsingSite from '../pages/RulesForUsingSite/index.jsx';
 import PrivacyPolicy from '../pages/PrivacyPolicy/index.jsx';
+import BalanceCodePage from '../pages/BalanceCode/index.jsx';
 
 const AppRoutes = () => {
     const { isAuthorized } = useAuthStore();
@@ -82,6 +83,16 @@ const AppRoutes = () => {
                     <PrivateRoute>
                         <DefaultLayout>
                             <ProfilePage />
+                        </DefaultLayout>
+                    </PrivateRoute>
+                }
+            />
+            <Route
+                path="/code-balance"
+                element={
+                    <PrivateRoute>
+                        <DefaultLayout>
+                            <BalanceCodePage />
                         </DefaultLayout>
                     </PrivateRoute>
                 }
