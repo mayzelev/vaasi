@@ -1,8 +1,9 @@
+import DOMPurify from 'dompurify';
 import LineTitle from '../../../components/LineTitle';
 import style from './AboutUsAttentionSection.module.css';
 
 export default function AboutUsAttentionSection({ data }) {
-    const { header, description1, description2, description3, description4, description5, banner } = data;
+    const { header, description, banner } = data;
 
     return (
         <section className="container">
@@ -10,13 +11,12 @@ export default function AboutUsAttentionSection({ data }) {
                 <div className={style.header}>{header}</div>
                 <LineTitle />
                 <div className={style.descriptionContainer}>
-                    <div className={style.description}>
-                        {description1} <strong>{description2}</strong> {description3}
-                    </div>
-                    <div className={style.description}>
-                        <strong>{description4}</strong>
-                    </div>
-                    <div className={style.description}>{description5}</div>
+                    <div
+                        className={style.description}
+                        dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(description)
+                        }}
+                    ></div>
                 </div>
                 <div className={style.banner}>
                     <div className={style.bannerHeaderContainer}>
