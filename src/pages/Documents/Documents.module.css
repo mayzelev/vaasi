@@ -33,3 +33,7 @@
 .documentsWrapper {
     margin-top: 30px;
 }
+
+.iconDownload {
+    cursor: pointer;
+}
