@@ -1,6 +1,7 @@
 .content {
     max-width: 938px;
     margin: 0 auto 50px;
+    padding: 0 15px;
 }
 
 .header {
@@ -39,6 +40,7 @@
     font-size: 1.56rem;
     font-weight: 700;
     line-height: 27px;
+    flex-wrap: wrap;
 }
 
 .bannerHeader1 {
@@ -60,4 +62,19 @@
     top: auto;
     right: 48px;
     bottom: 10px;
+}
+
+@media (max-width: 850px) {
+    .bannerdImg {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .content {
+        margin-top: -105px;
+    }
+    .banner{
+      padding: 23px 28px;
+    }
 }

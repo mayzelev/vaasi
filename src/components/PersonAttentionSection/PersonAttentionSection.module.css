@@ -1,8 +1,11 @@
 .container {
-    display: flex;
-    justify-content: center;
     position: relative;
-    margin-bottom: 75px;
+    padding: 0 15px;
+}
+
+.content {
+    margin: 0 auto 75px;
+    max-width: 938px;
 }
 
 .imgMoney {
@@ -12,16 +15,10 @@
     z-index: -1;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
 .header {
     color: var(--font-color-primary);
     text-align: center;
     font-size: 2.5rem;
-    font-style: normal;
     font-weight: 900;
     line-height: normal;
 }
@@ -35,36 +32,12 @@
     margin-bottom: 20px;
 }
 
-.bannerContainer {
-    position: relative;
-    border-radius: 10px;
-    z-index: 1;
-}
-
-.bannerContainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 1%;
-    width: 97.5%;
-    height: 100%;
-    max-height: 210px;
-    background: var(--button-color-active);
-    border-radius: 10px;
-    box-shadow: 0 0 0 0 var(--button-color-active);
-    transform: rotate(-1.5deg);
-    z-index: -1;
-}
-
 .banner {
-    text-align: center;
     background-image: url(../../assets/img/bannerAttention.png);
     background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 938px;
-    padding: 58px 136px;
+    padding: 90px 130px;
+    position: relative;
     border-radius: 10px;
 }
 
@@ -75,6 +48,7 @@
     line-height: 27px;
     text-transform: uppercase;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .bannerdDscription {
@@ -83,4 +57,29 @@
     font-style: normal;
     font-weight: 400;
     line-height: 27px;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .imgMoney {
+        display: none;
+    }
+}
+
+@media (max-width: 970px) {
+    .banner {
+        padding: 35px 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .container {
+        margin-top: -130px;
+    }
+    .header {
+        font-size: 2rem;
+    }
+    .banner {
+        padding: 10px 15px;
+    }
 }

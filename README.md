@@ -18,7 +18,8 @@ Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-Inte
 -   [MUI](https://mui.com/material-ui/getting-started/) - react component library
 -   [i18next](https://react.i18next.com/) - translations
 -   [Axios](https://react.i18next.com/) - http client
--   [Husky](https://typicode.github.io/husky/) - Automatically lint your commit messages, code, and run tests upon committing or pushing.
+-   [Husky](https://typicode.github.io/husky/) - automatically lint your commit messages, code, and run tests upon committing or pushing.
+-   [DomPurify](https://www.npmjs.com/package/dompurify) - sanitizes HTML and prevents XSS attacks.
 
 # How to run
 

@@ -216,6 +216,9 @@
     .buttons {
         padding: 0 10px;
     }
+    .infoContainerSecondary {
+      margin-top: -130px;
+  }
 }
 
 @media (max-width: 370px) {

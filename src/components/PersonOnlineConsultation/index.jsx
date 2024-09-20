@@ -68,7 +68,11 @@ export default function PersonOnlineConsultation({ data }) {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '20px',
-                        WebkitAlignItems: 'unset'
+                        WebkitAlignItems: 'unset',
+                        '@media (max-width: 780px)': {
+                            flexDirection: 'column',
+                            gap: '5px'
+                        }
                     }}
                 >
                     <TextField
