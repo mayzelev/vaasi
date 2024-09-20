@@ -12,21 +12,20 @@ export const validationSchema = Yup.object({
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
 });
 
-export async function downloadFileFn(id, personType) {
+export async function downloadFileFn(id, personType, filename) {
     try {
         const fetchFunction = personType === USER_TYPE.COMPANY ? downloadFileCompany : downloadFile;
         const response = await fetchFunction(id);
-        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const contentType = response.headers['content-type'];
+        const blob = new Blob([response.data], { type: contentType });
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-
-        const contentDisposition = response.headers['content-disposition'];
-        const filename = contentDisposition ? contentDisposition.split('filename=')[1] : `downloaded_file_${id}.pdf`;
-
         link.setAttribute('download', filename);
         document.body.appendChild(link);
         link.click();
         link.remove();
+        window.URL.revokeObjectURL(url);
     } catch (error) {
         console.error('Error downloading file:', error);
     }
