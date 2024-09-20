@@ -13,7 +13,7 @@ import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
 import hyperLink from '../../../assets/icons/Hyperlink.svg';
 
-import { authUser } from '../../../api/auth.js';
+import { authUser, USER_EMAIL_EXIST, USER_PHONE_EXIST } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
 
@@ -37,7 +37,7 @@ const validationSchema = Yup.object({
 
 export default function IndividualForm({ setOpenSuccessModal }) {
     const { closeRegistration, closeLogin } = useAuthStore();
-
+    const [authError, setAuthError] = useState(null);
     const [tokenCode, setTokenCode] = useState('');
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -57,11 +57,27 @@ export default function IndividualForm({ setOpenSuccessModal }) {
     };
 
     const handleSubmit = ({ fullName: username, phone, email, adminCode: code, tokenCode: token }) => {
-        authUser({ username, phone, email, code, token }).then(() => {
-            setOpenSuccessModal(true);
-            closeRegistration();
-            closeLogin();
-        });
+        authUser({ username, phone, email, code, token })
+            .then(() => {
+                setOpenSuccessModal(true);
+                closeRegistration();
+                closeLogin();
+            })
+            .catch((e) => {
+                const errors = {};
+
+                if (e?.response?.data?.message.includes(USER_EMAIL_EXIST)) {
+                    errors.email = 'Email вже зареєстровано!';
+                }
+
+                if (e?.response?.data?.message.includes(USER_PHONE_EXIST)) {
+                    errors.phone = 'Телефон вже зареєстровано!';
+                }
+
+                if (Object.keys(errors).length) {
+                    setAuthError(errors);
+                }
+            });
     };
 
     const formik = useFormik({
@@ -150,10 +166,15 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     id="phone"
                     name="phone"
                     value={formik.values.phone}
-                    onChange={formik.handleChange}
+                    onChange={(params) => {
+                        formik.handleChange(params);
+                        if (authError) {
+                            setAuthError(null);
+                        }
+                    }}
                     onBlur={formik.handleBlur}
-                    error={formik.touched.phone && Boolean(formik.errors.phone)}
-                    helperText={formik.touched.phone && formik.errors.phone}
+                    error={!!authError?.phone || (formik.touched.phone && Boolean(formik.errors.phone))}
+                    helperText={authError?.phone || (formik.touched.phone && formik.errors.phone)}
                 />
                 <TextField
                     autoComplete="true"
@@ -183,10 +204,15 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     id="email"
                     name="email"
                     value={formik.values.email}
-                    onChange={formik.handleChange}
+                    onChange={(params) => {
+                        formik.handleChange(params);
+                        if (authError) {
+                            setAuthError(null);
+                        }
+                    }}
                     onBlur={formik.handleBlur}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
+                    error={!!authError?.email || (formik.touched.email && Boolean(formik.errors.email))}
+                    helperText={authError?.email || (formik.touched.email && formik.errors.email)}
                 />
                 <TextField
                     autoComplete="true"
