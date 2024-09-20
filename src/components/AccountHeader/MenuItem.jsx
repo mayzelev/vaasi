@@ -5,12 +5,12 @@ import { menuItemsData } from './mockdata';
 import { PERSON_TYPE } from '../../store/useAuthStore.js';
 import { USER_TYPE } from '../../shared/constants.js';
 
-export default function AccountHeader() {
+export default function AccountHeader({ toggleDrawer }) {
     const personType = localStorage.getItem(PERSON_TYPE);
     const filteredMenuItems =
         personType === USER_TYPE.COMPANY ? menuItemsData.filter((item) => item.to !== '/code-balance') : menuItemsData;
     return (
-        <List className={style.menuList}>
+        <List className={style.menuList} onClick={toggleDrawer(false)}>
             {filteredMenuItems.map((item) => (
                 <ListItemButton key={item.to}>
                     <Link to={item.to}>

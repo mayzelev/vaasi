@@ -118,7 +118,7 @@ export default function AccountHeader() {
                     >
                         <ClickAwayListener onClickAway={handleClickAway}>
                             <div>
-                                <MenuItems />
+                                <MenuItems toggleDrawer={toggleDrawer} />
                                 <ListItemButton>
                                     <VButton
                                         onClick={handleLogout}
