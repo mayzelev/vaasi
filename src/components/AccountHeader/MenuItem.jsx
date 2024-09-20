@@ -11,8 +11,8 @@ export default function AccountHeader() {
         personType === USER_TYPE.COMPANY ? menuItemsData.filter((item) => item.to !== '/code-balance') : menuItemsData;
     return (
         <List className={style.menuList}>
-            {filteredMenuItems.map((item, index) => (
-                <ListItemButton key={index}>
+            {filteredMenuItems.map((item) => (
+                <ListItemButton key={item.to}>
                     <Link to={item.to}>
                         <img src={item.src} alt={item.text} /> {item.text}
                     </Link>

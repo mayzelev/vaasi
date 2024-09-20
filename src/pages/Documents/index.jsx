@@ -14,8 +14,8 @@ export default function DocumentsPage() {
     const personType = localStorage.getItem(PERSON_TYPE);
     const { title } = mockDataDocuments;
 
-    const handleClick = async (id) => {
-        await downloadFileFn(id, personType);
+    const handleClick = async (id, filename) => {
+        await downloadFileFn(id, personType, filename);
     };
 
     useEffect(() => {
@@ -41,7 +41,9 @@ export default function DocumentsPage() {
                         files.map((item) => (
                             <div className={style.total} key={item.filename}>
                                 {item.filename}
-                                <img src={downloadImg} alt="download" className={style.iconDownload} onClick={() => handleClick(item.id)} />
+                                <button onClick={() => handleClick(item.id, item.filename)}>
+                                    <img src={downloadImg} alt="download" className={style.iconDownload} />
+                                </button>
                             </div>
                         ))}
                 </div>
