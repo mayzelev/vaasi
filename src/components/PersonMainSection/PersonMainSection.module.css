@@ -182,7 +182,7 @@
         margin-bottom: 10px;
     }
     .subDescription1 {
-      max-width: 307px;
+        max-width: 307px;
         font-size: 1rem;
     }
 
@@ -197,6 +197,6 @@
         padding: 50px 15px 15px 15px;
     }
     .cardTitleFirst::before {
-      margin-top: 5px;
-  }
+        margin-top: 5px;
+    }
 }
