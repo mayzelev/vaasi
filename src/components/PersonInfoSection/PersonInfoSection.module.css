@@ -6,7 +6,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 180px 0;
+    padding: 180px 15px;
     margin-top: -185px;
 }
 
@@ -124,4 +124,46 @@
     width: 100%;
     max-width: 159px;
     padding: 42px;
+}
+
+@media (max-width: 1100px) {
+    .arrowLeft {
+        display: none;
+    }
+
+    .arrowCenter {
+        display: none;
+    }
+
+    .arrowRight {
+        display: none;
+    }
+
+    .iconsContainer {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 820px) {
+    .iconsContainer {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .iconItem:nth-child(1),
+    .iconItem:nth-child(2) {
+        max-width: 200px;
+    }
+
+    .iconItem:nth-child(3),
+    .iconItem:nth-child(4) {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 425px) {
+    .header {
+        font-size: 2rem;
+    }
 }

@@ -6,14 +6,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 15px;
 }
 
 .containerTop {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    height: 270px;
-    padding: 0 10px;
+    height: 240px;
     margin-bottom: 40px;
 }
 
@@ -26,8 +26,8 @@
     width: 100%;
     max-width: 1107px;
     padding: 77px 90px 55px 90px;
-    background: url(../../assets/img/moneyBcg.png) no-repeat center/cover;
-    border-radius: 20px;
+    background: url(../../assets/img/moneyBcg.png) no-repeat center;
+    border-radius: 10px;
     overflow: hidden;
     margin-bottom: 60px;
 }
@@ -186,7 +186,7 @@
     .containerTop {
         padding: 10px;
         transform: translateY(-95px);
-        margin-bottom: 20px;
+        height: 220px;
     }
     .headerTitle {
         font-size: 1.5rem;
@@ -195,5 +195,13 @@
     .subTitle {
         font-size: 0.9rem;
         margin-bottom: 11px;
+    }
+}
+@media (max-width: 325px) {
+    .headerTitle {
+        font-size: 1.4rem;
+    }
+    .containerBottom {
+        margin-top: 20px;
     }
 }

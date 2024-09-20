@@ -46,7 +46,7 @@ export const mockDataLegalInfo = {
 };
 
 export const mockDataAttention = {
-    header: 'VAASI INTERNATIONAL GROUP',
+    header: 'VAASI INTERNATIONAL GROUP',
     description: 'не є фінансовою установою та не здійснює будь яких валютних операцій',
     banner: {
         header: 'З нашою допомогою ви підберете для себе',

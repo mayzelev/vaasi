@@ -17,6 +17,3 @@ export function authCompany(body) {
 export function loginCompany(body) {
     return vaasiApiClient.post(`/auth/company/login`, body);
 }
-
-// 7e84f422-02a7-4f46-b723-6eb3e0ccd301
-// a142efcd-fd59-42f9-a3c8-cf2f7f6f8194 Legal

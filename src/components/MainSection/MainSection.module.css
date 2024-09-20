@@ -86,10 +86,13 @@
 
     .headerTitle {
         font-size: 4rem;
+        margin-bottom: 10px;
     }
 
     .subTitle {
         font-size: 3rem;
+        line-height: 32px;
+        margin-bottom: unset;
     }
 
     .info {

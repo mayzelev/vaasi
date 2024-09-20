@@ -1,7 +1,6 @@
 .container {
     position: relative;
-    padding-top: 90px;
-    margin-bottom: 240px;
+    padding: 90px 15px 220px 15px;
 }
 
 .imgMoney {
@@ -15,7 +14,6 @@
     position: absolute;
     top: -10%;
     right: 0;
-    max-width: 880px;
     margin: 0px 15% auto;
     z-index: -2;
 }
@@ -119,4 +117,86 @@
     width: 100%;
     max-width: 450px;
     color: var(--font-color-six);
+}
+
+@media (max-width: 1380px) {
+    .girlImg {
+        margin: 0 5% auto;
+    }
+    .imgMoney {
+        max-width: 1500px;
+        top: 0;
+    }
+    .card {
+        max-width: 600px;
+        width: 100%;
+    }
+    .container {
+        padding: 90px 15px 150px 15px;
+    }
+}
+
+@media (max-width: 1142px) {
+    .girlImg {
+        display: none;
+    }
+}
+
+@media (max-width: 899px) {
+    .imgMoney {
+        display: none;
+    }
+    .card {
+        margin: 0 auto;
+    }
+    .container {
+        padding: 50px 15px 100px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardTitleFirst {
+        font-size: 3.2rem;
+    }
+    .cardTitleSecond {
+        font-size: 2.5rem;
+    }
+    .subDescription1 {
+        font-size: 1rem;
+    }
+
+    .subDescription2 {
+        font-size: 1rem;
+    }
+
+    .subDescription3 {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 454px) {
+    .cardTitleFirst {
+        font-size: 2.3rem;
+    }
+    .cardTitleSecond {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    .subDescription1 {
+        max-width: 307px;
+        font-size: 1rem;
+    }
+
+    .subDescription2 {
+        font-size: 1rem;
+    }
+
+    .subDescription3 {
+        font-size: 1rem;
+    }
+    .container {
+        padding: 50px 15px 15px 15px;
+    }
+    .cardTitleFirst::before {
+        margin-top: 5px;
+    }
 }
