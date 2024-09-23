@@ -1,8 +1,7 @@
 import AccordionSection from '../../components/Accordion/index.jsx';
 import { getAssets, getAssetsCompany } from '../../api/apiAssets.js';
 import { useEffect, useState } from 'react';
-import { USER_TYPE } from '../../shared/constants.js';
-import { PERSON_TYPE, USER_ID } from '../../store/useAuthStore.js';
+import { PERSON_TYPE, USER_ID, USER_TYPE } from '../../shared/constants.js';
 import { mockDataBasicAssets } from './mockData.js';
 import style from './BasicAssets.module.css';
 import bgImage from '../../assets/img/backCalculatorSmall.png';

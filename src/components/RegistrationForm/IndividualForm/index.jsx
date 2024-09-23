@@ -23,7 +23,7 @@ const validationSchema = Yup.object({
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
-        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 (0XX) XXX-XXXX.')
+        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
         .required("Обов'язкове поле"),
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле"),
     adminCode: Yup.string()
@@ -123,7 +123,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                 <TextField
                     autoComplete="true"
                     fullWidth
-                    placeholder="+38(0XX)XXX XX XX"
+                    placeholder="+38 0XX XXX XX XX"
                     variant="outlined"
                     margin="dense"
                     InputProps={{

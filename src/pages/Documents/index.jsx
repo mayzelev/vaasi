@@ -2,9 +2,9 @@ import bgImage from '../../assets/img/backCalculatorSmall.png';
 import { mockDataDocuments } from './mockData.js';
 import style from './Documents.module.css';
 import { useEffect, useState } from 'react';
-import { USER_TYPE } from '../../shared/constants.js';
+import { PERSON_TYPE, USER_ID, USER_TYPE } from '../../shared/constants.js';
 import { getFiles, getFilesCompany } from '../../api/apiFiles.js';
-import { PERSON_TYPE, USER_ID } from '../../store/useAuthStore.js';
+
 import downloadImg from '../../assets/icons/download.svg';
 import { downloadFileFn } from '../../shared/utils.js';
 

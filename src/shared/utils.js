@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
 import { downloadFile, downloadFileCompany } from '../api/apiFiles.js';
-import { USER_TYPE } from './constants.js';
-import { USER_EMAIL_EXIST, USER_PHONE_EXIST } from '../api/auth.js';
+import { USER_EMAIL_EXIST, USER_PHONE_EXIST, USER_TYPE } from './constants.js';
 
 export const validationSchema = Yup.object({
     username: Yup.string()

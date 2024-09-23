@@ -37,7 +37,6 @@
 
 .languages span {
     margin-right: 10px;
-    color: var(--font-color-primary);
     cursor: pointer;
     font-weight: 700;
     font-size: 1rem;
@@ -45,7 +44,7 @@
     transition: color 0.3s ease;
 }
 
-.languages span:hover {
+.active {
     color: var(--font-color-thirdy);
 }
 

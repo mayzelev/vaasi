@@ -2,8 +2,7 @@ import { List, ListItemButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import style from './Header.module.css';
 import { menuItemsData } from './mockdata';
-import { PERSON_TYPE } from '../../store/useAuthStore.js';
-import { USER_TYPE } from '../../shared/constants.js';
+import { PERSON_TYPE, USER_TYPE } from '../../shared/constants.js';
 
 export default function AccountHeader() {
     const personType = localStorage.getItem(PERSON_TYPE);

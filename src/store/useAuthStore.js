@@ -1,8 +1,5 @@
 import { create } from 'zustand';
-
-export const TOKEN_KEY = 'token';
-export const USER_ID = 'userId';
-export const PERSON_TYPE = 'personType';
+import { PERSON_TYPE, TOKEN_KEY, USER_ID } from '../shared/constants';
 
 const useAuthStore = create((set) => ({
     isRegistrationOpen: false,
