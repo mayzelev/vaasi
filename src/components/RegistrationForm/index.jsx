@@ -58,7 +58,7 @@ export default function RegistrationPopup() {
                             textAlign: 'center',
                             fontWeight: '900',
                             lineHeight: '36px',
-                            fontSize: isSmallScreen ? '24px' : '30px'
+                            fontSize: isSmallScreen ? '1.5rem' : '1.8rem'
                         }}
                     >
                         РЕЄСТРАЦІЯ
@@ -82,7 +82,7 @@ export default function RegistrationPopup() {
                             sx={{
                                 textAlign: 'center',
                                 fontWeight: '600',
-                                fontSize: isSmallScreen ? '14px' : '16px',
+                                fontSize: isSmallScreen ? '0.8rem' : '1rem',
                                 lineHeight: isSmallScreen ? '18px' : '22px',
                                 padding: '0 20px',
                                 color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit',
@@ -99,7 +99,7 @@ export default function RegistrationPopup() {
                             sx={{
                                 textAlign: 'center',
                                 fontWeight: '600',
-                                fontSize: isSmallScreen ? '14px' : '16px',
+                                fontSize: isSmallScreen ? '0.8rem' : '1rem',
                                 lineHeight: isSmallScreen ? '18px' : '22px',
                                 padding: '0 30px',
                                 color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit',

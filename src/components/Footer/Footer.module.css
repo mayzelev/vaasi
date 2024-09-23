@@ -44,10 +44,6 @@
     transition: color 0.3s ease;
 }
 
-.active {
-    color: var(--font-color-thirdy);
-}
-
 .center {
     display: flex;
     flex-direction: row;
