@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import style from './LanguageItem.module.css';
 
-export default function LanguageItem() {
+export default function LanguageItem({ language }) {
     const { i18n } = useTranslation();
 
     const handleLanguageChange = (lang) => {
@@ -9,14 +9,8 @@ export default function LanguageItem() {
     };
     return (
         <>
-            <span className={i18n.language === 'UA' ? style.active : ''} onClick={() => handleLanguageChange('UA')}>
-                UA
-            </span>
-            <span className={i18n.language === 'EN' ? style.active : ''} onClick={() => handleLanguageChange('EN')}>
-                EN
-            </span>
-            <span className={i18n.language === 'DE' ? style.active : ''} onClick={() => handleLanguageChange('DE')}>
-                DE
+            <span className={i18n.language === language ? style.active : ''} onClick={() => handleLanguageChange(language)}>
+                {language}
             </span>
         </>
     );

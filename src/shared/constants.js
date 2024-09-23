@@ -3,6 +3,12 @@ export const USER_TYPE = {
     PERSON: 'person'
 };
 
+export const LANGUAGES = {
+    UA: 'UA',
+    EN: 'EN',
+    DE: 'DE'
+};
+
 export const INVALID_USER = 'Invalid user';
 export const USER_EMAIL_EXIST = 'Email exists';
 export const USER_PHONE_EXIST = 'Phone exists';

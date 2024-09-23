@@ -117,7 +117,7 @@ export default function RegistrationPopup() {
                         <div className={style.line}></div>
                     </Box>
 
-                    <Box sx={{ mt: 2, flexGrow: 1, overflowY: isSmallScreen ? 'auto' : 'visible' }}>
+                    <Box sx={{ mt: 2 }}>
                         {activeTab === 0 && <LegalEntityForm setOpenSuccessModal={setOpenSuccessModal} />}
 
                         {activeTab === 1 && <IndividualForm setOpenSuccessModal={setOpenSuccessModal} />}
