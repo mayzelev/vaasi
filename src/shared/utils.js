@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { downloadFile, downloadFileCompany } from '../api/apiFiles.js';
 import { USER_TYPE } from './constants.js';
+import { USER_EMAIL_EXIST, USER_PHONE_EXIST } from '../api/auth.js';
 
 export const validationSchema = Yup.object({
     username: Yup.string()
@@ -30,3 +31,28 @@ export async function downloadFileFn(id, personType, filename) {
         console.error('Error downloading file:', error);
     }
 }
+
+export const createHandleAuthSubmit =
+    (authFunction, { setOpenSuccessModal, closeRegistration, closeLogin, setAuthError }) =>
+    (data) => {
+        authFunction(data)
+            .then(() => {
+                setOpenSuccessModal(true);
+                closeRegistration();
+                closeLogin();
+            })
+            .catch((e) => {
+                const errors = {};
+
+                if (e?.response?.data?.message.includes(USER_EMAIL_EXIST)) {
+                    errors.email = 'Email вже зареєстровано!';
+                }
+
+                if (e?.response?.data?.message.includes(USER_PHONE_EXIST)) {
+                    errors.phone = 'Телефон вже зареєстровано!';
+                }
+                if (Object.keys(errors).length) {
+                    setAuthError(errors);
+                }
+            });
+    };

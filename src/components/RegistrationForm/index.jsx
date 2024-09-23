@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Modal, Box, Tab, Tabs, IconButton } from '@mui/material';
+import { Modal, Box, Tab, Tabs, IconButton, useMediaQuery, useTheme } from '@mui/material';
 
 import useAuthStore from '../../store/useAuthStore';
 import LegalEntityForm from './LegalEntityForm';
@@ -12,6 +12,8 @@ export default function RegistrationPopup() {
     const { isRegistrationOpen, closeRegistration, initialTab } = useAuthStore();
     const [activeTab, setActiveTab] = useState(initialTab);
     const [openSuccessModal, setOpenSuccessModal] = useState(false);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         setActiveTab(initialTab);
@@ -39,22 +41,40 @@ export default function RegistrationPopup() {
                         p: 4,
                         width: '100%',
                         maxWidth: '540px',
+                        maxHeight: isSmallScreen ? '90vh' : 'none',
+                        overflowY: isSmallScreen ? 'auto' : 'visible',
+                        display: 'flex',
+                        flexDirection: 'column',
                         zIndex: 1300
                     }}
                 >
-                    <IconButton sx={{ position: 'absolute', top: 16, right: 16 }} onClick={closeRegistration} aria-label="close">
+                    <IconButton sx={{ position: 'absolute', top: 16, right: 16, zIndex: 1 }} onClick={closeRegistration} aria-label="close">
                         <CloseIcon />
                     </IconButton>
-                    <Box sx={{ mt: 1, mb: 1, textAlign: 'center', fontWeight: '900', lineHeight: '36px', fontSize: '30px' }}>
+                    <Box
+                        sx={{
+                            mt: 1,
+                            mb: 1,
+                            textAlign: 'center',
+                            fontWeight: '900',
+                            lineHeight: '36px',
+                            fontSize: isSmallScreen ? '24px' : '30px'
+                        }}
+                    >
                         РЕЄСТРАЦІЯ
                     </Box>
                     <Tabs
                         value={activeTab}
                         onChange={handleTabChange}
                         centered
+                        variant={isSmallScreen ? 'fullWidth' : 'standard'}
                         sx={{
                             '.MuiTabs-indicator': {
                                 backgroundColor: 'var(--button-color-active)'
+                            },
+                            '.MuiTab-root': {
+                                minWidth: 0,
+                                padding: isSmallScreen ? '6px 12px' : '6px 20px'
                             }
                         }}
                     >
@@ -62,11 +82,13 @@ export default function RegistrationPopup() {
                             sx={{
                                 textAlign: 'center',
                                 fontWeight: '600',
-                                fontSize: '16px',
-                                lineHeight: '22px',
+                                fontSize: isSmallScreen ? '14px' : '16px',
+                                lineHeight: isSmallScreen ? '18px' : '22px',
                                 padding: '0 20px',
-
-                                color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit'
+                                color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit',
+                                '&.Mui-selected': {
+                                    color: 'var(--button-color-active)'
+                                }
                             }}
                             label="Юридичні особи"
                             style={{
@@ -77,10 +99,13 @@ export default function RegistrationPopup() {
                             sx={{
                                 textAlign: 'center',
                                 fontWeight: '600',
-                                fontSize: '16px',
-                                lineHeight: '22px',
+                                fontSize: isSmallScreen ? '14px' : '16px',
+                                lineHeight: isSmallScreen ? '18px' : '22px',
                                 padding: '0 30px',
-                                color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit'
+                                color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit',
+                                '&.Mui-selected': {
+                                    color: 'var(--button-color-active)'
+                                }
                             }}
                             label="Фізичні особи"
                             style={{
@@ -92,7 +117,7 @@ export default function RegistrationPopup() {
                         <div className={style.line}></div>
                     </Box>
 
-                    <Box sx={{ mt: 2 }}>
+                    <Box sx={{ mt: 2, flexGrow: 1, overflowY: isSmallScreen ? 'auto' : 'visible' }}>
                         {activeTab === 0 && <LegalEntityForm setOpenSuccessModal={setOpenSuccessModal} />}
 
                         {activeTab === 1 && <IndividualForm setOpenSuccessModal={setOpenSuccessModal} />}

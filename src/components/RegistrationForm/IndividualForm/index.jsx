@@ -13,9 +13,10 @@ import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
 import hyperLink from '../../../assets/icons/Hyperlink.svg';
 
-import { authUser, USER_EMAIL_EXIST, USER_PHONE_EXIST } from '../../../api/auth.js';
+import { authUser } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
+import { createHandleAuthSubmit } from '../../../shared/utils.js';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
@@ -56,29 +57,10 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         return savedValues ? JSON.parse(savedValues) : null;
     };
 
-    const handleSubmit = ({ fullName: username, phone, email, adminCode: code, tokenCode: token }) => {
-        authUser({ username, phone, email, code, token })
-            .then(() => {
-                setOpenSuccessModal(true);
-                closeRegistration();
-                closeLogin();
-            })
-            .catch((e) => {
-                const errors = {};
-
-                if (e?.response?.data?.message.includes(USER_EMAIL_EXIST)) {
-                    errors.email = 'Email вже зареєстровано!';
-                }
-
-                if (e?.response?.data?.message.includes(USER_PHONE_EXIST)) {
-                    errors.phone = 'Телефон вже зареєстровано!';
-                }
-
-                if (Object.keys(errors).length) {
-                    setAuthError(errors);
-                }
-            });
-    };
+    const handleSubmit = createHandleAuthSubmit(
+        ({ fullName: username, phone, email, adminCode: code, tokenCode: token }) => authUser({ username, phone, email, code, token }),
+        { setOpenSuccessModal, closeRegistration, closeLogin, setAuthError }
+    );
 
     const formik = useFormik({
         initialValues: loadSavedValues() || {
