@@ -7,10 +7,10 @@ import * as Yup from 'yup';
 
 import style from './LoginForm.module.css';
 import useAuthStore from '../../store/useAuthStore';
-import { INVALID_USER, loginCompany, loginUser } from '../../api/auth';
+import { loginCompany, loginUser } from '../../api/auth';
 import VButton from '../VButton';
 import { useNavigate } from 'react-router-dom';
-import { USER_TYPE } from '../../shared/constants.js';
+import { INVALID_USER, USER_TYPE } from '../../shared/constants.js';
 
 const validationSchema = Yup.object({
     tokenCode: Yup.string()

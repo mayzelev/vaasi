@@ -1,4 +1,3 @@
-import { PERSON_TYPE, USER_ID } from '../../store/useAuthStore.js';
 import { updateCompany, updateUser } from '../../api/apiUsers.js';
 import { useState } from 'react';
 import style from './Profile.module.css';
@@ -8,7 +7,7 @@ import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import { validationSchema } from '../../shared/utils.js';
 import useUserStore from '../../store/useUserStore.js';
-import { USER_TYPE } from '../../shared/constants.js';
+import { PERSON_TYPE, USER_ID, USER_TYPE } from '../../shared/constants.js';
 import bgImage from '../../assets/img/backCalculatorSmall.png';
 
 export default function Profile() {

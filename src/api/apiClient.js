@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TOKEN_KEY } from '../store/useAuthStore';
+import { TOKEN_KEY } from '../shared/constants';
 
 const BASE_URL = 'https://www.devsm.space';
 

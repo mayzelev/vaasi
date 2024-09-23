@@ -16,6 +16,7 @@ import useAuthStore from '../../store/useAuthStore';
 export default function Header() {
     const { openRegistration, openLogin } = useAuthStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
+
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;

@@ -12,10 +12,10 @@ import logoImg from '../../assets/icons/logo.png';
 import avatarImg from '../../assets/img/account-mock.jpg';
 import cashImg from '../../assets/icons/cash.svg';
 
-import useAuthStore, { PERSON_TYPE, USER_ID } from '../../store/useAuthStore';
+import useAuthStore from '../../store/useAuthStore';
 import MenuItems from './MenuItem.jsx';
 import useUserStore from '../../store/useUserStore.js';
-import { USER_TYPE } from '../../shared/constants.js';
+import { PERSON_TYPE, USER_ID, USER_TYPE } from '../../shared/constants.js';
 import { getCompany, getUser } from '../../api/apiUsers.js';
 
 export default function AccountHeader() {

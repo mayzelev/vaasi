@@ -1,10 +1,13 @@
 import style from './Footer.module.css';
 import { Link } from 'react-router-dom';
+
 import logoImg from '../../assets/icons/logo.png';
 import callImg from '../../assets/icons/call.png';
 import messageImg from '../../assets/icons/message.png';
 import VButton from '../VButton';
 import { footerLinkRulesData, footerLinkPersonsData, footerSocialData } from './mockData';
+import LanguageItem from '../LanguageItem';
+import { LANGUAGES } from '../../shared/constants.js';
 
 export default function Footer() {
     return (
@@ -18,9 +21,9 @@ export default function Footer() {
                             </Link>
                         </div>
                         <div className={style.languages}>
-                            <span>UA</span>
-                            <span>EN</span>
-                            <span>DE</span>
+                            {Object.values(LANGUAGES).map((language) => (
+                                <LanguageItem key={language} language={language} />
+                            ))}
                         </div>
                     </div>
                     <div className={style.center}>

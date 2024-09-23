@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { MenuItem, Select, FormControl, Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { useTranslation } from 'react-i18next';
 
 import UkraineFlag from '../../assets/flags/UkraineFlag.svg';
 import GermanyFlag from '../../assets/flags/GermanyFlag.svg';
@@ -15,16 +15,18 @@ const FlagIcon = styled('img')({
 });
 
 const LanguageSelect = () => {
-    const [language, setLanguage] = useState('UA');
+    const { i18n } = useTranslation();
 
     const handleChange = (event) => {
-        setLanguage(event.target.value);
+        const newLanguage = event.target.value;
+
+        i18n.changeLanguage(newLanguage);
     };
 
     return (
         <FormControl sx={{ minWidth: 100 }}>
             <Select
-                value={language}
+                value={i18n.language}
                 onChange={handleChange}
                 displayEmpty
                 variant="outlined"

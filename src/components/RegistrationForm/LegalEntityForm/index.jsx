@@ -16,6 +16,7 @@ import style from './LegalEntityForm.module.css';
 import { authCompany } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
+import { createHandleAuthSubmit } from '../../../shared/utils.js';
 
 const validationSchema = Yup.object({
     companyName: Yup.string()
@@ -25,7 +26,7 @@ const validationSchema = Yup.object({
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'Контактна особа повинна містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
-        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 (0XX) XXX-XXXX.')
+        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
         .required("Обов'язкове поле"),
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле"),
     adminCode: Yup.string()
@@ -39,7 +40,7 @@ const validationSchema = Yup.object({
 
 export default function LegalEntityForm({ setOpenSuccessModal }) {
     const { closeRegistration, closeLogin } = useAuthStore();
-
+    const [authError, setAuthError] = useState(null);
     const [tokenCode, setTokenCode] = useState('');
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -58,13 +59,11 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
         return savedValues ? JSON.parse(savedValues) : null;
     };
 
-    const handleSubmit = ({ companyName: username, phone, email, adminCode: code, tokenCode: token, contactPerson: contact }) => {
-        authCompany({ username, phone, email, code, token, contact }).then(() => {
-            setOpenSuccessModal(true);
-            closeRegistration();
-            closeLogin();
-        });
-    };
+    const handleSubmit = createHandleAuthSubmit(
+        ({ companyName: username, phone, email, adminCode: code, tokenCode: token, contactPerson: contact }) =>
+            authCompany({ username, phone, email, code, token, contact }),
+        { setOpenSuccessModal, closeRegistration, closeLogin, setAuthError }
+    );
 
     const formik = useFormik({
         initialValues: loadSavedValues() || {
@@ -160,7 +159,7 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                 <TextField
                     autoComplete="true"
                     fullWidth
-                    placeholder="+38(0XX)XXX XX XX"
+                    placeholder="+38 0XX XXX XX XX"
                     variant="outlined"
                     margin="dense"
                     InputProps={{
@@ -185,10 +184,15 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     id="phone"
                     name="phone"
                     value={formik.values.phone}
-                    onChange={formik.handleChange}
+                    onChange={(params) => {
+                        formik.handleChange(params);
+                        if (authError) {
+                            setAuthError(null);
+                        }
+                    }}
                     onBlur={formik.handleBlur}
-                    error={formik.touched.phone && Boolean(formik.errors.phone)}
-                    helperText={formik.touched.phone && formik.errors.phone}
+                    error={!!authError?.phone || (formik.touched.phone && Boolean(formik.errors.phone))}
+                    helperText={authError?.phone || (formik.touched.phone && formik.errors.phone)}
                 />
                 <TextField
                     autoComplete="true"
@@ -218,10 +222,15 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                     id="email"
                     name="email"
                     value={formik.values.email}
-                    onChange={formik.handleChange}
+                    onChange={(params) => {
+                        formik.handleChange(params);
+                        if (authError) {
+                            setAuthError(null);
+                        }
+                    }}
                     onBlur={formik.handleBlur}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
+                    error={!!authError?.email || (formik.touched.email && Boolean(formik.errors.email))}
+                    helperText={authError?.email || (formik.touched.email && formik.errors.email)}
                 />
                 <TextField
                     autoComplete="true"
