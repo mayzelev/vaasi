@@ -1,0 +1,14 @@
+.iconsContainer {
+  border: 1px solid var(--icons-border-color);
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+}

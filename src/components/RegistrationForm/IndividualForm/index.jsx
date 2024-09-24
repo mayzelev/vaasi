@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import style from './IndividualForm.module.css';
 
 import personIcon from '../../../assets/icons/user.svg';
-import phoneIcon from '../../../assets/icons/phone.svg';
 import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
 import hyperLink from '../../../assets/icons/Hyperlink.svg';
@@ -16,14 +15,16 @@ import hyperLink from '../../../assets/icons/Hyperlink.svg';
 import { authUser } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
-import { createHandleAuthSubmit } from '../../../shared/utils.js';
+import { createHandleAuthSubmit, sanitizePhoneNumber } from '../../../shared/utils.js';
+import { PhoneInput } from '../../PhoneInput/index.jsx';
+import { Link } from 'react-router-dom';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
-        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
+        .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
         .required("Обов'язкове поле"),
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле"),
     adminCode: Yup.string()
@@ -75,7 +76,12 @@ export default function IndividualForm({ setOpenSuccessModal }) {
         validationSchema,
         onSubmit: (values) => {
             localStorage.removeItem('individualForm');
-            handleSubmit(values);
+
+            const sanitizedPhone = sanitizePhoneNumber(values.phone);
+            handleSubmit({
+                ...values,
+                phone: sanitizedPhone
+            });
         }
     });
 
@@ -86,7 +92,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <Box sx={{ mt: 1 }}>
+            <Box sx={{ mt: 1, paddingInline: 4 }}>
                 <TextField
                     autoComplete="true"
                     fullWidth
@@ -120,44 +126,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     error={formik.touched.fullName && Boolean(formik.errors.fullName)}
                     helperText={formik.touched.fullName && formik.errors.fullName}
                 />
-                <TextField
-                    autoComplete="true"
-                    fullWidth
-                    placeholder="+38 0XX XXX XX XX"
-                    variant="outlined"
-                    margin="dense"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                <div className={style.iconsContainer}>
-                                    <img className={style.icons} src={phoneIcon} alt="phone" />
-                                </div>
-                            </InputAdornment>
-                        ),
-                        sx: {
-                            backgroundColor: 'var(--bg-color-form)',
-                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                            borderRadius: '5px',
-                            height: '40px',
-                            '& .MuiInputBase-input': {
-                                height: '40px',
-                                boxSizing: 'border-box'
-                            }
-                        }
-                    }}
-                    id="phone"
-                    name="phone"
-                    value={formik.values.phone}
-                    onChange={(params) => {
-                        formik.handleChange(params);
-                        if (authError) {
-                            setAuthError(null);
-                        }
-                    }}
-                    onBlur={formik.handleBlur}
-                    error={!!authError?.phone || (formik.touched.phone && Boolean(formik.errors.phone))}
-                    helperText={authError?.phone || (formik.touched.phone && formik.errors.phone)}
-                />
+
+                <PhoneInput formik={formik} authError={authError} setAuthError={setAuthError} country={'UA'} />
+
                 <TextField
                     autoComplete="true"
                     fullWidth
@@ -230,12 +201,12 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     helperText={formik.touched.adminCode && formik.errors.adminCode}
                 />
             </Box>
-            <Box sx={{ mt: 2, textAlign: 'center' }}>
+            <Box sx={{ mt: 2, paddingInline: 4, textAlign: 'center' }}>
                 <div className={style.attentionToken}>
                     Обов&apos;язково збережіть свій токен зараз, оскільки він <br /> буде використовуватися для входу в особистий кабінет
                 </div>
             </Box>
-            <Box sx={{ mt: 2 }}>
+            <Box sx={{ mt: 2, paddingInline: 4 }}>
                 <VButton
                     onClick={generateToken}
                     label="ЗГЕНЕРУВАТИ ТОКЕН"
@@ -259,6 +230,14 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                                         <img className={style.icons} src={hyperLink} alt="hyperLink" />
                                     </div>
                                 </IconButton>
+                                <Snackbar
+                                    open={copySuccess}
+                                    autoHideDuration={400}
+                                    onClose={() => setCopySuccess(false)}
+                                    message="Токен скопійовано"
+                                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                    sx={{ maxWidth: '400px' }}
+                                />
                             </InputAdornment>
                         ),
                         sx: {
@@ -279,22 +258,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                     error={formik.touched.tokenCode && Boolean(formik.errors.tokenCode)}
                     helperText={formik.touched.tokenCode && formik.errors.tokenCode}
                 />
-                <Snackbar
-                    open={copySuccess}
-                    autoHideDuration={500}
-                    onClose={() => setCopySuccess(false)}
-                    message="Токен скопійовано"
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                    sx={{
-                        position: 'absolute',
-                        top: '400px',
-                        bottom: '0',
-                        left: '0',
-                        right: '0',
 
-                        maxWidth: '400px'
-                    }}
-                />
                 <Box sx={{ mt: 2 }}>
                     <FormControlLabel
                         control={
@@ -310,9 +274,14 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                             <span className={style.agreeCheck}>
                                 Я ознайомився та погоджуюся з{' '}
                                 <strong>
-                                    <a className={style.link} href="/terms-of-use" target="_blank" rel="noopener noreferrer">
+                                    <Link
+                                        className={style.link}
+                                        to="/rules-for-using-site"
+                                        target="_blank"
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    >
                                         правилами користування сайтом
-                                    </a>
+                                    </Link>
                                 </strong>
                                 .
                             </span>
@@ -334,9 +303,14 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         <span className={style.agreeCheck}>
                             Я ознайомився та погоджуюся з{' '}
                             <strong>
-                                <a className={style.link} href="/terms-of-use-code-vaasi" target="_blank" rel="noopener noreferrer">
+                                <Link
+                                    className={style.link}
+                                    to="/rules-for-using-vaasi-code"
+                                    target="_blank"
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                >
                                     правилами користування кодами VAASI
-                                </a>
+                                </Link>
                             </strong>
                             .
                         </span>
