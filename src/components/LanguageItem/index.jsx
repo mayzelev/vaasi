@@ -8,10 +8,8 @@ export default function LanguageItem({ language }) {
         i18n.changeLanguage(lang);
     };
     return (
-        <>
-            <span className={i18n.language === language ? style.active : ''} onClick={() => handleLanguageChange(language)}>
-                {language}
-            </span>
-        </>
+        <span className={i18n.language === language ? style.active : ''} onClick={() => handleLanguageChange(language)}>
+            {language}
+        </span>
     );
 }
