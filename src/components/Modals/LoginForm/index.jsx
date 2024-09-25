@@ -6,11 +6,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import style from './LoginForm.module.css';
-import useAuthStore from '../../store/useAuthStore';
-import { loginCompany, loginUser } from '../../api/auth';
-import VButton from '../VButton';
+import useAuthStore from '../../../store/useAuthStore';
+import { loginCompany, loginUser } from '../../../api/auth';
+import VButton from '../../VButton';
 import { useNavigate } from 'react-router-dom';
-import { INVALID_USER, USER_TYPE } from '../../shared/constants.js';
+import { INVALID_USER, USER_TYPE } from '../../../shared/constants.js';
 
 const validationSchema = Yup.object({
     tokenCode: Yup.string()

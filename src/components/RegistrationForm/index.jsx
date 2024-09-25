@@ -5,8 +5,9 @@ import useAuthStore from '../../store/useAuthStore';
 import LegalEntityForm from './LegalEntityForm';
 import IndividualForm from './IndividualForm';
 import CloseIcon from '@mui/icons-material/Close';
-import SuccessModalOpen from './SuccessModalOpen';
+
 import style from './RegistrationForm.module.css';
+import SuccessModalOpen from '../Modals/SuccessModalOpen';
 
 export default function RegistrationPopup() {
     const { isRegistrationOpen, closeRegistration, initialTab } = useAuthStore();
