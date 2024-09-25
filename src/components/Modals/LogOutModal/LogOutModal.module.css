@@ -3,14 +3,14 @@
     margin-bottom: 16px;
     font-style: normal;
     font-weight: 900;
-    font-size: 30px;
+    font-size: 1.8rem;
     line-height: 36px;
 }
 
 .description {
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.1rem;
     line-height: 22px;
     text-align: center;
     color: var(--font-color-primary);

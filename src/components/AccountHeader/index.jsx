@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import LanguageSelect from '../LanguageSelect';
 import VButton from '../VButton';
@@ -12,20 +12,19 @@ import logoImg from '../../assets/icons/logo.png';
 import avatarImg from '../../assets/img/account-mock.jpg';
 import cashImg from '../../assets/icons/cash.svg';
 
-import useAuthStore from '../../store/useAuthStore';
 import MenuItems from './MenuItem.jsx';
 import useUserStore from '../../store/useUserStore.js';
 import { PERSON_TYPE, USER_ID, USER_TYPE } from '../../shared/constants.js';
 import { getCompany, getUser } from '../../api/apiUsers.js';
+import LogOutModal from '../Modals/LogOutModal/index.jsx';
 
 export default function AccountHeader() {
-    const { logout } = useAuthStore();
     const { setUserInfo, userData } = useUserStore();
     const { username, balance } = userData;
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const navigate = useNavigate();
     const userId = localStorage.getItem(USER_ID);
     const personType = localStorage.getItem(PERSON_TYPE);
+    const [openLogOutModal, setOpenLogOutModal] = useState(false);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -49,13 +48,8 @@ export default function AccountHeader() {
 
     const handleClickAway = () => {
         if (drawerOpen) {
-            setDrawerOpen(false); // Close the drawer when clicking outside
+            setDrawerOpen(false);
         }
-    };
-
-    const handleLogout = () => {
-        logout();
-        navigate('/');
     };
 
     return (
@@ -86,7 +80,7 @@ export default function AccountHeader() {
                             </div>
                             <div className={style.headerRightInfo}>
                                 <VButton
-                                    onClick={handleLogout}
+                                    onClick={() => setOpenLogOutModal(true)}
                                     label={'Вийти'}
                                     buttonStyles={{
                                         background: 'var(--button-color-grey)',
@@ -112,7 +106,7 @@ export default function AccountHeader() {
                         hideBackdrop={true}
                         PaperProps={{
                             style: {
-                                marginTop: '66px' // Adjust this value as needed
+                                marginTop: '66px'
                             }
                         }}
                     >
@@ -121,7 +115,7 @@ export default function AccountHeader() {
                                 <MenuItems toggleDrawer={toggleDrawer} />
                                 <ListItemButton>
                                     <VButton
-                                        onClick={handleLogout}
+                                        onClick={() => setOpenLogOutModal(true)}
                                         label={'Вийти'}
                                         buttonStyles={{
                                             background: 'var(--button-color-grey)',
@@ -136,6 +130,7 @@ export default function AccountHeader() {
                     </Drawer>
                 </Toolbar>
             </AppBar>
+            <LogOutModal openLogOutModal={openLogOutModal} setOpenLogOutModal={setOpenLogOutModal} />
         </div>
     );
 }

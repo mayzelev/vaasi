@@ -6,6 +6,8 @@ import uaTranslations from './locales/ua/translation.json';
 import enTranslations from './locales/en/translation.json';
 import deTranslations from './locales/de/translation.json';
 
+const lang = localStorage.getItem('i18nextLng') ? localStorage.getItem('i18nextLng') : 'UA';
+
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
@@ -20,7 +22,7 @@ i18n.use(LanguageDetector)
                 translation: deTranslations
             }
         },
-        lng: 'UA',
+        lng: lang,
         fallbackLng: 'ua',
         detection: {
             order: ['localStorage', 'navigator'],
