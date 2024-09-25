@@ -55,3 +55,7 @@ export const createHandleAuthSubmit =
                 }
             });
     };
+
+export const sanitizePhoneNumber = (phoneNumber) => {
+    return phoneNumber.replace(/[^\d+]/g, '');
+};

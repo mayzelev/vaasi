@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, TextField, Typography, IconButton, Modal, Tabs, Tab } from '@mui/material';
+import { Box, TextField, Typography, IconButton, Modal, Tabs, Tab, useMediaQuery, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useFormik } from 'formik';
@@ -24,6 +24,9 @@ export default function LoginForm() {
     const [authError, setAuthError] = useState(null);
     const [activeTab, setActiveTab] = useState(initialTabLogin);
     const navigate = useNavigate();
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     useEffect(() => {
         setActiveTab(initialTabLogin);
     }, [initialTabLogin]);
@@ -89,10 +92,15 @@ export default function LoginForm() {
                     bgcolor: 'background.paper',
                     borderRadius: 4,
                     boxShadow: 24,
-                    p: 4,
+                    paddingTop: 5,
+                    paddingBottom: 5,
                     width: '100%',
                     maxWidth: '540px',
-                    zIndex: 1300
+                    zIndex: 1300,
+                    maxHeight: isSmallScreen ? '90vh' : 'none',
+                    overflowY: isSmallScreen ? 'auto' : 'visible',
+                    display: 'flex',
+                    flexDirection: 'column'
                 }}
             >
                 <IconButton
@@ -112,7 +120,7 @@ export default function LoginForm() {
                         marginBottom: '5px',
                         marginTop: '15px',
                         fontWeight: '900',
-                        fontSize: '30px',
+                        fontSize: isSmallScreen ? '1.5rem' : '1.8rem',
                         lineHeight: '36px'
                     }}
                 >
@@ -122,9 +130,14 @@ export default function LoginForm() {
                     value={activeTab}
                     onChange={handleTabChange}
                     centered
+                    variant={isSmallScreen ? 'fullWidth' : 'standard'}
                     sx={{
                         '.MuiTabs-indicator': {
                             backgroundColor: 'var(--button-color-active)'
+                        },
+                        '.MuiTab-root': {
+                            minWidth: 0,
+                            padding: isSmallScreen ? '6px 10px' : '0px 45px'
                         }
                     }}
                 >
@@ -132,10 +145,8 @@ export default function LoginForm() {
                         sx={{
                             textAlign: 'center',
                             fontWeight: '600',
-                            fontSize: '16px',
-                            lineHeight: '22px',
-                            padding: '0 20px',
-
+                            fontSize: isSmallScreen ? '0.8rem' : '1rem',
+                            lineHeight: isSmallScreen ? '18px' : '22px',
                             color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit'
                         }}
                         label="Юридичні особи"
@@ -147,9 +158,9 @@ export default function LoginForm() {
                         sx={{
                             textAlign: 'center',
                             fontWeight: '600',
-                            fontSize: '16px',
-                            lineHeight: '22px',
-                            padding: '0 30px',
+                            fontSize: isSmallScreen ? '0.8rem' : '1rem',
+                            lineHeight: isSmallScreen ? '18px' : '22px',
+
                             color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit'
                         }}
                         label="Фізичні особи"
@@ -161,7 +172,7 @@ export default function LoginForm() {
                 <Box>
                     <div className={style.line}></div>
                 </Box>
-                <Box sx={{ position: 'relative', marginBottom: '20px' }}>
+                <Box sx={{ position: 'relative', marginBottom: '20px', paddingInline: 4 }}>
                     <Typography>
                         Токен
                         <IconButton
@@ -213,14 +224,14 @@ export default function LoginForm() {
                                 borderRadius: '10px',
                                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
                                 maxWidth: '285px',
-                                fontSize: '14px'
+                                fontSize: '0.8rem'
                             }}
                         >
                             Вставте у поле токен, який було згенеровано при реєстрації на порталі.
                         </Box>
                     )}
                 </Box>
-                <Box sx={{ display: 'flex', mb: '15px', textAlign: 'center' }}>
+                <Box sx={{ display: 'flex', mb: '15px', textAlign: 'center', paddingInline: 4 }}>
                     <div className={style.button}>
                         <VButton
                             onClick={formik.handleSubmit}

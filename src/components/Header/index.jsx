@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
@@ -9,13 +9,26 @@ import style from './Header.module.css';
 
 import sfereImg from '../../assets/icons/sfere.png';
 import logoImg from '../../assets/icons/logo.png';
-import watchImg from '../../assets/img/watch.png';
-
 import useAuthStore from '../../store/useAuthStore';
+import { mockDataHeaderWatch } from './mockData.js';
 
 export default function Header() {
     const { openRegistration, openLogin } = useAuthStore();
     const [drawerOpen, setDrawerOpen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 960) {
+                setDrawerOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -28,11 +41,9 @@ export default function Header() {
         <List>
             <ListItem>
                 <div className={style.headerLeft}>
-                    <Link to="/">
-                        <div className={style.logoContainer}>
-                            <img className={style.logo} src={logoImg} alt="VAASI Logo" />
-                        </div>
-                    </Link>
+                    <div className={style.logoContainer}>
+                        <img className={style.logo} src={logoImg} alt="VAASI Logo" />
+                    </div>
                 </div>
             </ListItem>
             <ListItemButton>
@@ -81,41 +92,15 @@ export default function Header() {
 
                         <div className={style.headerRight}>
                             <div className={style.clocks}>
-                                <div className={style.clockeItemWithImg}>
-                                    <img className={style.watch} src={watchImg} alt="watch" />
-                                    <div className={style.clockeItem}>
-                                        <span>07:21</span>
-                                        <span>Київ</span>
+                                {mockDataHeaderWatch.map(({ timeZone, watch }) => (
+                                    <div className={style.clockeItemWithImg} key={timeZone.id}>
+                                        <img className={style.watch} src={watch.src} alt={watch.alt} />
+                                        <div className={style.clockeItem}>
+                                            <span>{timeZone.time}</span>
+                                            <span>{timeZone.city}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={style.clockeItemWithImg}>
-                                    <img className={style.watch} src={watchImg} alt="watch" />
-                                    <div className={style.clockeItem}>
-                                        <span>07:21</span>
-                                        <span>Токіо</span>
-                                    </div>
-                                </div>
-                                <div className={style.clockeItemWithImg}>
-                                    <img className={style.watch} src={watchImg} alt="watch" />
-                                    <div className={style.clockeItem}>
-                                        <span>07:21</span>
-                                        <span>Сідней</span>
-                                    </div>
-                                </div>
-                                <div className={style.clockeItemWithImg}>
-                                    <img className={style.watch} src={watchImg} alt="watch" />
-                                    <div className={style.clockeItem}>
-                                        <span>07:21</span>
-                                        <span>Нью-Йорк</span>
-                                    </div>
-                                </div>
-                                <div className={style.clockeItemWithImg}>
-                                    <img className={style.watch} src={watchImg} alt="watch" />
-                                    <div className={style.clockeItem}>
-                                        <span>07:21</span>
-                                        <span>Лондон</span>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                             <div className={style.authButtons}>
                                 <button onClick={openRegistration}>Реєстрація</button>
@@ -144,7 +129,7 @@ export default function Header() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         {menuItems}
                     </Drawer>
                 </Toolbar>

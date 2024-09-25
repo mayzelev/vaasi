@@ -5,17 +5,18 @@ import { useEffect, useState } from 'react';
 import VButton from '../VButton';
 import { Box, InputAdornment, TextField } from '@mui/material';
 import personIcon from '../../assets/icons/user.svg';
-import phoneIcon from '../../assets/icons/phone.svg';
 import emailIcon from '../../assets/icons/email.svg';
 import SuccessConsultationModal from './SuccessConsultationModal';
 import LineTitle from '../LineTitle';
+import { sanitizePhoneNumber } from '../../shared/utils';
+import { PhoneInput } from '../PhoneInput';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи та дефіси.')
         .required("Обов'язкове поле"),
     phone: Yup.string()
-        .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +380XXXXXXXXX.')
+        .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +380XX XXX XX XX.')
         .required("Обов'язкове поле"),
     email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
 });
@@ -39,14 +40,18 @@ export default function PersonOnlineConsultation({ data }) {
         onSubmit: (values) => {
             localStorage.removeItem('personOnlineConsultation');
             console.log('Форма відправлена', values);
-            handleSubmit(values);
+
+            const sanitizedPhone = sanitizePhoneNumber(values.phone);
+            handleSubmit({
+                ...values,
+                phone: sanitizedPhone
+            });
             formik.resetForm();
         }
     });
 
-    const handleSubmit = (values) => {
+    const handleSubmit = () => {
         setOpenSuccessModal(true);
-        console.log('Submitted:', values);
     };
 
     useEffect(() => {
@@ -109,40 +114,9 @@ export default function PersonOnlineConsultation({ data }) {
                         error={formik.touched.fullName && Boolean(formik.errors.fullName)}
                         helperText={formik.touched.fullName && formik.errors.fullName}
                     />
-                    <TextField
-                        autoComplete="true"
-                        fullWidth
-                        placeholder="+38(0XX)XXX XX XX"
-                        variant="outlined"
-                        margin="dense"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                    <div className={style.iconsContainer}>
-                                        <img className={style.icons} src={phoneIcon} alt="phone" />
-                                    </div>
-                                </InputAdornment>
-                            ),
-                            sx: {
-                                backgroundColor: 'var(--bg-color-form)',
-                                boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                                borderRadius: '5px',
-                                height: '40px',
 
-                                '& .MuiInputBase-input': {
-                                    height: '40px',
-                                    boxSizing: 'border-box'
-                                }
-                            }
-                        }}
-                        id="phone"
-                        name="phone"
-                        value={formik.values.phone}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.phone && Boolean(formik.errors.phone)}
-                        helperText={formik.touched.phone && formik.errors.phone}
-                    />
+                    <PhoneInput formik={formik} country={'UA'} />
+
                     <TextField
                         autoComplete="true"
                         fullWidth

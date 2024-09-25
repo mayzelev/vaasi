@@ -38,14 +38,15 @@ export default function RegistrationPopup() {
                         bgcolor: 'background.paper',
                         borderRadius: 4,
                         boxShadow: 24,
-                        p: 4,
                         width: '100%',
                         maxWidth: '540px',
                         maxHeight: isSmallScreen ? '90vh' : 'none',
                         overflowY: isSmallScreen ? 'auto' : 'visible',
                         display: 'flex',
                         flexDirection: 'column',
-                        zIndex: 1300
+                        zIndex: 1300,
+                        paddingTop: 5,
+                        paddingBottom: 5
                     }}
                 >
                     <IconButton sx={{ position: 'absolute', top: 16, right: 16, zIndex: 1 }} onClick={closeRegistration} aria-label="close">
@@ -74,7 +75,7 @@ export default function RegistrationPopup() {
                             },
                             '.MuiTab-root': {
                                 minWidth: 0,
-                                padding: isSmallScreen ? '6px 12px' : '6px 20px'
+                                padding: isSmallScreen ? '6px 10px' : '0px 45px'
                             }
                         }}
                     >
@@ -84,7 +85,6 @@ export default function RegistrationPopup() {
                                 fontWeight: '600',
                                 fontSize: isSmallScreen ? '0.8rem' : '1rem',
                                 lineHeight: isSmallScreen ? '18px' : '22px',
-                                padding: '0 20px',
                                 color: activeTab === 0 ? 'var(--button-color-active)' : 'inherit',
                                 '&.Mui-selected': {
                                     color: 'var(--button-color-active)'
@@ -101,7 +101,6 @@ export default function RegistrationPopup() {
                                 fontWeight: '600',
                                 fontSize: isSmallScreen ? '0.8rem' : '1rem',
                                 lineHeight: isSmallScreen ? '18px' : '22px',
-                                padding: '0 30px',
                                 color: activeTab === 1 ? 'var(--button-color-active)' : 'inherit',
                                 '&.Mui-selected': {
                                     color: 'var(--button-color-active)'
