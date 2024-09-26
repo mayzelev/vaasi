@@ -1,23 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton, Tooltip } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
-import Snackbar from '@mui/material/Snackbar';
-
+import BlockIcon from '@mui/icons-material/Block';
+import CheckIcon from '@mui/icons-material/Check';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import style from './LegalEntityForm.module.css';
 import buildingIcon from '../../../assets/icons/building.svg';
 import personIcon from '../../../assets/icons/user.svg';
 import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
-import hyperLink from '../../../assets/icons/Hyperlink.svg';
-
-import style from './LegalEntityForm.module.css';
 import { authCompany } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
 import { createHandleAuthSubmit, sanitizePhoneNumber } from '../../../shared/utils.js';
 import { PhoneInput } from '../../PhoneInput/index.jsx';
-import { Link } from 'react-router-dom';
 
 const validationSchema = Yup.object({
     companyName: Yup.string()
@@ -49,16 +48,27 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
     const { closeRegistration, closeLogin } = useAuthStore();
     const [authError, setAuthError] = useState(null);
     const [tokenCode, setTokenCode] = useState('');
-    const [copySuccess, setCopySuccess] = useState(false);
+    const [tooltipText, setTooltipText] = useState('Скопіювати?');
+    const [icon, setIcon] = useState();
+    const [isCopyDisabled, setIsCopyDisabled] = useState(true);
 
     const generateToken = () => {
         const token = uuidv4();
         setTokenCode(token);
+        setIsCopyDisabled(false);
+        setTooltipText('Скопіювати?');
+        setIcon(<ContentCopyIcon sx={{ color: 'var(--font-color-thirdy)' }} />);
     };
 
     const handleCopyToken = () => {
         navigator.clipboard.writeText(tokenCode);
-        setCopySuccess(true);
+        setTooltipText('Скопійовано');
+        setIcon(<CheckIcon sx={{ color: 'var(--font-color-thirdy)' }} />);
+
+        setTimeout(() => {
+            setTooltipText('Скопіювати?');
+            setIcon(<ContentCopyIcon sx={{ color: 'var(--font-color-thirdy)' }} />);
+        }, 3000);
     };
 
     const loadSavedValues = () => {
@@ -267,19 +277,15 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                         startAdornment: <InputAdornment position="start"></InputAdornment>,
                         endAdornment: (
                             <InputAdornment position="end" sx={{ transform: 'translateX(21px)' }}>
-                                <IconButton onClick={handleCopyToken}>
-                                    <div className={style.iconsContainer}>
-                                        <img className={style.icons} src={hyperLink} alt="hyperLink" />
-                                    </div>
-                                </IconButton>
-                                <Snackbar
-                                    open={copySuccess}
-                                    autoHideDuration={400}
-                                    onClose={() => setCopySuccess(false)}
-                                    message="Токен скопійовано"
-                                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                    sx={{ maxWidth: '400px' }}
-                                />
+                                <Tooltip title={!tokenCode ? 'Спочатку згенеруйте токен' : tooltipText} arrow placement="left">
+                                    <span>
+                                        <IconButton onClick={handleCopyToken} disabled={isCopyDisabled}>
+                                            <div className={style.iconsContainer}>
+                                                {isCopyDisabled ? <BlockIcon style={{ color: 'rgba(0, 0, 0, 0.54)' }} /> : icon}
+                                            </div>
+                                        </IconButton>
+                                    </span>
+                                </Tooltip>
                             </InputAdornment>
                         ),
                         sx: {
@@ -338,9 +344,8 @@ export default function LegalEntityForm({ setOpenSuccessModal }) {
                         buttonStyles={{
                             background: 'var(--button-color-grey)',
                             textColor: 'var(--font-color-primary)',
-                            padding: '20px 10px',
+                            padding: '10px 10px',
                             hoverBackground: 'var(--button-color-hover)',
-                            height: '34px',
                             maxWidth: '540px'
                         }}
                     />
