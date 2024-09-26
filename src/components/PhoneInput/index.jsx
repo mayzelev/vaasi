@@ -8,7 +8,7 @@ export const PhoneInput = ({ formik, authError, setAuthError, country }) => {
     const getPhoneMask = (country) => {
         switch (country) {
             case 'UA':
-                return ['+', '3', '8', ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, ' ', /\d/, /\d/];
+                return ['+', '3', '8', ' ', '0', /\d/, /\d/, ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, ' ', /\d/, /\d/];
             case 'EN':
                 return ['+', '1', ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
             case 'DE':
