@@ -13,19 +13,19 @@ import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
 import { createHandleAuthSubmit, sanitizePhoneNumber } from '../../../shared/utils.js';
 import { PhoneInput } from '../../PhoneInput/index.jsx';
-import { VALIDATE_ADMIN_CODE, VALIDATE_EMAIL, VALIDATE_PHONE, VALIDATE_TERMS, VALIDATE_TOKEN_CODE } from '../../../shared/constants.js';
 import { generateToken, handleCopyToken, loadSavedValues } from '../formUtils.jsx';
 import FormField from '../../FormField/index.jsx';
+import { AdminCodeValidation, EmailValidation, PhoneValidation, TermsValidation, TokenCodeValidation } from '../../../shared/constants.js';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
-    phone: VALIDATE_PHONE,
-    email: VALIDATE_EMAIL,
-    adminCode: VALIDATE_ADMIN_CODE,
-    tokenCode: VALIDATE_TOKEN_CODE,
-    terms: VALIDATE_TERMS,
+    phone: PhoneValidation,
+    email: EmailValidation,
+    adminCode: AdminCodeValidation,
+    tokenCode: TokenCodeValidation,
+    terms: TermsValidation,
     rules: Yup.boolean().oneOf([true], 'Ви повинні погодитися з правилами користування кодами VAASI.').required("Обов'язкове поле")
 });
 

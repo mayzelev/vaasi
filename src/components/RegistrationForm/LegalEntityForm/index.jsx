@@ -15,8 +15,8 @@ import VButton from '../../VButton';
 import { createHandleAuthSubmit, sanitizePhoneNumber } from '../../../shared/utils.js';
 import { PhoneInput } from '../../PhoneInput/index.jsx';
 import { generateToken, handleCopyToken, loadSavedValues } from '../formUtils.jsx';
-import { VALIDATE_ADMIN_CODE, VALIDATE_EMAIL, VALIDATE_PHONE, VALIDATE_TERMS, VALIDATE_TOKEN_CODE } from '../../../shared/constants.js';
 import FormField from '../../FormField/index.jsx';
+import { AdminCodeValidation, EmailValidation, PhoneValidation, TermsValidation, TokenCodeValidation } from '../../../shared/constants.js';
 
 const validationSchema = Yup.object({
     companyName: Yup.string()
@@ -31,11 +31,11 @@ const validationSchema = Yup.object({
             'Контактна особа повинна містити тільки літери, пробіли, апострофи, крапки , та дефіси.'
         )
         .required("Обов'язкове поле"),
-    phone: VALIDATE_PHONE,
-    email: VALIDATE_EMAIL,
-    adminCode: VALIDATE_ADMIN_CODE,
-    tokenCode: VALIDATE_TOKEN_CODE,
-    terms: VALIDATE_TERMS
+    phone: PhoneValidation,
+    email: EmailValidation,
+    adminCode: AdminCodeValidation,
+    tokenCode: TokenCodeValidation,
+    terms: TermsValidation
 });
 
 export default function LegalEntityForm({ setOpenSuccessModal }) {
