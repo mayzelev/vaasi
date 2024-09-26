@@ -44,11 +44,11 @@ export const createHandleAuthSubmit =
                 const errors = {};
 
                 if (e?.response?.data?.message.includes(USER_EMAIL_EXIST)) {
-                    errors.email = 'Email вже зареєстровано!';
+                    errors.email = 'Такий Email вже зареєстровано!!';
                 }
 
                 if (e?.response?.data?.message.includes(USER_PHONE_EXIST)) {
-                    errors.phone = 'Телефон вже зареєстровано!';
+                    errors.phone = 'Такий номер телефону вже зареєстровано!!';
                 }
                 if (Object.keys(errors).length) {
                     setAuthError(errors);
