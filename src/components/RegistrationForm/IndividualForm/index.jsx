@@ -1,39 +1,31 @@
 import { useEffect, useState } from 'react';
-import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton } from '@mui/material';
-import Snackbar from '@mui/material/Snackbar';
+import { Link } from 'react-router-dom';
+import { Box, TextField, InputAdornment, FormControlLabel, Checkbox, IconButton, Tooltip } from '@mui/material';
 import { useFormik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
 import * as Yup from 'yup';
-
+import BlockIcon from '@mui/icons-material/Block';
 import style from './IndividualForm.module.css';
-
 import personIcon from '../../../assets/icons/user.svg';
 import emailIcon from '../../../assets/icons/email.svg';
 import lockIcon from '../../../assets/icons/lock.svg';
-import hyperLink from '../../../assets/icons/Hyperlink.svg';
-
 import { authUser } from '../../../api/auth.js';
 import useAuthStore from '../../../store/useAuthStore';
 import VButton from '../../VButton';
 import { createHandleAuthSubmit, sanitizePhoneNumber } from '../../../shared/utils.js';
 import { PhoneInput } from '../../PhoneInput/index.jsx';
-import { Link } from 'react-router-dom';
+import { generateToken, handleCopyToken, loadSavedValues } from '../formUtils.jsx';
+import FormField from '../../FormField/index.jsx';
+import { AdminCodeValidation, EmailValidation, PhoneValidation, TermsValidation, TokenCodeValidation } from '../../../shared/constants.js';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи, та дефіси.')
         .required("Обов'язкове поле"),
-    phone: Yup.string()
-        .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
-        .required("Обов'язкове поле"),
-    email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле"),
-    adminCode: Yup.string()
-        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\d]{1,}$/, 'Код адміністратора повинен містити тільки літери та цифри.')
-        .required("Обов'язкове поле"),
-    tokenCode: Yup.string()
-        .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\d.-]{1,62}$/, 'Токен повинен містити тільки літери, цифри, крапку та дефіс.')
-        .required("Обов'язкове поле"),
-    terms: Yup.boolean().oneOf([true], 'Ви повинні погодитися з правилами користування сайтом.').required("Обов'язкове поле"),
+    phone: PhoneValidation,
+    email: EmailValidation,
+    adminCode: AdminCodeValidation,
+    tokenCode: TokenCodeValidation,
+    terms: TermsValidation,
     rules: Yup.boolean().oneOf([true], 'Ви повинні погодитися з правилами користування кодами VAASI.').required("Обов'язкове поле")
 });
 
@@ -41,22 +33,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
     const { closeRegistration, closeLogin } = useAuthStore();
     const [authError, setAuthError] = useState(null);
     const [tokenCode, setTokenCode] = useState('');
-    const [copySuccess, setCopySuccess] = useState(false);
-
-    const generateToken = () => {
-        const token = uuidv4();
-        setTokenCode(token);
-    };
-
-    const handleCopyToken = () => {
-        navigator.clipboard.writeText(tokenCode);
-        setCopySuccess(true);
-    };
-
-    const loadSavedValues = () => {
-        const savedValues = localStorage.getItem('individualForm');
-        return savedValues ? JSON.parse(savedValues) : null;
-    };
+    const [tooltipText, setTooltipText] = useState('Скопіювати?');
+    const [icon, setIcon] = useState();
+    const [isCopyDisabled, setIsCopyDisabled] = useState(true);
 
     const handleSubmit = createHandleAuthSubmit(
         ({ fullName: username, phone, email, adminCode: code, tokenCode: token }) => authUser({ username, phone, email, code, token }),
@@ -64,7 +43,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
     );
 
     const formik = useFormik({
-        initialValues: loadSavedValues() || {
+        initialValues: loadSavedValues('individualForm') || {
             fullName: '',
             phone: '',
             email: '',
@@ -93,70 +72,26 @@ export default function IndividualForm({ setOpenSuccessModal }) {
     return (
         <form onSubmit={formik.handleSubmit}>
             <Box sx={{ mt: 1, paddingInline: 4 }}>
-                <TextField
-                    autoComplete="true"
-                    fullWidth
-                    placeholder="ПІБ"
-                    variant="outlined"
-                    margin="dense"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                <div className={style.iconsContainer}>
-                                    <img className={style.icons} src={personIcon} alt="user" />
-                                </div>
-                            </InputAdornment>
-                        ),
-                        sx: {
-                            backgroundColor: 'var(--bg-color-form)',
-                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                            borderRadius: '5px',
-                            height: '40px',
-                            '& .MuiInputBase-input': {
-                                height: '40px',
-                                boxSizing: 'border-box'
-                            }
-                        }
-                    }}
+                <FormField
+                    formik={formik}
                     id="fullName"
-                    name="fullName"
-                    value={formik.values.fullName}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    placeholder="ПІБ"
+                    adornment={personIcon}
                     error={formik.touched.fullName && Boolean(formik.errors.fullName)}
                     helperText={formik.touched.fullName && formik.errors.fullName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                 />
 
                 <PhoneInput formik={formik} authError={authError} setAuthError={setAuthError} country={'UA'} />
 
-                <TextField
-                    autoComplete="true"
-                    fullWidth
-                    placeholder="Електронна пошта"
-                    variant="outlined"
-                    margin="dense"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                <div className={style.iconsContainer}>
-                                    <img className={style.icons} src={emailIcon} alt="email" />
-                                </div>
-                            </InputAdornment>
-                        ),
-                        sx: {
-                            backgroundColor: 'var(--bg-color-form)',
-                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                            borderRadius: '5px',
-                            height: '40px',
-                            '& .MuiInputBase-input': {
-                                height: '40px',
-                                boxSizing: 'border-box'
-                            }
-                        }
-                    }}
+                <FormField
+                    formik={formik}
                     id="email"
-                    name="email"
-                    value={formik.values.email}
+                    placeholder="Електронна пошта"
+                    adornment={emailIcon}
+                    error={!!authError?.email || (formik.touched.email && Boolean(formik.errors.email))}
+                    helperText={authError?.email || (formik.touched.email && formik.errors.email)}
                     onChange={(params) => {
                         formik.handleChange(params);
                         if (authError) {
@@ -164,41 +99,16 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         }
                     }}
                     onBlur={formik.handleBlur}
-                    error={!!authError?.email || (formik.touched.email && Boolean(formik.errors.email))}
-                    helperText={authError?.email || (formik.touched.email && formik.errors.email)}
                 />
-                <TextField
-                    autoComplete="true"
-                    fullWidth
-                    placeholder="Код адміністратора"
-                    variant="outlined"
-                    margin="dense"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                <div className={style.iconsContainer}>
-                                    <img className={style.icons} src={lockIcon} alt="lock" />
-                                </div>
-                            </InputAdornment>
-                        ),
-                        sx: {
-                            backgroundColor: 'var(--bg-color-form)',
-                            boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                            borderRadius: '5px',
-                            height: '40px',
-                            '& .MuiInputBase-input': {
-                                height: '40px',
-                                boxSizing: 'border-box'
-                            }
-                        }
-                    }}
+                <FormField
+                    formik={formik}
                     id="adminCode"
-                    name="adminCode"
-                    value={formik.values.adminCode}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    placeholder="Код адміністратора"
+                    adornment={lockIcon}
                     error={formik.touched.adminCode && Boolean(formik.errors.adminCode)}
                     helperText={formik.touched.adminCode && formik.errors.adminCode}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                 />
             </Box>
             <Box sx={{ mt: 2, paddingInline: 4, textAlign: 'center' }}>
@@ -208,7 +118,7 @@ export default function IndividualForm({ setOpenSuccessModal }) {
             </Box>
             <Box sx={{ mt: 2, paddingInline: 4 }}>
                 <VButton
-                    onClick={generateToken}
+                    onClick={() => generateToken(setTokenCode, setIsCopyDisabled, setTooltipText, setIcon)}
                     label="ЗГЕНЕРУВАТИ ТОКЕН"
                     buttonStyles={{
                         padding: '20px 10px',
@@ -225,19 +135,18 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         startAdornment: <InputAdornment position="start"></InputAdornment>,
                         endAdornment: (
                             <InputAdornment position="end" sx={{ transform: 'translateX(21px)' }}>
-                                <IconButton onClick={handleCopyToken}>
-                                    <div className={style.iconsContainer}>
-                                        <img className={style.icons} src={hyperLink} alt="hyperLink" />
-                                    </div>
-                                </IconButton>
-                                <Snackbar
-                                    open={copySuccess}
-                                    autoHideDuration={400}
-                                    onClose={() => setCopySuccess(false)}
-                                    message="Токен скопійовано"
-                                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                    sx={{ maxWidth: '400px' }}
-                                />
+                                <Tooltip title={!tokenCode ? 'Спочатку згенеруйте токен' : tooltipText} arrow placement="left">
+                                    <span>
+                                        <IconButton
+                                            onClick={() => handleCopyToken(tokenCode, setTooltipText, setIcon)}
+                                            disabled={isCopyDisabled}
+                                        >
+                                            <div className={style.iconsContainer}>
+                                                {isCopyDisabled ? <BlockIcon style={{ color: 'rgba(0, 0, 0, 0.54)' }} /> : icon}
+                                            </div>
+                                        </IconButton>
+                                    </span>
+                                </Tooltip>
                             </InputAdornment>
                         ),
                         sx: {
@@ -325,10 +234,9 @@ export default function IndividualForm({ setOpenSuccessModal }) {
                         buttonStyles={{
                             background: 'var(--button-color-grey)',
                             textColor: 'var(--font-color-primary)',
-                            padding: '20px 10px',
+                            padding: '10px 10px',
                             hoverColor: 'white',
                             hoverBackground: 'var(--button-color-hover)',
-                            height: '34px',
                             maxWidth: '540px'
                         }}
                     />

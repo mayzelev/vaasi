@@ -3,6 +3,7 @@
 Demo link: [DEMO](https://mayzelev.github.io/vaasi/)
 
 Simple web application VAASI [API](https://www.devsm.space/api/).
+
 Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-International-Group?node-id=263-1408&node-type=&t=wFSP002kpo7WoV3E-0).
 
 # Technologies used
@@ -11,7 +12,7 @@ Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-Inte
 -   [Vite](https://vitejs.dev/) - build tool
 -   [CSS](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - css modules
 -   [React Router](https://reactrouter.com/) - routing library
--   [Zustand](https://zustand-demo.pmnd.rs/) - state maneger
+-   [Zustand](https://zustand-demo.pmnd.rs/) - state manager
 -   [UUID](https://www.npmjs.com/package/uuid) - generate unique identifier
 -   [Yup](https://www.npmjs.com/package/yup) - validation
 -   [Formik](https://formik.org/) - form
@@ -20,6 +21,7 @@ Design - [design](https://www.figma.com/design/yDV4HfG8e8ctpxGBbMmblc/VAASI-Inte
 -   [Axios](https://react.i18next.com/) - http client
 -   [Husky](https://typicode.github.io/husky/) - automatically lint your commit messages, code, and run tests upon committing or pushing.
 -   [DomPurify](https://www.npmjs.com/package/dompurify) - sanitizes HTML and prevents XSS attacks.
+-   [ReactTextMask](https://www.npmjs.com/package/react-text-mask) - сustomize rendered <input> сomponent.
 
 # How to run
 
