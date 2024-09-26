@@ -44,7 +44,7 @@ export const createHandleAuthSubmit =
                 const errors = {};
 
                 if (e?.response?.data?.message.includes(USER_EMAIL_EXIST)) {
-                    errors.email = 'Такий Email вже зареєстровано!';
+                    errors.email = 'Такий E-mail вже зареєстровано!';
                 }
 
                 if (e?.response?.data?.message.includes(USER_PHONE_EXIST)) {
