@@ -23,7 +23,7 @@ export const PhoneValidation = Yup.string()
     .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
     .required("Обов'язкове поле");
 
-export const EmailValidation = Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле");
+export const EmailValidation = Yup.string().email('Невірний формат E-mail').required("Обов'язкове поле");
 
 export const AdminCodeValidation = Yup.string()
     .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\d]{1,}$/, 'Код адміністратора повинен містити тільки літери та цифри.')
