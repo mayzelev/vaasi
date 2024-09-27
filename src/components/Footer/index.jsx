@@ -8,8 +8,13 @@ import VButton from '../VButton';
 import { footerLinkRulesData, footerLinkPersonsData, footerSocialData } from './mockData';
 import LanguageItem from '../LanguageItem';
 import { LANGUAGES } from '../../shared/constants.js';
+import FeedBackForm from '../Modals/FeedBackForm/index.jsx';
+import SuccessConsultationModal from '../PersonOnlineConsultation/SuccessConsultationModal/index.jsx';
+import useModalStore from '../../store/useModalStore.js';
 
 export default function Footer() {
+    const { openFeedBackForm } = useModalStore();
+
     return (
         <footer className={style.footer}>
             <div className="container">
@@ -57,15 +62,15 @@ export default function Footer() {
                         </div>
 
                         <div className={style.contact}>
-                            <Link to="/feedback" className="feedback">
-                                <VButton
-                                    label="Зворотній зв'язок"
-                                    buttonStyles={{
-                                        textColor: 'var(--button-color-secondary)',
-                                        maxWidth: '180px'
-                                    }}
-                                />
-                            </Link>
+                            <VButton
+                                onClick={openFeedBackForm}
+                                label="Зворотній зв'язок"
+                                buttonStyles={{
+                                    textColor: 'var(--button-color-secondary)',
+                                    maxWidth: '180px'
+                                }}
+                            />
+
                             <p className={style.contactLink}>
                                 <img className={style.iconsContact} src={callImg} alt="call" />
                                 <a href="tel:+3809898778">380 989 87 78</a>
@@ -84,6 +89,8 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <FeedBackForm />
+            <SuccessConsultationModal />
         </footer>
     );
 }

@@ -1,14 +1,18 @@
 import { Box, IconButton, Modal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import style from './SuccessConsultationModal.module.css';
+import useModalStore from '../../../store/useModalStore';
 
-export default function SuccessConsultationModal({ openSuccessModal, setOpenSuccessModal }) {
+export default function SuccessConsultationModal() {
+    const { isSuccessModalOpen, closeSuccessModal } = useModalStore();
+
     const handleCloseSuccessModal = () => {
-        setOpenSuccessModal(false);
+        closeSuccessModal();
     };
+
     return (
         <Modal
-            open={openSuccessModal}
+            open={isSuccessModalOpen}
             onClose={handleCloseSuccessModal}
             aria-labelledby="success-modal-title"
             aria-describedby="success-modal-description"

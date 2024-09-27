@@ -1,29 +1,29 @@
 import style from './PersonOnlineConsultation.module.css';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import VButton from '../VButton';
-import { Box, InputAdornment, TextField } from '@mui/material';
+import { Box } from '@mui/material';
 import personIcon from '../../assets/icons/user.svg';
 import emailIcon from '../../assets/icons/email.svg';
-import SuccessConsultationModal from './SuccessConsultationModal';
 import LineTitle from '../LineTitle';
 import { sanitizePhoneNumber } from '../../shared/utils';
 import { PhoneInput } from '../PhoneInput';
+import { EmailValidation, PhoneValidation } from '../../shared/constants';
+import FormField from '../FormField';
+import useModalStore from '../../store/useModalStore';
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
         .matches(/^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ'.\-\s]{1,62}$/, 'ПІБ повинно містити тільки літери, пробіли, апострофи та дефіси.')
         .required("Обов'язкове поле"),
-    phone: Yup.string()
-        .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +380XX XXX XX XX.')
-        .required("Обов'язкове поле"),
-    email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
+    phone: PhoneValidation,
+    email: EmailValidation
 });
 
 export default function PersonOnlineConsultation({ data }) {
     const { header, description } = data;
-    const [openSuccessModal, setOpenSuccessModal] = useState(false);
+    const { openSuccessModal, closeFeedBackForm } = useModalStore();
 
     const loadSavedValues = () => {
         const savedValues = localStorage.getItem('personOnlineConsultation');
@@ -51,7 +51,8 @@ export default function PersonOnlineConsultation({ data }) {
     });
 
     const handleSubmit = () => {
-        setOpenSuccessModal(true);
+        openSuccessModal();
+        closeFeedBackForm();
     };
 
     useEffect(() => {
@@ -80,75 +81,28 @@ export default function PersonOnlineConsultation({ data }) {
                         }
                     }}
                 >
-                    <TextField
-                        autoComplete="true"
-                        fullWidth
-                        placeholder="Ім'я"
-                        variant="outlined"
-                        margin="dense"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                    <div className={style.iconsContainer}>
-                                        <img className={style.icons} src={personIcon} alt="user" />
-                                    </div>
-                                </InputAdornment>
-                            ),
-                            sx: {
-                                backgroundColor: 'var(--bg-color-form)',
-                                boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                                borderRadius: '5px',
-                                height: '40px',
-                                boxSizing: 'border-box',
-                                '& .MuiInputBase-input': {
-                                    height: '40px',
-                                    boxSizing: 'border-box'
-                                }
-                            }
-                        }}
+                    <FormField
+                        formik={formik}
                         id="fullName"
-                        name="fullName"
-                        value={formik.values.fullName}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
+                        placeholder="Ім'я"
+                        adornment={personIcon}
                         error={formik.touched.fullName && Boolean(formik.errors.fullName)}
                         helperText={formik.touched.fullName && formik.errors.fullName}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
 
                     <PhoneInput formik={formik} country={'UA'} />
 
-                    <TextField
-                        autoComplete="true"
-                        fullWidth
-                        placeholder="Електронна пошта"
-                        variant="outlined"
-                        margin="dense"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start" sx={{ transform: 'translateX(-13px)' }}>
-                                    <div className={style.iconsContainer}>
-                                        <img className={style.icons} src={emailIcon} alt="email" />
-                                    </div>
-                                </InputAdornment>
-                            ),
-                            sx: {
-                                backgroundColor: 'var(--bg-color-form)',
-                                boxShadow: 'inset 0px 1px 3px var(--text-shadow)',
-                                borderRadius: '5px',
-                                height: '40px',
-                                '& .MuiInputBase-input': {
-                                    height: '40px',
-                                    boxSizing: 'border-box'
-                                }
-                            }
-                        }}
+                    <FormField
+                        formik={formik}
                         id="email"
-                        name="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
+                        placeholder="Електронна пошта"
+                        adornment={emailIcon}
                         error={formik.touched.email && Boolean(formik.errors.email)}
                         helperText={formik.touched.email && formik.errors.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
                 </Box>
 
@@ -164,7 +118,6 @@ export default function PersonOnlineConsultation({ data }) {
                     />
                 </Box>
             </form>
-            <SuccessConsultationModal openSuccessModal={openSuccessModal} setOpenSuccessModal={setOpenSuccessModal} />
         </section>
     );
 }
