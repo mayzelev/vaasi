@@ -4,6 +4,7 @@
     background-position: center bottom -50px;
     background-size: contain;
     padding: 0 15px 90px 15px;
+    border-radius: 16px;
 }
 
 .header {

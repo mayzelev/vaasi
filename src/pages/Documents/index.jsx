@@ -32,24 +32,26 @@ export default function DocumentsPage() {
     }, [personType, userId]);
 
     return (
-        <section className={style.documents}>
-            <div className={style.container}>
-                <h1 className="titleWithBorder">{title}</h1>
-                <div className={style.documentsWrapper}>
-                    {files &&
-                        files.length > 0 &&
-                        files.map((item) => (
-                            <div className={style.total} key={item.filename}>
-                                {item.filename}
-                                <button onClick={() => handleClick(item.id, item.filename)}>
-                                    <img src={downloadImg} alt="download" className={style.iconDownload} />
-                                </button>
-                            </div>
-                        ))}
+        <section className={`container ${style.documents}`}>
+            <div>
+                <div className={style.container}>
+                    <h1 className="titleWithBorder">{title}</h1>
+                    <div className={style.documentsWrapper}>
+                        {files &&
+                            files.length > 0 &&
+                            files.map((item) => (
+                                <div className={style.total} key={item.filename}>
+                                    {item.filename}
+                                    <button onClick={() => handleClick(item.id, item.filename)}>
+                                        <img src={downloadImg} alt="download" className={style.iconDownload} />
+                                    </button>
+                                </div>
+                            ))}
+                    </div>
                 </div>
-            </div>
 
-            <img src={bgImage} className={style.bgImg} alt="money" />
+                <img src={bgImage} className={style.bgImg} alt="money" />
+            </div>
         </section>
     );
 }

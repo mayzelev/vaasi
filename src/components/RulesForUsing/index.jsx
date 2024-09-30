@@ -6,7 +6,7 @@ export default function RulesForUsing({ data }) {
     const { header, content } = data;
 
     return (
-        <section className="container">
+        <section className={`container ${style.RulesForUsing}`}>
             <div className={style.wraper}>
                 <div className={style.content}>
                     <h1 className={style.header}>{header}</h1>

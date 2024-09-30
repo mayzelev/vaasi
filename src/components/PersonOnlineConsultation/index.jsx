@@ -60,64 +60,66 @@ export default function PersonOnlineConsultation({ data }) {
     }, [formik.values]);
 
     return (
-        <section className={style.container}>
-            <div className={style.header}>{header}</div>
+        <section className="container">
+            <div className={style.container}>
+                <div className={style.header}>{header}</div>
 
-            <LineTitle />
+                <LineTitle />
 
-            <div className={style.description}>{description}</div>
-            <form className={style.form} onSubmit={formik.handleSubmit}>
-                <Box
-                    sx={{
-                        mt: 2,
-                        mb: 5,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '20px',
-                        WebkitAlignItems: 'unset',
-                        '@media (max-width: 780px)': {
-                            flexDirection: 'column',
-                            gap: '5px'
-                        }
-                    }}
-                >
-                    <FormField
-                        formik={formik}
-                        id="fullName"
-                        placeholder="Ім'я"
-                        adornment={personIcon}
-                        error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-                        helperText={formik.touched.fullName && formik.errors.fullName}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-
-                    <PhoneInput formik={formik} country={'UA'} />
-
-                    <FormField
-                        formik={formik}
-                        id="email"
-                        placeholder="Електронна пошта"
-                        adornment={emailIcon}
-                        error={formik.touched.email && Boolean(formik.errors.email)}
-                        helperText={formik.touched.email && formik.errors.email}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                </Box>
-
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <VButton
-                        type="submit"
-                        label="ВІДПРАВИТИ"
-                        buttonStyles={{
-                            padding: '20px 10px',
-                            height: '34px',
-                            maxWidth: '350px'
+                <div className={style.description}>{description}</div>
+                <form className={style.form} onSubmit={formik.handleSubmit}>
+                    <Box
+                        sx={{
+                            mt: 2,
+                            mb: 5,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '20px',
+                            WebkitAlignItems: 'unset',
+                            '@media (max-width: 780px)': {
+                                flexDirection: 'column',
+                                gap: '5px'
+                            }
                         }}
-                    />
-                </Box>
-            </form>
+                    >
+                        <FormField
+                            formik={formik}
+                            id="fullName"
+                            placeholder="Ім'я"
+                            adornment={personIcon}
+                            error={formik.touched.fullName && Boolean(formik.errors.fullName)}
+                            helperText={formik.touched.fullName && formik.errors.fullName}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+
+                        <PhoneInput formik={formik} country={'UA'} />
+
+                        <FormField
+                            formik={formik}
+                            id="email"
+                            placeholder="Електронна пошта"
+                            adornment={emailIcon}
+                            error={formik.touched.email && Boolean(formik.errors.email)}
+                            helperText={formik.touched.email && formik.errors.email}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                    </Box>
+
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <VButton
+                            type="submit"
+                            label="ВІДПРАВИТИ"
+                            buttonStyles={{
+                                padding: '20px 10px',
+                                height: '34px',
+                                maxWidth: '350px'
+                            }}
+                        />
+                    </Box>
+                </form>
+            </div>
         </section>
     );
 }

@@ -41,9 +41,7 @@ export default function FeedBackForm() {
                     </IconButton>
                     <Box
                         sx={{
-                            paddingTop: 4,
-                            paddingBottom: 2,
-                            mt: 6
+                            paddingTop: 10
                         }}
                     >
                         <PersonOnlineConsultation data={mockDataConsultation} />

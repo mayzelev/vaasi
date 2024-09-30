@@ -13,12 +13,12 @@ import bgImage from '../../assets/img/backCalculatorSmall.png';
 export default function Profile() {
     const [editingField, setEditingField] = useState(null);
     const { setUserInfo, userData } = useUserStore();
-    const { username, phone, email } = userData;
+    const { username, phone, email, contact } = userData;
     const userId = localStorage.getItem(USER_ID);
     const personType = localStorage.getItem(PERSON_TYPE);
 
     const formik = useFormik({
-        initialValues: { username, phone, email },
+        initialValues: { username, phone, email, contact },
         validationSchema,
         enableReinitialize: true
     });
@@ -69,21 +69,25 @@ export default function Profile() {
     );
 
     return (
-        <section className={style.profile}>
-            <div className={style.container}>
-                <h1 className="titleWithBorder">Профіль</h1>
-                <div className={style.userWrapper}>
-                    <Avatar />
-                    <form onSubmit={formik.handleSubmit}>
-                        <div className={style.userInfo}>
-                            {renderField('username', 'ПІБ')}
-                            {renderField('phone', 'Номер телефона')}
-                            {renderField('email', 'E-mail')}
-                        </div>
-                    </form>
+        <section className="container">
+            <div className={style.profile}>
+                <div className={style.container}>
+                    <h1 className="titleWithBorder">Профіль</h1>
+                    <div className={style.userWrapper}>
+                        <Avatar />
+                        <form onSubmit={formik.handleSubmit}>
+                            <div className={style.userInfo}>
+                                {personType === USER_TYPE.COMPANY && renderField('username', 'Назва організації')}
+                                {personType === USER_TYPE.COMPANY && renderField('contact', 'Контактна особа')}
+                                {personType === USER_TYPE.PERSON && renderField('username', 'ПІБ')}
+                                {renderField('phone', 'Номер телефона')}
+                                {renderField('email', 'E-mail')}
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <img src={bgImage} className={style.bgImg} alt="money" />
             </div>
-            <img src={bgImage} className={style.bgImg} alt="money" />
         </section>
     );
 }

@@ -9,13 +9,13 @@ export default function DefaultLayout({ children }) {
     const { isAuthorized } = useAuthStore();
 
     return (
-        <>
+        <div className="mainContainer">
             {isAuthorized && <AccountHeader />}
             {!isAuthorized && <Header />}
-            {children}
+            <main className="mainWrapper">{children}</main>
             <Footer />
             <RegistrationPopup />
             <LoginForm />
-        </>
+        </div>
     );
 }

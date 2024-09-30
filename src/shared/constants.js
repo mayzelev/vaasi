@@ -18,6 +18,7 @@ export const USER_PHONE_EXIST = 'Phone exists';
 export const TOKEN_KEY = 'token';
 export const USER_ID = 'userId';
 export const PERSON_TYPE = 'personType';
+export const JWT_EXPIRED = 'jwt expired';
 
 export const PhoneValidation = Yup.string()
     .matches(/^\+38 \d{3} \d{3} \d{2} \d{2}$/, 'Невірний формат телефону. Використовуйте формат +38 0XX XXX XX XX.')
