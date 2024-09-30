@@ -9,7 +9,7 @@ export const validationSchema = Yup.object({
     phone: Yup.string()
         .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Невірний формат телефону. Використовуйте формат +380XXXXXXXXX.')
         .required("Обов'язкове поле"),
-    email: Yup.string().email('Невірний формат електронної пошти').required("Обов'язкове поле")
+    email: Yup.string().email('Невірний формат E-mail').required("Обов'язкове поле")
 });
 
 export async function downloadFileFn(id, personType, filename) {

@@ -8,6 +8,7 @@ export const tooltipStyles = {
     fontFamily: 'inherit',
     maxWidth: '570px',
     marginLeft: '50px',
+    textAlign: 'justify',
     transform: 'none !important',
     width: '600px',
     position: 'absolute',

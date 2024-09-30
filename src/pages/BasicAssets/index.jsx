@@ -27,13 +27,15 @@ export default function BasicAssetsPage() {
     }, [personType, userId]);
 
     return (
-        <section className={style.basicAssets}>
-            <div className={style.container}>
-                <h1 className="titleWithBorder">{title}</h1>
-                <p className="description">{description}</p>
-                {!isAssetsEmpty && <AccordionSection data={assets} />}
+        <section className={`container ${style.basicAssets}`}>
+            <div>
+                <div className={style.container}>
+                    <h1 className="titleWithBorder">{title}</h1>
+                    <p className="description">{description}</p>
+                    {!isAssetsEmpty && <AccordionSection data={assets} />}
+                </div>
+                <img src={bgImage} className={style.bgImg} alt="money" />
             </div>
-            <img src={bgImage} className={style.bgImg} alt="money" />
         </section>
     );
 }

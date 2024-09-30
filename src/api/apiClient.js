@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TOKEN_KEY } from '../shared/constants';
+import { JWT_EXPIRED, TOKEN_KEY } from '../shared/constants';
 
 const BASE_URL = 'https://www.devsm.space';
 
@@ -26,8 +26,9 @@ vaasiApiClient.interceptors.response.use(
         return response;
     },
     (error) => {
-        if (error.response.status === 401) {
-            //main page redirect
+        // window.location.href = window.location.origin + '/vaasi/';
+        if (error.response.status === 401 || error?.response?.data?.message === JWT_EXPIRED) {
+            window.location.href = '/';
         }
         return Promise.reject(error);
     }

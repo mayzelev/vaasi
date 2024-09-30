@@ -1,5 +1,9 @@
-.wraper {
+.RulesForUsing {
+    flex-grow: 1;
     position: relative;
+}
+
+.wraper {
     padding: 10px 10px 10px 10px;
 }
 
@@ -43,7 +47,7 @@
 .img {
     position: absolute;
     left: 0;
-    bottom: -5%;
+    bottom: -5px;
     z-index: -1;
     margin: 0 auto;
     max-width: 1920px;

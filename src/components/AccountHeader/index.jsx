@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, ClickAwayListener, ListItemButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
@@ -25,6 +25,22 @@ export default function AccountHeader() {
     const userId = localStorage.getItem(USER_ID);
     const personType = localStorage.getItem(PERSON_TYPE);
     const [openLogOutModal, setOpenLogOutModal] = useState(false);
+    const containerRef = useRef();
+
+    const [left, setLeft] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setLeft(containerRef?.current?.getBoundingClientRect()?.left + 'px' || 0);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -55,7 +71,7 @@ export default function AccountHeader() {
     return (
         <div className="container">
             <AppBar position="static">
-                <Toolbar className={style.headerToolbar}>
+                <Toolbar className={style.headerToolbar} ref={containerRef}>
                     <div className={style.header}>
                         <div className={style.headerLeft}>
                             <Link to="/">
@@ -106,7 +122,9 @@ export default function AccountHeader() {
                         hideBackdrop={true}
                         PaperProps={{
                             style: {
-                                marginTop: '66px'
+                                marginTop: '66px',
+                                left: left,
+                                height: '100%'
                             }
                         }}
                     >
