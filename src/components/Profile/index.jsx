@@ -69,8 +69,8 @@ export default function Profile() {
     );
 
     return (
-        <section className="container">
-            <div className={style.profile}>
+        <section className={`container ${style.profile}`}>
+            <div>
                 <div className={style.container}>
                     <h1 className="titleWithBorder">Профіль</h1>
                     <div className={style.userWrapper}>

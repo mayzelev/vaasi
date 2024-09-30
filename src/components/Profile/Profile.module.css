@@ -1,5 +1,6 @@
 .profile {
-    position: relative;
+  position: relative;
+  flex-grow: 1;
 }
 
 .bgImg {
