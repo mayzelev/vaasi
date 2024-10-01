@@ -18,7 +18,7 @@ export const SessionExpiredModal = () => {
             closeSessionExpired();
             window.location.href = '/vaasi/';
         }
-    }, [isSessionExpiredOpen, count]);
+    }, [isSessionExpiredOpen, count, closeSessionExpired]);
 
     return (
         <Modal open={isSessionExpiredOpen} aria-labelledby="global-notification-title" aria-describedby="global-notification-description">

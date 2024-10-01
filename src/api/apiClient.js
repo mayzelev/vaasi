@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { JWT_EXPIRED, TOKEN_KEY } from '../shared/constants';
+import { JWT_EXPIRED, TOKEN_KEY, USER_ID } from '../shared/constants';
 import useModalStore from '../store/useModalStore';
 
 const BASE_URL = 'https://www.devsm.space';
@@ -29,6 +29,7 @@ vaasiApiClient.interceptors.response.use(
     (error) => {
         if (error?.response?.data?.message === JWT_EXPIRED) {
             localStorage.removeItem(TOKEN_KEY);
+            localStorage.removeItem(USER_ID);
             const openSessionExpired = useModalStore.getState().openSessionExpired;
             openSessionExpired();
         }
