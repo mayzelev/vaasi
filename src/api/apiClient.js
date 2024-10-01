@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { JWT_EXPIRED, TOKEN_KEY } from '../shared/constants';
+import useModalStore from '../store/useModalStore';
 
 const BASE_URL = 'https://www.devsm.space';
 
@@ -26,12 +27,15 @@ vaasiApiClient.interceptors.response.use(
         return response;
     },
     (error) => {
-        // window.location.href = window.location.origin + '/vaasi/';
-        if (error.response.status === 401 || error?.response?.data?.message === JWT_EXPIRED) {
-            window.location.href = '/';
+        if (error?.response?.data?.message === JWT_EXPIRED) {
+            localStorage.removeItem(TOKEN_KEY);
+            const openSessionExpired = useModalStore.getState().openSessionExpired;
+            openSessionExpired();
         }
         return Promise.reject(error);
     }
 );
 
 export default vaasiApiClient;
+
+// error.response.status === 401 ||

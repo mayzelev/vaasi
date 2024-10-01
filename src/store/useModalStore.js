@@ -7,7 +7,11 @@ const useModalStore = create((set) => ({
 
     isFeedBackFormOpen: false,
     openFeedBackForm: () => set({ isFeedBackFormOpen: true }),
-    closeFeedBackForm: () => set({ isFeedBackFormOpen: false })
+    closeFeedBackForm: () => set({ isFeedBackFormOpen: false }),
+
+    isSessionExpiredOpen: false,
+    openSessionExpired: () => set({ isSessionExpiredOpen: true }),
+    closeSessionExpired: () => set({ isSessionExpiredOpen: false })
 }));
 
 export default useModalStore;
