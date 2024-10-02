@@ -8,7 +8,7 @@ export const mockDataAboutMain = {
     mainTitle: 'Про нас',
     subTitle: 'VAASI INTERNATIONAL GROUP',
     subDescription3:
-        'VAASI INTERNATIONAL GROUP - інтернет портал,  який створений для надання доступу у електронний світ, як фізичним так і юридичним особам за допомогою індивідуальних цифрових токенів'
+        'VAASI INTERNATIONAL GROUP - інтернет портал, який створений для надання доступу у електронний світ, як фізичним так і юридичним особам за допомогою індивідуальних цифрових токенів'
 };
 
 export const mockDataAboutInfo = {

@@ -31,7 +31,7 @@ export default function BasicAssetsPage() {
             <div>
                 <div className={style.container}>
                     <h1 className="titleWithBorder">{title}</h1>
-                    <p className="description">{description}</p>
+                    <p className={`description ${style.description}`}>{description}</p>
                     {!isAssetsEmpty && <AccordionSection data={assets} />}
                 </div>
                 <img src={bgImage} className={style.bgImg} alt="money" />

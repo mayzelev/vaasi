@@ -128,7 +128,7 @@
         top: 0;
     }
     .card {
-        max-width: 600px;
+        max-width: 530px;
         width: 100%;
     }
     .container {
@@ -151,6 +151,9 @@
     }
     .container {
         padding: 50px 15px 100px 15px;
+    }
+    .subDescription3 {
+        text-align: justify;
     }
 }
 

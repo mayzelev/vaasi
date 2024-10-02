@@ -28,7 +28,7 @@ export const mockDataLegalInfo = {
             id: 2,
             text: 'handWithCircle',
             link: handWithCircle,
-            description: ' Розробка персонального цифрового проєкту вашого підприємства'
+            description: 'Розробка персонального цифрового проєкту вашого підприємства'
         },
         {
             id: 3,

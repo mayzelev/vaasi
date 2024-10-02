@@ -42,6 +42,12 @@ export default function Profile() {
         }
     };
 
+    const handlePhoneChange = (e) => {
+        const phoneValue = e.target.value;
+        const formattedPhone = phoneValue.replace(/[^\d+]/g, '');
+        formik.setFieldValue('phone', formattedPhone);
+    };
+
     const renderField = (field, label) => (
         <div className={style.lineWrapper} key={field}>
             <span>{label}</span>
@@ -51,7 +57,7 @@ export default function Profile() {
                         type="text"
                         name={field}
                         value={formik.values[field]}
-                        onChange={formik.handleChange}
+                        onChange={field === 'phone' ? handlePhoneChange : formik.handleChange}
                         onBlur={() => handleInputBlur(field)}
                         autoFocus
                     />
