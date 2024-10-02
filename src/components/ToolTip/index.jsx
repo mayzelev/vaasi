@@ -6,8 +6,8 @@ import style from './Tooltip.module.css';
 const TooltipComponent = ({ title, tooltipStyles }) => {
     const [open, setOpen] = useState(false);
 
-    const handleTooltipOpen = () => {
-        setOpen(true);
+    const handleTooltipToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
     };
 
     const handleTooltipClose = () => {
@@ -33,7 +33,7 @@ const TooltipComponent = ({ title, tooltipStyles }) => {
                         }}
                     >
                         <p>
-                            <img src={info} onClick={handleTooltipOpen} alt="info" className={style.infoImg} />
+                            <img src={info} onClick={handleTooltipToggle} alt="info" className={style.infoImg} />
                         </p>
                     </Tooltip>
                 </div>
