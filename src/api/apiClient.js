@@ -27,7 +27,7 @@ vaasiApiClient.interceptors.response.use(
         return response;
     },
     (error) => {
-        if (error?.response?.data?.message === JWT_EXPIRED || INVALID_TOKEN) {
+        if (error?.response?.data?.message === JWT_EXPIRED || error?.response?.data?.message === INVALID_TOKEN) {
             localStorage.removeItem(TOKEN_KEY);
             localStorage.removeItem(USER_ID);
             const openSessionExpired = useModalStore.getState().openSessionExpired;
