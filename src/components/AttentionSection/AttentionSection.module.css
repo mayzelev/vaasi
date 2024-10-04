@@ -131,6 +131,7 @@
     font-size: 1rem;
     line-height: 19px;
     color: var(--font-color-secondary);
+    text-align: justify;
 }
 
 .headerTitle {
