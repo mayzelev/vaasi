@@ -10,7 +10,7 @@ import useAuthStore from '../../../store/useAuthStore';
 import { loginCompany, loginUser } from '../../../api/auth';
 import VButton from '../../VButton';
 import { useNavigate } from 'react-router-dom';
-import { INVALID_USER, USER_TYPE } from '../../../shared/constants.js';
+import { FORBIDDEN, INVALID_USER, USER_TYPE } from '../../../shared/constants.js';
 
 const validationSchema = Yup.object({
     tokenCode: Yup.string()
@@ -59,6 +59,9 @@ export default function LoginForm() {
                     if (INVALID_USER === e?.response?.data?.message) {
                         setAuthError('Перевірте свій токен та повторіть спробу!');
                     }
+                    if (FORBIDDEN === e?.response?.data?.message) {
+                        setAuthError('Ваш акаунт заблоковано, зверніться до вашого менеджера!');
+                    }
                 });
         }
 
@@ -76,6 +79,9 @@ export default function LoginForm() {
                 .catch((e) => {
                     if (INVALID_USER === e?.response?.data?.message) {
                         setAuthError('Перевірте свій токен та повторіть спробу!');
+                    }
+                    if (FORBIDDEN === e?.response?.data?.message) {
+                        setAuthError('Ваш акаунт заблоковано, зверніться до вашого менеджера!');
                     }
                 });
         }
